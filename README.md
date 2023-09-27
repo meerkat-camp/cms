@@ -1,7 +1,6 @@
 # README
 
-[![RSpec](https://github.com/meerkat-camp/cms/actions/workflows/rspec.yml/badge.svg)](https://github.com/meerkat-camp/cms/actions/workflows/rspec.yml)
-
+[![RSpec](https://github.com/meerkat-camp/cms/actions/workflows/rspec.yml/badge.svg)](https://github.com/meerkat-camp/cms/actions/workflows/rspec.yml)[![Maintainability](https://api.codeclimate.com/v1/badges/75677d635caedd03b093/maintainability)](https://codeclimate.com/github/meerkat-camp/cms/maintainability)
 Meerkat CMS is a Rails application that provides a web interface for managing small static websites.
 
 ## Design Goals
