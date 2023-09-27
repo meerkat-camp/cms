@@ -1,0 +1,13 @@
+{{ define "main" }}
+  {{ .Content }}
+
+  {{ range $.Site.Data.countries }}
+     <h2>{{ .continent }}</h2>
+     
+     <ol class="countries">
+        {{ range .countries }}
+            <li> {{ .emoji }} {{ .name }} </li>
+        {{ end }}
+     </ol>
+  {{ end }}
+{{ end }}

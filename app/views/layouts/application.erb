@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>meerkat.camp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <div class="container px-4 py-6">
+      <% if @current_user %>
+        <div class="columns">
+          <div class="column is-3">
+            <%= render 'layouts/navigation' %>
+          </div>
+          <div class="column is-9">
+            <%= render 'layouts/notice', site: @site %>
+            <%= yield %>
+          </div>
+        </div>
+      <% else %>
+        <div class="columns">
+          <div class="column is-2"></div>
+          <div class="column is-8">
+            <%= render 'layouts/notice', site: @site %>
+            <%= yield %>
+          </div>
+          <div class="column is-2"></div>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>

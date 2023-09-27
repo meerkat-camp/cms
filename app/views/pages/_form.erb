@@ -1,0 +1,44 @@
+<%= turbo_frame_tag(:form) do %>
+  <%= form_for(page, class: 'mb-4') do |f| %>
+    <div class="field">
+      <%= f.label :title, class: 'label' %>
+      <div class="control">
+        <%= f.text_field :title, class: 'input' %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :slug, class: 'label' %>
+      <div class="control">
+        <%= f.text_field :slug, class: 'input', placeholder: '/homepage' %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :content, class: 'label' %>
+      <div class="control">
+        <%= component(:editor, form: f, attribute: :content) %>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column is-2">
+        <div class="field">
+          <%= f.label :emoji, class: 'label' %>
+          <div class="control">
+            <%= f.text_field :emoji, class: 'input' %>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
+          <%= f.label :created_at, class: 'label' %>
+          <div class="control">
+            <%= f.datetime_field :created_at, class: 'input' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <%= f.submit(class: 'button is-link') %>
+      <%= link_to 'Cancel', pages_path, 'data-turbo-frame': '_top', class: 'button is-link is-light' %>
+    </div>
+  <% end %>
+<% end %>

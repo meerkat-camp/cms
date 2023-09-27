@@ -1,0 +1,11 @@
+<%= turbo_frame_tag(:content) do %>
+  <h1 class="title">🖊 Blogposts</h1>
+
+  <%= link_to "New Post", new_post_path, class: "button mb-4" %>
+
+  <hr>
+
+  <%= turbo_frame_tag(:posts) do %>
+    <%= render @posts %>
+  <% end %>
+<% end %>

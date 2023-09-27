@@ -1,0 +1,67 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  Exclude:
+    - db/schema.rb
+    - bin/*
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*_factories.rb'
+    - '**/*_spec.rb'
+    - 'config/**/*.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Layout:
+  LineLength: 100
+
+Lint/MissingSuper:
+  Exclude:
+    - 'app/components/**/*.rb'
+
+Rails/ContentTag:
+  Include:
+    - 'app/views/**/*.html.erb'
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ContextWording:
+  Prefixes:
+    - when
+    - with
+    - without
+    - if
+    - unless
+    - for
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: never
+
+Style/StringLiterals:
+  Enabled: false

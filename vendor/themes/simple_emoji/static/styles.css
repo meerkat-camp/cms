@@ -1,0 +1,189 @@
+:root {
+  --body-color: rgb(55, 53, 47);
+  --body-background-color: #fff;
+  --decoration-color: rgba(55, 53, 47, 0.424)
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-color: #d8d4cf;
+    --body-background-color: #131516;
+    --decoration-color: #e8e6e3;
+  }
+}
+
+html {
+  margin: 0;
+  margin-top: 0;
+}
+
+body {
+  color: var(--body-color);
+  background-color: var(--body-background-color);
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--body-color);
+  text-decoration: underline;
+  text-decoration-color: var(--decoration-color);
+}
+
+
+h1 {
+  margin: 1rem 0 1rem;
+  font-weight: 700;
+  font-size: 3rem;
+  color: var(--body-color);
+  line-height: 1.2;
+}
+
+.emoji {
+  font-size: 4.5em;
+}
+
+nav {
+  padding: 0.5rem 1rem;
+  margin: 0 auto 1rem;
+  max-width: 50rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: sticky;
+  top: 0;
+  background-color: var(--body-background-color);
+  z-index: 1;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav .divider {
+  color: rgba(55, 53, 47, 0.424);
+  font-size: 0.9em;
+}
+
+main {
+  margin: 0 auto 1rem;
+  max-width: 50rem;
+  min-height: calc(100vh - 200px);
+  padding: 25px 25px 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    padding: 25px 10px 50px;
+  }
+}
+
+main img {
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+pre {
+  padding: 10px;
+  font-size: 1.15em;
+  overflow-x: scroll;
+  overflow: auto;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1em;
+}
+
+hr {
+  border: none;
+  border-top: 2px dotted #bbb;
+  margin: 3rem 0;
+}
+
+.columns {
+  display: flex;
+}
+
+.column {
+  flex-grow: 1;
+}
+
+.page-list {
+  list-style: none;
+  padding: 0;
+  margin: 2em 0;
+}
+
+.page-link {
+  font-weight: 500;
+}
+
+.post:last-child {
+  border-bottom: none
+}
+
+.post-title {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+.post-date {
+  clear: both;
+  color: grey;
+
+  font-size: 0.9em;
+}
+
+.post-shortBody {
+  display: flex;
+}
+
+.post-emoji {
+  font-size: 2.5rem;
+  line-height: 1em;
+  margin: 1.5rem 0.5rem 0 0
+}
+
+table.books {
+  width: 100%;
+}
+
+table.books :where(th, td):not(.max) {
+  padding: 0 5px;
+  width: 0;
+  white-space: nowrap;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .columns {
+    flex-direction: column;
+  }
+
+  .column>ul {
+    margin: 0;
+  }
+}
+
+.countries {
+  list-style: none;
+  padding-left: 0;
+}
+
+.books {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .no-sm {
+    display: none;
+  }
+}

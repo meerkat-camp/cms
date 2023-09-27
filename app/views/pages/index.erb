@@ -1,0 +1,6 @@
+<h1 class="title">📑 Pages</h1>
+<%= link_to "New Page", new_page_path, data: { turbo_frame: "new_page" }, class: 'button mb-4' %>
+
+<hr>
+
+<%= render 'pages', pages: @pages %>

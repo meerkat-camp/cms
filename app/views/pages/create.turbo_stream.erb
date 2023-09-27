@@ -1,0 +1,7 @@
+<% if @page.errors.present? %>
+  <%= turbo_stream.replace 'form', partial: 'form', locals: { page: @page } %>
+<% else %>
+  <%= turbo_stream.replace :content do %>
+    <%= render template: "pages/index" %>
+  <% end %>
+<% end %>
