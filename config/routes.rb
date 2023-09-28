@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'up' => 'rails/health#show'
   get 'image/create'
   constraints subdomain: /.*/ do
     root 'posts#index'

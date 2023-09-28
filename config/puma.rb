@@ -3,7 +3,7 @@ min_threads_count = ENV.fetch('RAILS_MIN_THREADS') { max_threads_count }
 threads min_threads_count, max_threads_count
 worker_timeout 3600 if ENV.fetch('RAILS_ENV', 'development') == 'development'
 
-bind "tcp://127.0.0.1:#{ENV.fetch('PORT', 3000)}"
+bind "tcp://0.0.0.0:#{ENV.fetch('PORT', 3000)}"
 environment ENV.fetch('RAILS_ENV', 'development')
 
 # Specifies the `pidfile` that Puma will use.
