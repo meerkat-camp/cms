@@ -23,8 +23,8 @@ module MeerkatCamp
 
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      address: ENV.fetch('SMTP_ADDRESS'),
-      port: ENV.fetch('SMTP_PORT'),
+      address: ENV.fetch('SMTP_ADDRESS', 'localhost'),
+      port: ENV.fetch('SMTP_PORT', '25'),
       user_name: ENV.fetch('SMTP_USERNAME', nil),
       password: ENV.fetch('SMTP_PASSWORD', nil)
     }

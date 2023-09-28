@@ -5,7 +5,7 @@ Rails.application.configure do
   config.eager_load = true
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.require_master_key = true
+  config.require_master_key = false
   config.public_file_server.enabled = true
   config.assets.compile = false
   config.active_storage.service = :local
