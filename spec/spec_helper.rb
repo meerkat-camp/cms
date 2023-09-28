@@ -1,4 +1,3 @@
-require 'webmock/rspec'
 
 require 'coveralls'
 require 'simplecov'

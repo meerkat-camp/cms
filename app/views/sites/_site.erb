@@ -1,0 +1,13 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <%= link_to(site.title, site) %>
+    </p>
+  </header>
+  <div class="card-content">
+    Domain: <%= "#{site.domain}" %>
+  </div>
+  <div class="card-footer">
+    <%= link_to('Show', site, class: 'card-footer-item') %>
+  </div>
+</div>
