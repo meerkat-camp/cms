@@ -3,11 +3,13 @@ class ApplicationController < ActionController::Base
 
   before_action :set_site
   before_action :authenticate!
+  after_action :verify_pundit_checked
 
   helper_method :current_user
+  helper_method :current_site
 
-  def set_site
-    @site = Site.find_by(internal_subdomain:)
+  def current_site
+    set_site
   end
 
   def current_user
@@ -15,6 +17,22 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_site
+    return @set_site if defined?(@set_site)
+
+    return unless params[:site_id]
+
+    @set_site = policy_scope(Site).find(params[:site_id])
+    authorize(@set_site, :show?)
+  end
+
+  def verify_pundit_checked
+    return if pundit_policy_authorized?
+    return if pundit_policy_scoped?
+
+    raise Pundit::AuthorizationNotPerformedError, self.class
+  end
 
   def authenticate!
     current_user || redirect_to(login_path)
@@ -29,16 +47,18 @@ class ApplicationController < ActionController::Base
     session[:user_id] = nil
   end
 
-  def internal_subdomain
-    domain_parts = request.hostname.split('.')
-
-    is_local_subdomain = domain_parts.count == 2 && domain_parts.last == 'localhost'
-    return domain_parts.first if is_local_subdomain
-
-    request.subdomain
-  end
-
   def render_json(template)
     render template, formats: [:json], handlers: [:jbuilder], layout: false
+  end
+
+  def turbo_redirect_to(location, *_args, **flashes)
+    if flashes.any?
+      flashes.each do |type, message|
+        # rubocop:disable Rails/ActionControllerFlashBeforeRender
+        flash[type] = message
+        # rubocop:enable Rails/ActionControllerFlashBeforeRender
+      end
+    end
+    render turbo_stream: render_to_string(partial: 'system/turbo_redirect', locals: { location: })
   end
 end

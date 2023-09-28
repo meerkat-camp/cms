@@ -1,6 +1,7 @@
 module ApplicationHelper
   def component(name, *, **)
-    component_class = "#{name.to_s.camelize}Component".constantize
+    name = name.to_s.camelize.gsub('/', '::')
+    component_class = "#{name.camelize}Component".constantize
     render(component_class.new(*, **))
   end
 end

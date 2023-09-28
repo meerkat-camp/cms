@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe Blocks::Renderer::Html::List do
   subject(:list) { described_class }
 

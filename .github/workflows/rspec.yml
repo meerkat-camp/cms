@@ -34,5 +34,6 @@ jobs:
         env:
           HTTPS: false
           BASE_HOSTNAME_AND_PORT: localhost:3000
+          HEADLESS: true
       - name: Coveralls
         uses: coverallsapp/github-action@v2

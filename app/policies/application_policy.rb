@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -49,5 +47,19 @@ class ApplicationPolicy
     private
 
     attr_reader :user, :scope
+  end
+
+  private
+
+  def signed_in?
+    user.present?
+  end
+
+  def super_admin?
+    user&.super_admin?
+  end
+
+  def scope
+    Pundit::PolicyFinder.new(record.class).scope.new(user, record.class).resolve
   end
 end

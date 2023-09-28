@@ -2,11 +2,6 @@ class SitePolicy < ApplicationPolicy
   class Scope < Scope
     attr_reader :user, :scope
 
-    def initialize(user, scope)
-      @user  = user
-      @scope = scope
-    end
-
     def resolve
       return scope.all if @user.super_admin?
 
@@ -15,6 +10,14 @@ class SitePolicy < ApplicationPolicy
   end
 
   def index?
-    user.present?
+    signed_in?
+  end
+
+  def create?
+    signed_in?
+  end
+
+  def show?
+    super_admin? || scope.exists?(id: record.id)
   end
 end

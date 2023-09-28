@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe Blocks::Renderer::Html::Paragraph do
   subject(:paragraph) { described_class }
 

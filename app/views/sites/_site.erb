@@ -1,13 +1,15 @@
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      <%= link_to(site.title, site) %>
-    </p>
-  </header>
-  <div class="card-content">
-    Domain: <%= "#{site.domain}" %>
-  </div>
-  <div class="card-footer">
-    <%= link_to('Show', site, class: 'card-footer-item') %>
-  </div>
+<div class="mb-4">
+
+  <h2 class="title is-4">
+    <%= link_to(site.title, site) %>
+  </h2>
+  <table class="table">
+    <tr>
+      <td><%= t('domain') %>:</td>
+      <td><%= site.domain %></td>
+    </tr>
+  </table>
+
+  <%= link_to(t('.manage'), site, class: 'button') %>
 </div>
+<hr />

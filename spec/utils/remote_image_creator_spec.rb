@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe RemoteImageCreator do
   subject(:creator) { described_class.new(site, imageable) }
 

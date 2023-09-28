@@ -1,4 +1,3 @@
-
 require 'coveralls'
 require 'simplecov'
 require 'simplecov-lcov'

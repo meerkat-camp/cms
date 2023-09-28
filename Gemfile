@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
+gem 'active_interaction'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'dotenv-rails', require: 'dotenv/rails-now'
@@ -17,7 +18,7 @@ gem 'rails', '~> 7.1.0.rc1'
 gem 'redis', '~> 5.0'
 gem 'rufus-scheduler'
 gem 'sassc-rails'
-gem 'sidekiq', :github => 'sidekiq/sidekiq', ref: '8874e683'
+gem 'sidekiq', github: 'sidekiq/sidekiq', ref: '8874e683'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
@@ -32,6 +33,8 @@ group :development do
   gem 'brakeman'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'i18n-tasks'
+
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-performance', require: false
@@ -44,8 +47,10 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'selenium-webdriver'
   gem 'coveralls_reborn', require: false
-  gem 'simplecov-lcov'
+
+  gem 'selenium-webdriver'
+  gem 'simplecov', require: false
+  gem 'simplecov-lcov', require: false
   gem 'webmock'
 end

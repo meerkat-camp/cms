@@ -4,14 +4,16 @@ class ImagesController < ApplicationController
   before_action :find_imageable, only: %i[create from_url]
 
   def show
-    @image = @site.images.find(params[:id])
+    @image = policy_scope(Image).find(params[:id])
+    authorize(@image)
+
     response.headers['Content-Type'] = @image.file.content_type
     response.headers['Content-Disposition'] = 'inline'
     render body: @image.file.download
   end
 
   def create
-    @image = @site.images.create(file: params[:image], imageable: @imageable)
+    @image = current_site.images.create(file: params[:image], imageable: @imageable)
 
     render_json(:create)
   end
@@ -25,7 +27,7 @@ class ImagesController < ApplicationController
   private
 
   def image_from_url(url)
-    RemoteImageCreator.new(@site, @imageable).create_from(url)
+    RemoteImageCreator.new(current_site, @imageable).create_from(url)
   rescue RemoteImageCreator::Error
     # Editorjs will show, that image upload failed.
     nil
@@ -38,6 +40,6 @@ class ImagesController < ApplicationController
     return if imageable_type.blank? || imageable_id.blank?
     return unless ALLOWED_IMAGEABLES.include?(imageable_type)
 
-    @imageable = @site.send(imageable_type.pluralize).find(imageable_id)
+    @imageable = current_site.send(imageable_type.pluralize).find(imageable_id)
   end
 end

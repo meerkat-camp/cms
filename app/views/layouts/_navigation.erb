@@ -1,16 +1,22 @@
-<h1 class="title"><%= @site.title %></h1>
 
 <div class="menu">
-  <ul class="menu-list">
-    <li><%= link_to("🏠 Home", root_path, class: "navbar-item") %></li>
-    <li><%= link_to("🖊 Posts", posts_path, class: "navbar-item") %></li>
-    <li><%= link_to("📑 Pages", pages_path, class: "navbar-item") %></li>
-  </ul>
+    <ul class="menu-list">
+      <li><%= link_to("🏠 Home", root_path, class: "navbar-item") %></li>
+    </ul>
+
+    <%- if current_site %>
+    <p class="menu-label">Content</p>
+    <ul class="menu-list">
+        <li><%= link_to("🖊 Posts", site_posts_path(current_site), class: "navbar-item") %></li>
+        <li><%= link_to("📑 Pages", site_pages_path(current_site), class: "navbar-item") %></li>
+    </ul>
+    <% end %>
 
   <p class="menu-label">Administration</p>
   <ul class="menu-list">
-    <li><%= link_to("⚙️ Settings", posts_path, class: "navbar-item") %></li>
+    <%- if current_site %>
+      <li><%= link_to("⚙️ Settings", site_posts_path(current_site), class: "navbar-item") %></li>
+    <% end %>
     <li><%= link_to("🚪 Logout", logout_path, data: { turbo_method: "delete", turbo_frame: '_top', turbo_action: 'replace'}, class: "navbar-item") %></li>
   </ul>
 </div>
-

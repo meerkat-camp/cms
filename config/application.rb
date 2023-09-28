@@ -19,6 +19,8 @@ module MeerkatCamp
     #
     # config.time_zone = "Central Time (US & Canada)"
     config.eager_load_paths << Rails.root.join('app/utils')
+    config.eager_load_paths << Rails.root.join('app/inertactions')
+
     config.active_job.queue_adapter = :sidekiq
 
     config.action_mailer.delivery_method = :smtp

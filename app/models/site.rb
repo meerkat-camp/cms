@@ -5,10 +5,7 @@ class Site < ApplicationRecord
   has_many :site_users, dependent: :destroy
   has_many :users, through: :site_users
 
-  validates :domain, presence: true, uniqueness: true
-  validates :internal_subdomain, presence: true, uniqueness: true
   validates :title, presence: true
-  validates :language_code, presence: true
 
   def publish
     BuildHugoSiteJob.perform_later(self)

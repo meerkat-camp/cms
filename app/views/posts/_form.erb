@@ -1,5 +1,5 @@
 <%= turbo_frame_tag(:form) do %>
-  <%= form_for(post, class: "mb-4") do |f| %>
+  <%= form_for([current_site, post], class: "mb-4") do |f| %>
     <div class="field">
       <%= f.label(:title, class: "label") %>
       <div class="control">
@@ -37,7 +37,7 @@
     <div class="field is-grouped">
       <%= f.submit(class: "button is-link") %>
       &nbsp;
-      <%= link_to("Cancel", posts_path, "data-turbo-frame": '_top', class: "button is-link is-light") %>
+      <%= link_to("Cancel", site_posts_path, "data-turbo-frame": '_top', class: "button is-link is-light") %>
     </div>
   <% end %>
 <% end %>

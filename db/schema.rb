@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_09_25_122508) do
+ActiveRecord::Schema[7.1].define(version: 2023_09_29_060708) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_25_122508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["site_id"], name: "index_pages_on_site_id"
-    t.index ["slug"], name: "index_pages_on_slug", unique: true
+    t.index ["slug", "site_id"], name: "index_pages_on_slug_and_site_id", unique: true
   end
 
   create_table "posts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -90,14 +90,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_25_122508) do
   end
 
   create_table "sites", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "internal_subdomain"
     t.string "domain"
     t.string "title"
     t.string "language_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["domain"], name: "index_sites_on_domain", unique: true
-    t.index ["internal_subdomain"], name: "index_sites_on_internal_subdomain", unique: true
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

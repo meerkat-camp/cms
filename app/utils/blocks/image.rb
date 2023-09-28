@@ -5,7 +5,7 @@ module Blocks
     end
 
     def image_url
-      "/images/#{image.id}"
+      "/sites/#{image.site.id}/images/#{image.id}"
     end
 
     def image
