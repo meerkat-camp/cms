@@ -12,13 +12,8 @@ class PostsController < ApplicationController
   def edit; end
 
   def create
-    @posts = @site.posts
     @post = @site.posts.new(post_params)
-
-    return unless @post.save
-
-    @site.publish
-    @posts = @site.posts.latest
+    @post.save
   end
 
   def update

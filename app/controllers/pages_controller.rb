@@ -13,10 +13,8 @@ class PagesController < ApplicationController
 
   def create
     @page = @site.pages.new(page_params)
-    return unless @page.save
-
+    @page.save
     @site.publish
-    @pages = @site.pages
   end
 
   def update
