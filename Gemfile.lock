@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/sidekiq/sidekiq.git
+  revision: 8874e683e4daaef9e919f0e8eb19b41a544f9073
+  ref: 8874e683
+  specs:
+    sidekiq (7.1.5)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -131,7 +142,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
-    ffi (1.16.1)
+    ffi (1.16.2)
     fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -315,11 +326,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sidekiq (7.1.4)
-      concurrent-ruby (< 2)
-      connection_pool (>= 2.3.0)
-      rack (>= 2.2.4)
-      redis-client (>= 0.14.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -406,7 +412,7 @@ DEPENDENCIES
   rufus-scheduler
   sassc-rails
   selenium-webdriver
-  sidekiq
+  sidekiq!
   simplecov-lcov
   sprockets-rails
   stimulus-rails
