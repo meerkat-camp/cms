@@ -2,37 +2,35 @@ class PagesController < ApplicationController
   before_action :set_page, only: %i[edit update destroy]
 
   def index
-    @pages = @site.pages
+    @pages = current_site.pages
   end
 
   def new
-    @page = @site.pages.new
+    @page = current_site.pages.new
   end
 
   def edit; end
 
   def create
-    @page = @site.pages.new(page_params)
-    return unless @page.save
-
-    @site.publish
-    @pages = @site.pages
+    @page = current_site.pages.new(page_params)
+    @page.save
+    current_site.publish
   end
 
   def update
     @page.update(page_params)
-    @site.publish
+    current_site.publish
   end
 
   def destroy
     @page.destroy
-    @site.publish
+    current_site.publish
   end
 
   private
 
   def set_page
-    @page = @site.pages.find(params[:id])
+    @page = current_site.pages.find(params[:id])
   end
 
   def page_params

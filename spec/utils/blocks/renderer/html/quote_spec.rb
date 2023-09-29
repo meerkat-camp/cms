@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe Blocks::Renderer::Html::Quote do
   let(:block) do
     Blocks::Quote.new(id: 'wu38wGs5jz', data: { 'text' => text, 'caption' => caption })

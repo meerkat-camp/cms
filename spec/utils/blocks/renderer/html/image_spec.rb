@@ -1,13 +1,12 @@
-require 'rails_helper'
-
 describe Blocks::Renderer::Html::Image do
-  let(:image) { instance_double(Image, id: '32cf5349-caf8-42f6-9674-3ca22c55f4ba', height: 10, width: 10) }
-  let(:image_url) { "/images/#{image.id}" }
+  let(:image) { create(:image) }
+  let(:image_url) { "/sites/#{image.site.id}/images/#{image.id}" }
   let(:block) do
     Blocks::Image.new(id: 'A70r8-SIog', data: { "file" => { "url" => image_url }, "caption" => caption })
   end
 
   before do
+    allow(image).to receive_messages(width: 10, height: 10)
     allow(Image).to receive(:find).with(image.id).and_return(image)
   end
 

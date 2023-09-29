@@ -1,0 +1,15 @@
+<div class="mb-4">
+
+  <h2 class="title is-4">
+    <%= link_to(site.title, site) %>
+  </h2>
+  <table class="table">
+    <tr>
+      <td><%= t('domain') %>:</td>
+      <td><%= site.domain %></td>
+    </tr>
+  </table>
+
+  <%= link_to(t('.manage'), site, class: 'button') %>
+</div>
+<hr />

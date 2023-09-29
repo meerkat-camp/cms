@@ -1,5 +1,3 @@
-require 'webmock/rspec'
-
 require 'coveralls'
 require 'simplecov'
 require 'simplecov-lcov'

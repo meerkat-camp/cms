@@ -1,8 +1,5 @@
-require 'rails_helper'
-
-describe ImagesController, type: :request do
+describe ImagesController do
   before do
-    host!("#{site.internal_subdomain}.meerkat.camp")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(create(:user,
                                                                                              sites: [site]))
   end
@@ -13,7 +10,7 @@ describe ImagesController, type: :request do
     let(:image) { create(:image, site:) }
 
     it 'returns the image' do
-      get image_path(image)
+      get site_image_path(site, image)
 
       expect(response.body).to eql(image.file.download)
     end
@@ -28,15 +25,15 @@ describe ImagesController, type: :request do
         imageable_id: post.id
       }
       expect do
-        post(images_path, params:)
+        post(site_images_path(site), params:)
       end.to change { site.images.count }.by(1)
 
       expect(response).to be_successful
 
       expect(site.images.last.imageable).to eql(post)
 
-      expect(JSON.parse(response.body)).to eql(
-        { "success" => 1, "file" => { "url" => url_for(site.images.last) } }
+      expect(response.parsed_body).to eql(
+        { "success" => 1, "file" => { "url" => url_for([site, site.images.last]) } }
       )
     end
   end
@@ -51,13 +48,13 @@ describe ImagesController, type: :request do
 
       it 'creates a new image' do
         expect do
-          post(from_url_images_path, params: { url: remote_url })
+          post(from_url_site_images_path(site), params: { url: remote_url })
         end.to change { site.images.count }.by(1)
 
         expect(response).to be_successful
 
-        expect(JSON.parse(response.body)).to eql(
-          { "success" => 1, "file" => { "url" => url_for(site.images.last) } }
+        expect(response.parsed_body).to eql(
+          { "success" => 1, "file" => { "url" => url_for([site, site.images.last]) } }
         )
       end
     end
@@ -68,11 +65,11 @@ describe ImagesController, type: :request do
       end
 
       it 'returns a failed image response' do
-        post(from_url_images_path, params: { url: remote_url })
+        post(from_url_site_images_path(site), params: { url: remote_url })
 
         expect(response).to be_successful
 
-        expect(JSON.parse(response.body)).to eql({ "success" => 0 })
+        expect(response.parsed_body).to eql({ "success" => 0 })
       end
     end
   end

@@ -1,7 +1,5 @@
 <% if @page.errors.present? %>
   <%= turbo_stream.replace 'form', partial: 'form', locals: { page: @page } %>
 <% else %>
-  <%= turbo_stream.replace :content do %>
-    <%= render template: "pages/index" %>
-  <% end %>
+  <%= turbo_stream_action_tag("redirect", location: site_pages_path) %>
 <% end %>

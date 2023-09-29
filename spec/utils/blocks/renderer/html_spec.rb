@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe Blocks::Renderer::Html do
   subject(:converter) { described_class }
 

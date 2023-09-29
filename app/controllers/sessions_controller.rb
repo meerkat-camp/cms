@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate!
+  skip_before_action :authenticate!, only: %i[new create show]
+  skip_after_action :verify_pundit_checked
 
   def show
-    user = @site.users.find_by_token_for(:email_login, params[:token])
+    user = User.find_by_token_for(:email_login, params[:token])
     login(user) if user.present?
     redirect_to root_path
   end
@@ -10,8 +11,8 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = @site.users.find_by(email: params[:email])
-    UserMailer.with(user:, site: @site).login.deliver_later if user.present?
+    user = User.find_by(email: params[:email])
+    UserMailer.with(user:).login.deliver_later if user.present?
   end
 
   def destroy

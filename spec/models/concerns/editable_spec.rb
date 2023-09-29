@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe Editable do
   describe 'assign images after create' do
     it 'assigns images' do

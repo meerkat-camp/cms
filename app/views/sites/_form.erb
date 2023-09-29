@@ -1,0 +1,12 @@
+<%= turbo_frame_tag(:form) do %>
+  <%= form_for(site, as: :site, url: sites_path, class: 'mb-4') do |form| %>
+
+    <%= component('form/text_field', form:, attribute: :title) %>
+
+    <div class="field is-grouped">
+      <%= form.submit(t('.create'), class: 'button is-link') %>
+      &nbsp;
+      <%= link_to 'Cancel', sites_path, 'data-turbo-frame': '_top', class: 'button is-link is-light' %>
+    </div>
+  <% end %>
+<% end %>

@@ -8,15 +8,17 @@ class EditorComponent < ViewComponent::Base
   private
 
   def upload_path
-    helpers.images_path(path_params)
+    helpers.site_images_path(path_params)
   end
 
   def from_url_path
-    helpers.from_url_images_path(path_params)
+    helpers.from_url_site_images_path(path_params)
   end
 
   def path_params
     params = { authenticity_token: helpers.form_authenticity_token }
+
+    params.merge(site_id: params[:site_id])
 
     if @form.object.persisted?
       params[:imageable_type] = @form.object.class.name
