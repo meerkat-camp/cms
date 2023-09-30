@@ -15,7 +15,7 @@
   <p class="menu-label">Administration</p>
   <ul class="menu-list">
     <%- if current_site %>
-      <li><%= link_to("⚙️ Settings", site_posts_path(current_site), class: "navbar-item") %></li>
+      <li><%= link_to("⚙️ Settings", edit_site_path(current_site), class: "navbar-item") %></li>
     <% end %>
     <li><%= link_to("🚪 Logout", logout_path, data: { turbo_method: "delete", turbo_frame: '_top', turbo_action: 'replace'}, class: "navbar-item") %></li>
   </ul>

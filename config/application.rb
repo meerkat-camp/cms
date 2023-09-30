@@ -31,5 +31,8 @@ module MeerkatCamp
       password: ENV.fetch('SMTP_PASSWORD', nil)
     }
     config.action_mailer.raise_delivery_errors = false
+
+    # Do not wrap field errors in action view
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end

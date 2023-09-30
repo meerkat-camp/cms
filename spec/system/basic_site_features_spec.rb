@@ -55,4 +55,25 @@ describe 'Basic Site features' do
       end
     end
   end
+
+  describe 'editing a site' do
+    context 'when user is owner' do
+      it 'updates the site' do
+        as_user do |user|
+          site = create(:site, users: [user])
+
+          visit edit_site_path(site)
+
+          fill_in 'Title', with: 'Other Title'
+          fill_in 'Domain', with: 'rocu.de'
+          select 'fr', from: 'Language'
+
+          click_button 'Update Site'
+
+          expect(page).to have_content('Site was successfully updated.')
+          expect(page).to have_content('Other Title')
+        end
+      end
+    end
+  end
 end

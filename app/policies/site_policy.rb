@@ -13,11 +13,21 @@ class SitePolicy < ApplicationPolicy
     signed_in?
   end
 
+  def show?
+    super_admin? || site_user?
+  end
+
   def create?
     signed_in?
   end
 
-  def show?
-    super_admin? || scope.exists?(id: record.id)
+  def update?
+    super_admin? || site_user?
+  end
+
+  private
+
+  def site_user?
+    scope.exists?(id: record.id)
   end
 end

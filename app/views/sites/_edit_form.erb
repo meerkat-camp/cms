@@ -1,0 +1,19 @@
+<%= turbo_frame_tag(:form) do %>
+  <%= form_for(site, as: :site, url: site_path(site.site), method: :patch, class: 'mb-4') do |form| %>
+    <%= component('form/text_field', form:, attribute: :title, placeholder: t('sites.title_placeholder')) %>
+    <div class="columns">
+      <div class="column">
+          <%= component('form/text_field', form:, attribute: :domain, placeholder: t('sites.domain_placeholder')) %>
+      </div>
+      <div class="column">
+          <%= component('form/language_select', form:, attribute: :language_code) %>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <%= form.submit(t('.update'), class: 'button is-link') %>
+      &nbsp;
+      <%= link_to t('form.cancel'), site_path(site.site), 'data-turbo-frame': '_top', class: 'button is-link is-light' %>
+    </div>
+  <% end %>
+<% end %>
