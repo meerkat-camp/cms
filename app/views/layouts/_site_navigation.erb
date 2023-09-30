@@ -1,0 +1,15 @@
+
+<div class="menu m-8">
+  <div class="title is-4 pt-6"><%= current_site.title %></div>
+
+  <ul class="menu-list">
+      <li><%= link_to("🤹‍♀️ Dashboard", site_path(current_site), class: "navbar-item") %></li>
+      <li><%= link_to("🖊 Posts", site_posts_path(current_site), class: "navbar-item") %></li>
+      <li><%= link_to("📑 Pages", site_pages_path(current_site), class: "navbar-item") %></li>
+  </ul>
+
+  <p class="menu-label">Administration</p>
+  <ul class="menu-list">
+    <li><%= link_to("⚙️ Settings", edit_site_path(current_site), class: "navbar-item") %></li>
+  </ul>
+</div>
