@@ -34,5 +34,7 @@ module MeerkatCamp
 
     # Do not wrap field errors in action view
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+
+    config.session_store :cookie_store, key: '_meerkat_camp_session', expire_after: 1.month
   end
 end
