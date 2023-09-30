@@ -1,3 +1,11 @@
-<h1 class="title"><%= current_site.title %></h1>
+<h1 class="title">🤹‍♀️ Dashboard</h1>
 
-<%= link_to('New Post', new_site_post_path(current_site), class: 'button') %>
+<%= link_to('🖊 New Post', new_site_post_path(current_site), class: 'button') %>
+<%= link_to('📑 New Page', new_site_page_path(current_site), class: 'button') %>
+
+<hr />
+<div class="mt-4">
+  <h2 class="title is-5">Last Posts</h2>
+
+  <%= render current_site.posts.last(5)%>
+</div>
