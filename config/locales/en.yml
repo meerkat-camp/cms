@@ -1,10 +1,26 @@
 ---
 en:
+  active_interaction:
+    attributes:
+      sites/update_site:
+        domain: Domain
+        language_code: Language
+        title: Title
   domain: Domain
+  form:
+    cancel: Cancel
   sites:
     create:
       notice: Site was successfully created.
-    form:
+    domain_placeholder: timon.blog
+    edit:
+      title: Edit Site
+    edit_form:
+      update: Update Site
+    new_form:
       create: Create Site
     site:
       manage: Manage
+    title_placeholder: Timon's Blog
+    update:
+      notice: Site was successfully updated.

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_09_29_060708) do
+ActiveRecord::Schema[7.1].define(version: 2023_09_30_100737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -92,7 +92,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_29_060708) do
   create_table "sites", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "domain"
     t.string "title"
-    t.string "language_code"
+    t.string "language_code", default: "en", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["domain"], name: "index_sites_on_domain", unique: true

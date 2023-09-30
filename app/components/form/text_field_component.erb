@@ -1,7 +1,8 @@
 <div class="field">
   <%= form.label attribute, class: 'label' %>
   <div class="control">
-    <%= form.text_field attribute, class: input_classes %>
+    <%= form.text_field attribute, class: input_classes, placeholder: placeholder %>
+    <%= help_text %>
   </div>
-  <%= help_text %>
 </div>
+

@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
+  before_action :authenticate!
 
   before_action :set_site
-  before_action :authenticate!
   after_action :verify_pundit_checked
 
   helper_method :current_user

@@ -5,8 +5,6 @@ class Site < ApplicationRecord
   has_many :site_users, dependent: :destroy
   has_many :users, through: :site_users
 
-  validates :title, presence: true
-
   def publish
     BuildHugoSiteJob.perform_later(self)
   end
