@@ -19,6 +19,17 @@ describe Sites::CreateSite do
       it 'adds a home page to the site' do
         expect(created_site.pages.pluck(:title, :slug)).to eql([["Home", "/"]])
       end
+
+      it 'adds a staging deployment target to the site' do
+        expect(
+          created_site.deployment_targets.pluck(:public_hostname, :type, :provider)
+        ).to include(
+          [
+            "#{created_site.id}.stage.#{ENV.fetch('BASE_HOSTNAME_AND_PORT')}",
+            "staging", "internal"
+          ]
+        )
+      end
     end
 
     context 'when site is not valid' do

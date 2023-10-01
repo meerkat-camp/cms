@@ -2,9 +2,14 @@ FactoryBot.define do
   factory :deployment_target do
     public_hostname { Faker::Internet.domain_name }
     site
+    type { %i[production staging].sample }
+
+    trait :internal do
+      provider { 'internal' }
+    end
 
     trait :fastmail do
-      type { 'fastmail' }
+      type { :production }
       provider { 'fastmail' }
 
       config do
