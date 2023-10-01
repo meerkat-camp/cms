@@ -1,11 +1,11 @@
 describe Rclone::Deployer do
-  subject(:deployer) { described_class.new(site, target, rclone:) }
+  subject(:deployer) { described_class.new(provider, rclone:) }
 
   let(:rclone) { class_spy(Rclone::CommandRunner) }
   let(:site) { create(:site) }
-  let(:target) do
+  let(:provider) do
     instance_spy(
-      Rclone::Target::Fastmail,
+      Rclone::Provider::Internal,
       config_file_path: '/tmp/rclone/1.conf',
       rclone_target: 'fastmail:/files'
     )
@@ -15,13 +15,12 @@ describe Rclone::Deployer do
     it 'deploys a site' do
       deployer.deploy
 
-      expect(target).to have_received(:write_config_file)
+      expect(provider).to have_received(:write_config_file)
       expect(rclone).to have_received(:run).with(
-        ["sync", "--config", target.config_file_path, "#{site.hugo_dir}/public/", target.rclone_target],
+        ["sync", "--config", provider.config_file_path, provider.source_dir, provider.rclone_target],
         { log: true }
       )
-
-      expect(target).to have_received(:delete_config_file)
+      expect(provider).to have_received(:delete_config_file)
     end
   end
 
@@ -31,7 +30,16 @@ describe Rclone::Deployer do
 
       expect { deployer.deploy }.to raise_error(Rclone::Error)
 
-      expect(target).to have_received(:delete_config_file)
+      expect(provider).to have_received(:delete_config_file)
+    end
+  end
+
+  describe '#deploy' do
+    it 'picks the right provider and deploys' do
+      target = create(:deployment_target, provider: 'internal')
+      described_class.deploy(target, rclone:)
+
+      expect(rclone).to have_received(:run)
     end
   end
 end

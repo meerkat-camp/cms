@@ -2,21 +2,27 @@ require 'pathname'
 
 module Hugo
   class BaseFile
-    attr_reader :site, :object
+    attr_reader :site, :object, :deployment_target
 
-    def initialize(object)
-      @site = object.site
+    def initialize(object, deployment_target)
+      @site = deployment_target.site
+      @deployment_target = deployment_target
       @object = object
     end
 
+    def binary?
+      false
+    end
+
     def write
-      hugo_dir = Rails.root.join('tmp', 'hugo', site.id.to_s)
-      file_path = File.join(hugo_dir, relative_path)
+      file_path = File.join(deployment_target.build_path, relative_path)
       file_path = normalized_path!(file_path)
       FileUtils.mkdir_p(File.dirname(file_path))
 
-      Rails.logger.info "Writing file: #{file_path}\n#{content}"
-      File.write(File.join(hugo_dir, relative_path), content)
+      Rails.logger.info "Writing file: #{file_path}\n#{binary? ? '<binary>' : content}"
+
+      write_method = binary? ? :binwrite : :write
+      File.send(write_method, file_path, content)
     end
 
     protected

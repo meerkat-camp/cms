@@ -1,6 +1,26 @@
 class DeploymentTarget < ApplicationRecord
+  self.inheritance_column = 'sti_type'
+
   belongs_to :site
 
   encrypts :config
   serialize :config, coder: JSON
+
+  validates :public_hostname, presence: true, uniqueness: true
+  validates :provider, presence: true, inclusion: { in: Rclone::PROVIDERS.keys.map(&:to_s) }
+  validates :type, presence: true
+
+  enum type: { staging: 0, production: 1 }
+
+  def deploy
+    Hugo::BuildJob.perform_later(self)
+  end
+
+  def build_path
+    Rails.root.join("tmp", "hugo", id).to_s
+  end
+
+  def source_dir
+    "#{build_path}/public/"
+  end
 end

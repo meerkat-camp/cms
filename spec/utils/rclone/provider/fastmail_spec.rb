@@ -1,4 +1,4 @@
-describe Rclone::Target::Fastmail do
+describe Rclone::Provider::Fastmail do
   subject(:target) { described_class.new(deployment_target, rclone:) }
 
   let(:deployment_target) do

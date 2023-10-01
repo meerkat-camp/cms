@@ -6,8 +6,8 @@ class Site < ApplicationRecord
   has_many :users, through: :site_users
   has_many :deployment_targets, dependent: :destroy
 
-  def publish
-    BuildHugoSiteJob.perform_later(self)
+  def publish(to: :staging)
+    deployment_targets.where(type: to.to_s).find_each(&:deploy)
   end
 
   def emoji
@@ -16,13 +16,5 @@ class Site < ApplicationRecord
 
   def summary_length
     30
-  end
-
-  def hugo_dir
-    Rails.root.join('tmp', 'hugo', id.to_s)
-  end
-
-  def site
-    self
   end
 end

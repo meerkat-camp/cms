@@ -37,5 +37,6 @@ jobs:
           HTTPS: false
           BASE_HOSTNAME_AND_PORT: localhost:3000
           HEADLESS: true
+          STAGING_SITES_PATH: /tmp/staging_sites
       - name: Coveralls
         uses: coverallsapp/github-action@v2
