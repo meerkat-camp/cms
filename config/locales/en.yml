@@ -24,3 +24,6 @@ en:
     title_placeholder: Timon's Blog
     update:
       notice: Site was successfully updated.
+  user_mailer:
+    login:
+      subject: Your login-link from meerkat.camp

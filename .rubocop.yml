@@ -9,6 +9,7 @@ AllCops:
   Exclude:
     - db/schema.rb
     - bin/*
+    - db/migrate/*.rb
 
 Metrics/BlockLength:
   Exclude:
@@ -34,6 +35,10 @@ Lint/MissingSuper:
 Rails/ContentTag:
   Include:
     - 'app/views/**/*.html.erb'
+
+Rails/SkipsModelValidations:
+  AllowedMethods:
+    - 'touch'
 
 RSpec/ExampleLength:
   Enabled: false

@@ -4,6 +4,7 @@ class Site < ApplicationRecord
   has_many :images, dependent: :destroy
   has_many :site_users, dependent: :destroy
   has_many :users, through: :site_users
+  has_many :deployment_targets, dependent: :destroy
 
   def publish
     BuildHugoSiteJob.perform_later(self)

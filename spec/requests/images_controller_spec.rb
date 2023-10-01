@@ -1,10 +1,8 @@
 describe ImagesController do
-  before do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(create(:user,
-                                                                                             sites: [site]))
-  end
+  let(:user) { create(:user) }
+  let(:site) { create(:site, users: [user]) }
 
-  let(:site) { create(:site) }
+  before { login_as(user) }
 
   describe 'GET #show' do
     let(:image) { create(:image, site:) }

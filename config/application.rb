@@ -33,8 +33,13 @@ module MeerkatCamp
     config.action_mailer.raise_delivery_errors = false
 
     # Do not wrap field errors in action view
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
+    config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
 
     config.session_store :cookie_store, key: '_meerkat_camp_session', expire_after: 1.month
+
+    # Initialize encrypted attributes
+    config.active_record.encryption.primary_key = ENV.fetch('ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY', nil)
+    config.active_record.encryption.deterministic_key = ENV.fetch('ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY', nil)
+    config.active_record.encryption.key_derivation_salt = ENV.fetch('ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT', nil)
   end
 end

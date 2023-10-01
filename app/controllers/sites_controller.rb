@@ -1,5 +1,5 @@
 class SitesController < ApplicationController
-   def index
+  def index
     authorize(Site)
     @sites = policy_scope(Site)
   end
@@ -13,20 +13,23 @@ class SitesController < ApplicationController
     @site = Sites::CreateSite.new
   end
 
+  def edit
+    authorize(current_site)
+
+    @site = Sites::UpdateSite.new(
+      site: current_site,
+      title: current_site.title,
+      language_code: current_site.language_code,
+      domain: current_site.domain
+    )
+  end
+
   def create
     authorize(Site)
 
     @site = Sites::CreateSite.run(site_params)
 
-    return turbo_redirect_to(site_path(@site.result), notice: t('.notice')) if @site.valid?
-  end
-
-  def edit
-    authorize(current_site)
-
-    @site = Sites::UpdateSite.new(
-      site: current_site, title: current_site.title, language_code: current_site.language_code, domain: current_site.domain
-    )
+    turbo_redirect_to(site_path(@site.result), notice: t('.notice')) if @site.valid?
   end
 
   def update
@@ -34,7 +37,7 @@ class SitesController < ApplicationController
 
     @site = Sites::UpdateSite.run(site_params.merge(site: current_site))
 
-    return turbo_redirect_to(site_path(@site.result), notice: t('.notice')) if @site.valid?
+    turbo_redirect_to(site_path(@site.result), notice: t('.notice')) if @site.valid?
   end
 
   private
