@@ -6,7 +6,7 @@ module Hugo
 
     def content
       {
-        baseUrl: "https://#{site.domain}",
+        baseUrl: "https://#{deployment_target.public_hostname}",
         languageCode: site.language_code,
         title: site.title,
         summaryLength: site.summary_length,

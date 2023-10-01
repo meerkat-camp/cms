@@ -10,14 +10,11 @@ module Rclone
         @rclone = rclone
       end
 
-      def source_dir
-        "#{target.site.hugo_dir}/public/"
-      end
+      delegate :source_dir, to: :target
 
       def rclone_target
         raise NotImplementedError
       end
-
 
       def write_config_file
         FileUtils.mkdir_p(File.dirname(config_file_path))

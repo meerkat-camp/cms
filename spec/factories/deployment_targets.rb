@@ -3,6 +3,7 @@ FactoryBot.define do
     public_hostname { Faker::Internet.domain_name }
     site
     type { %i[production staging].sample }
+    provider { Rclone::PROVIDERS.keys.sample.to_s }
 
     trait :internal do
       provider { 'internal' }

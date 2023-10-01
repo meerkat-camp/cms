@@ -1,20 +1,21 @@
 class ShellCommand
   class Error < StandardError; end
 
-  attr_reader :args, :logger, :open3
+  attr_reader :args, :logger, :open3, :chdir
 
-  def self.run(args, log: false)
-    new(args).run(log:)
+  def self.run(args, log: false, chdir: nil)
+    new(args, chdir:).run(log:)
   end
 
-  def initialize(args, logger: Rails.logger, open3: Open3)
+  def initialize(args, logger: Rails.logger, open3: Open3, chdir: nil)
     @open3 = open3
     @logger = logger
     @args = args
+    @chdir = chdir
   end
 
   def run(log: false)
-    stdin, stdout, stderr, wait_thr = popen3(args)
+    stdin, stdout, stderr, wait_thr = popen3
 
     output = { stdout: stdout.read.chomp, stderr: stderr.read.chomp }
 
@@ -28,8 +29,10 @@ class ShellCommand
     output
   end
 
-  def popen3(args)
-    open3.popen3(*args)
+  def popen3
+    kwargs = chdir.present? ? { chdir: } : {}
+
+    open3.popen3(*args, **kwargs)
   rescue StandardError => e
     raise_with_nessage e.message
   end

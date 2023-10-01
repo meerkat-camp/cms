@@ -7,8 +7,7 @@ describe Rclone::Deployer do
     instance_spy(
       Rclone::Provider::Internal,
       config_file_path: '/tmp/rclone/1.conf',
-      rclone_target: 'fastmail:/files',
-      source_dir: '/path/to/hugo/site/public',
+      rclone_target: 'fastmail:/files'
     )
   end
 
@@ -32,6 +31,15 @@ describe Rclone::Deployer do
       expect { deployer.deploy }.to raise_error(Rclone::Error)
 
       expect(provider).to have_received(:delete_config_file)
+    end
+  end
+
+  describe '#deploy' do
+    it 'picks the right provider and deploys' do
+      target = create(:deployment_target, provider: 'internal')
+      described_class.deploy(target, rclone:)
+
+      expect(rclone).to have_received(:run)
     end
   end
 end

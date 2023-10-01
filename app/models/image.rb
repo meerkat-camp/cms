@@ -21,4 +21,10 @@ class Image < ApplicationRecord
   def width
     file.metadata['width']
   end
+
+  def fs_path
+    return unless file.attached?
+
+    ActiveStorage::Blob.service.path_for(file.key)
+  end
 end
