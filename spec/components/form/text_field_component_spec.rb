@@ -1,5 +1,10 @@
 describe Form::TextFieldComponent, type: :component do
-  let(:form) { spy(:form, object: double(errors:)) }
+  let(:form) do
+    instance_spy(
+      ActionView::Helpers::FormBuilder,
+      object: instance_double(ApplicationRecord, errors:)
+    )
+  end
 
   context 'without error' do
     let(:errors) { { name: [] } }
