@@ -4,7 +4,7 @@ describe Rclone::DeployJob do
   let(:deployer) { class_spy(Rclone::Deployer) }
   let(:noticer) { instance_spy(Noticer) }
   let(:noticer_class) { class_spy(Noticer, new: noticer) }
-  let(:deployment_target) { create(:deployment_target, :internal) }
+  let(:deployment_target) { create(:deployment_target, :staging) }
 
   it 'deploys the site' do
     perform(deployment_target)

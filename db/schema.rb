@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_01_101155) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_02_065037) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -51,8 +51,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_01_101155) do
     t.text "encrypted_config"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["provider"], name: "index_deployment_targets_on_provider"
     t.index ["public_hostname"], name: "index_deployment_targets_on_public_hostname", unique: true
     t.index ["site_id"], name: "index_deployment_targets_on_site_id"
+    t.index ["type"], name: "index_deployment_targets_on_type"
   end
 
   create_table "images", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

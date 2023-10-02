@@ -5,7 +5,8 @@ FactoryBot.define do
     type { %i[production staging].sample }
     provider { Rclone::PROVIDERS.keys.sample.to_s }
 
-    trait :internal do
+    trait :staging do
+      type { :staging }
       provider { 'internal' }
     end
 

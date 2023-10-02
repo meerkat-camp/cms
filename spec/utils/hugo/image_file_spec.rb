@@ -4,7 +4,7 @@ describe Hugo::ImageFile do
   describe '#write' do
     it 'writes the image to the correct path' do
       image = create(:image)
-      deployment_target = create(:deployment_target, :internal)
+      deployment_target = create(:deployment_target, :staging)
 
       image_file = described_class.new(image, deployment_target)
 

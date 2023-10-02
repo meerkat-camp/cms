@@ -3,7 +3,7 @@ describe Hugo::BuildJob do
 
   let(:deployment_job) { class_spy(Rclone::DeployJob) }
   let(:shell) { class_spy(ShellCommand) }
-  let(:deployment_target) { create(:deployment_target, :internal) }
+  let(:deployment_target) { create(:deployment_target, :staging) }
   let(:site) { deployment_target.site }
 
   it 'writes all files for hugo' do
