@@ -1,7 +1,7 @@
 describe Rclone::Provider::Internal do
   subject(:target) { described_class.new(deployment_target) }
 
-  let(:deployment_target) { create(:deployment_target, :internal) }
+  let(:deployment_target) { create(:deployment_target, :staging) }
 
   describe '#rclone_target' do
     it 'returns a target matching the config file' do

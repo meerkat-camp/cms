@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   get 'up' => 'rails/health#show'
+  get '/api/caddy/check_domain', to: 'api/caddy#check_domain'
 
   resources :sites do
     resources :posts

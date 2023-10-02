@@ -10,7 +10,10 @@ class DeploymentTarget < ApplicationRecord
   validates :provider, presence: true, inclusion: { in: Rclone::PROVIDERS.keys.map(&:to_s) }
   validates :type, presence: true
 
-  enum type: { staging: 0, production: 1 }
+  enum type: { staging: 0, production: 1, backup: 2 }
+
+  scope :non_backup, -> { where.not(type: :backup) }
+  scope :interal, -> { where(provider: :internal) }
 
   def deploy
     Hugo::BuildJob.perform_later(self)
