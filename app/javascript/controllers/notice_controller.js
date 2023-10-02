@@ -3,11 +3,11 @@ import { Controller } from '@hotwired/stimulus'
 const noticeTimeout = 10000
 
 export default class extends Controller {
-  connect() {
+  connect () {
     setTimeout(() => { this.close() }, noticeTimeout)
   }
 
-  close() {
+  close () {
     this.element.remove()
   }
 }

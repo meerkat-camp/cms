@@ -2,14 +2,14 @@
 import '@hotwired/turbo-rails'
 import 'controllers'
 
-addEventListener("turbo:before-stream-render", ((event) => {
+addEventListener('turbo:before-stream-render', (event) => {
   const fallbackToDefaultActions = event.detail.render
 
   event.detail.render = function (streamElement) {
-    if (streamElement.action == "redirect") {
-      Turbo.visit(streamElement.getAttribute('location'), { action: "replace" })
+    if (streamElement.action === 'redirect') {
+      Turbo.visit(streamElement.getAttribute('location'), { action: 'replace' })
     } else {
       fallbackToDefaultActions(streamElement)
     }
   }
-}))
+})

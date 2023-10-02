@@ -2,7 +2,7 @@
 
 [![RSpec](https://github.com/meerkat-camp/cms/actions/workflows/rspec.yml/badge.svg)](https://github.com/meerkat-camp/cms/actions/workflows/rspec.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/75677d635caedd03b093/maintainability)](https://codeclimate.com/github/meerkat-camp/cms/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/meerkat-camp/cms/badge.svg)](https://coveralls.io/github/meerkat-camp/cms)
+[![Coverage Status](https://coveralls.io/repos/github/meerkat-camp/cms/badge.svg?branch=main)](https://coveralls.io/github/meerkat-camp/cms?branch=main)
 
 
 Meerkat CMS is a Rails application that provides a web interface for managing small static websites.

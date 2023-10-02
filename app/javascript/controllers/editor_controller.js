@@ -8,6 +8,7 @@ import Table from '@editorjs/table'
 import InlineCode from '@editorjs/inline-code'
 import ImageTool from '@editorjs/image'
 import Header from '@editorjs/header'
+import Code from '@editorjs/code'
 
 export default class extends Controller {
   static values = {
@@ -15,10 +16,11 @@ export default class extends Controller {
     imageEndpoint: String,
     imageFromUrlEndpoint: String
   }
+
   static targets = ['jsonOutput']
   static editor = null
 
-  connect() {
+  connect () {
     this.editor = new EditorJS({
       holder: this.editorIdValue,
       data: this.loadData(),
@@ -27,14 +29,9 @@ export default class extends Controller {
     })
   }
 
-  toolsConfig() {
+  toolsConfig () {
     return {
-      list: { class: NestedList, inlineToolbar: true },
-      image: { class: Image },
-      quote: { class: Quote, inlineToolbar: true },
-      underline: Underline,
-      table: { class: Table, inlineToolbar: true },
-      inlineCode: { class: InlineCode },
+      header: { class: Header, config: { levels: [2, 3, 4], defaultLevel: 2 } },
       image: {
         class: ImageTool,
         config: {
@@ -44,18 +41,22 @@ export default class extends Controller {
           }
         }
       },
-      header: { class: Header, config: { levels: [2, 3, 4], defaultLevel: 2 } }
+      quote: { class: Quote, inlineToolbar: true },
+      list: { class: NestedList, inlineToolbar: true },
+      underline: Underline,
+      table: { class: Table, inlineToolbar: true },
+      inlineCode: { class: InlineCode },
+      code: Code
     }
   }
 
-  loadData() {
-    if (this.jsonOutputTarget.value === '')
-      return {}
+  loadData () {
+    if (this.jsonOutputTarget.value === '') { return {} }
 
     return JSON.parse(this.jsonOutputTarget.value)
   }
 
-  saveData(api) {
+  saveData (api) {
     api.saver.save().then((data) => {
       this.jsonOutputTarget.value = JSON.stringify(data)
     })
