@@ -8,7 +8,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'faraday'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'nanoid'

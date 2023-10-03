@@ -2,7 +2,7 @@ module Blocks
   module Renderer
     module Html
       class List < Base
-        def to_html
+        def call
           list(@block.items)
         end
 

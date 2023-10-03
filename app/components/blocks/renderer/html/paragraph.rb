@@ -2,8 +2,10 @@ module Blocks
   module Renderer
     module Html
       class Paragraph < Base
-        def to_html
-          scrubbed_tag(:p, @block.text)
+        erb_template  '<p><%= raw(text) %></p>'
+
+        def text
+          scrub_html(@block.text)
         end
       end
     end

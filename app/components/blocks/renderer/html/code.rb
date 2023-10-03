@@ -2,9 +2,7 @@ module Blocks
   module Renderer
     module Html
       class Code < Base
-        def to_html
-          tag(:pre, h(@block.code))
-        end
+        erb_template '<pre><%= block.code %></pre>'
       end
     end
   end

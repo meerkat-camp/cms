@@ -13,9 +13,8 @@ describe Hugo::BuildJob do
 
     paths = [
       "/config.json",
-      "/static/images/#{site.images.first.id}",
-      "/content/pages/#{site.pages.first.id}.html",
-      "/content/posts/#{site.posts.first.id}.html",
+      "/content/pages/#{site.pages.first.public_id}.html",
+      "/content/posts/#{site.posts.first.public_id}.html",
       "/themes"
     ]
 

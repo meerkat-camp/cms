@@ -37,6 +37,9 @@ module MeerkatCamp
 
     config.session_store :cookie_store, key: '_meerkat_camp_session', expire_after: 1.month
 
+    config.active_storage.variant_processor = :vips
+    config.active_storage.resolve_model_to_route = :rails_storage_proxy
+
     # Initialize encrypted attributes
     config.active_record.encryption.primary_key = ENV.fetch('ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY', nil)
     config.active_record.encryption.deterministic_key = ENV.fetch('ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY', nil)
