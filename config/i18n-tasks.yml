@@ -117,6 +117,7 @@ search:
 ignore_unused:
  - 'active_interaction.attributes.*'
  - '*_mailer.*.subject'
+ - 'time.formats.*'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

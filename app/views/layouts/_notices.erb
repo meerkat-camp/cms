@@ -1,0 +1,7 @@
+<%= turbo_stream_from(current_site, "notices") %>
+
+<%= turbo_frame_tag "notices" do %>
+  <%- if notice %>
+    <%= render 'layouts/notice', notice: notice %>
+  <% end %>
+<% end %>

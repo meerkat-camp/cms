@@ -1,10 +1,4 @@
-<%= turbo_stream_from(current_site, "notices") %>
-
-<%= turbo_frame_tag "notices" do %>
-  <%- if notice %>
-    <div data-controller="notice" class="notification is-info mb-6">
-      <button class="delete" data-action="click->notice#close"></button>
-      <%= notice.html_safe %>
-    </div>
-  <% end %>
-<% end %>
+<div data-controller="notice" class="notification is-info mb-6">
+  <button class="delete" data-action="click->notice#close"></button>
+  <%= notice.html_safe %>
+</div>

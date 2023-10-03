@@ -13,24 +13,34 @@ class PagesController < ApplicationController
 
   def create
     @page = current_site.pages.new(page_params)
-    @page.save
+    return unless @page.save
+
+    redirect_to_index(t('.notice'))
     current_site.publish
   end
 
   def update
-    @page.update(page_params)
+    return unless @page.update(page_params)
+
+    redirect_to_index(t('.notice'))
     current_site.publish
   end
 
   def destroy
     @page.destroy
+
     current_site.publish
+    redirect_to_index(t('.notice'))
   end
 
   private
 
+  def redirect_to_index(notice)
+    turbo_redirect_to(site_pages_path(current_site), notice:)
+  end
+
   def set_page
-    @page = current_site.pages.find(params[:id])
+    @page = current_site.pages.find_by(public_id: params[:id])
   end
 
   def page_params
