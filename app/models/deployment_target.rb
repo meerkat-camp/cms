@@ -12,6 +12,8 @@ class DeploymentTarget < ApplicationRecord
 
   enum type: { staging: 0, production: 1, backup: 2 }
 
+  normalizes :public_hostname, with: ->(hostname) { hostname.strip.downcase }
+
   scope :non_backup, -> { where.not(type: :backup) }
   scope :interal, -> { where(provider: :internal) }
 
