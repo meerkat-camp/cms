@@ -1,5 +1,1 @@
-<% if @post.errors.present? %>
-  <%= turbo_stream.replace("form", partial: "form", locals: {post: @post}) %>
-<% else %>
-  <%= turbo_stream_action_tag("redirect", location: site_posts_path) %>
-<% end%>
+<%= turbo_stream.replace("form", partial: "form", locals: {post: @post}) %>

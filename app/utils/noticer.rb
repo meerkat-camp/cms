@@ -6,7 +6,7 @@ class Noticer
   end
 
   def notice(notice)
-    Turbo::StreamsChannel.broadcast_replace_to(
+    Turbo::StreamsChannel.broadcast_append_to(
       site, :notices,
       target: 'notices',
       partial: 'layouts/notice',

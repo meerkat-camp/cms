@@ -13,16 +13,17 @@ class PostsController < ApplicationController
 
   def create
     @post = current_site.posts.new(post_params)
-    @post.save
+    return unless @post.save
+
+    redirect_to_index(t('.notice'))
     current_site.publish
   end
 
   def update
     return unless @post.update(post_params)
 
+    redirect_to_index(t('.notice'))
     current_site.publish
-
-    @posts = current_site.posts.latest
   end
 
   def destroy
@@ -32,8 +33,12 @@ class PostsController < ApplicationController
 
   private
 
+  def redirect_to_index(notice)
+    turbo_redirect_to(site_posts_path(current_site), notice:)
+  end
+
   def set_post
-    @post = current_site.posts.find(params[:id])
+    @post = current_site.posts.find_by!(public_id: params[:id])
   end
 
   def post_params

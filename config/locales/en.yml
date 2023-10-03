@@ -9,6 +9,18 @@ en:
   domain: Domain
   form:
     cancel: Cancel
+  pages:
+    create:
+      notice: Page was successfully created.
+    destroy:
+      notice: Page was successfully deleted.
+    update:
+      notice: Page was successfully updated.
+  posts:
+    create:
+      notice: Post was successfully created.
+    update:
+      notice: Post was successfully updated.
   sites:
     create:
       notice: Site was successfully created.
@@ -24,6 +36,9 @@ en:
     title_placeholder: Timon's Blog
     update:
       notice: Site was successfully updated.
+  time:
+    formats:
+      html_datetime: "%Y-%m-%dT%H:%M"
   user_mailer:
     login:
       subject: Your login-link from meerkat.camp

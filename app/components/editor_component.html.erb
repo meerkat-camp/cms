@@ -1,9 +1,0 @@
-<div
-  data-controller="editor"
-  data-editor-editor-id-value="<%= @random_id %>"
-  data-editor-image-endpoint-value="<%= upload_path %>"
-  data-editor-image-from-url-endpoint-value="<%= from_url_path %>"
-  >
-  <div class="editorjs content" id="<%= @random_id %>"></div>
-  <%= @form.hidden_field(@attribute, data: { "editor-target" => "jsonOutput" }) %>
-</div>

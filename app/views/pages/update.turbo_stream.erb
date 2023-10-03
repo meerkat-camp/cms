@@ -1,7 +1,1 @@
-<%= turbo_stream.replace(@page) do %>
-  <% if @page.errors.present? %>
-    <%= render 'form', page: @page %>
-  <% else %>
-    <%= render @page %>
-  <% end %>
-<% end %>
+<%= turbo_stream.replace 'form', partial: 'form', locals: { page: @page } %>
