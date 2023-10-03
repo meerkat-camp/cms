@@ -25,9 +25,18 @@ module Hugo
 
       files += site.posts.map { |post| Hugo::PostFile.new(post, deployment_target) }
       files += site.pages.map { |page| Hugo::PageFile.new(page, deployment_target) }
-      files += site.images.map { |image| Hugo::ImageFile.new(image, deployment_target) }
+      files += image_files(site, deployment_target)
 
       files.each(&:write)
+    end
+
+    def image_files(site, deployment_target)
+      site.images.map do |image|
+        Image.variant_keys.map do |variant|
+          image_variant = ImageVariant.new(image, variant)
+          Hugo::ImageFile.new(image_variant, deployment_target)
+        end
+      end.flatten
     end
 
     def symlink_themes(deployment_target)

@@ -10,6 +10,10 @@ module Editable
     Blocks.from_editor_json(content)
   end
 
+  def hugo_html
+    Blocks::Renderer::HugoHtml.render(blocks)
+  end
+
   def content_html
     Blocks::Renderer::Html.render(blocks)
   end

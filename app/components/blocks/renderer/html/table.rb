@@ -4,7 +4,7 @@ module Blocks
       class Table < Base
         delegate :thead?, :content, to: :@block
 
-        def to_html
+        def call
           tag(:table, thead + tbody)
         end
 

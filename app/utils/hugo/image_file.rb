@@ -1,15 +1,17 @@
 module Hugo
   class ImageFile < BaseFile
+    delegate :variant, :image, to: :object
+
     def binary?
       true
     end
 
     def relative_path
-      "static/images/#{object.id}"
+      @object.build_path
     end
 
     def content
-      File.binread(object.fs_path)
+      @object.binary_image
     end
   end
 end

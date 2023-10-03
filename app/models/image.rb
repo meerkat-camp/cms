@@ -1,18 +1,35 @@
 class Image < ApplicationRecord
+  SIZES = {
+    mobile_x1: 430,
+    mobile_x2: 860,
+    desktop_x1: 1000,
+    mobile_x3: 1290,
+    desktop_x2: 2000
+  }.freeze
+  FORMATS = %i[avif webp].freeze
+
   belongs_to :site
   belongs_to :imageable, polymorphic: true, optional: true
 
   scope :assigned, -> { where.not(imageable: nil) }
 
   has_one_attached :file do |attachable|
-    attachable.variant(
-      :big_webp,
-      resize_limit: '1800x1800',
-      format: :webp
-    )
+    attachable.variant :desktop_x1_jpg, resize_to_limit: [1000, 1000], format: :jpg
+
+    SIZES.each do |size_name, size|
+      FORMATS.each do |format|
+        key = "#{size_name}_#{format}".to_sym
+        options = { resize_to_limit: [size, size], format: }
+        attachable.variant key, **options
+      end
+    end
   end
 
   validates :file, presence: true
+
+  def self.variant_keys
+    SIZES.map { |name, _| FORMATS.map { |format| "#{name}_#{format}".to_sym } }.flatten + [:desktop_x1_jpg]
+  end
 
   def height
     file.metadata['height']
@@ -22,9 +39,11 @@ class Image < ApplicationRecord
     file.metadata['width']
   end
 
-  def fs_path
+  def fs_path(variant: nil)
     return unless file.attached?
 
-    ActiveStorage::Blob.service.path_for(file.key)
+    key = variant ? file.variant(variant).processed.key : file.key
+
+    ActiveStorage::Blob.service.path_for(key)
   end
 end

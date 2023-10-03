@@ -1,12 +1,18 @@
 module Blocks
   module Renderer
     module Html
-      class Base
+      class Base < ViewComponent::Base
         ALLOWED_INLINE_TAGS = %w[b i u a code].freeze
         ALLOWED_ATTRIBUTES = %w[href].freeze
 
+        attr_reader :block
+
         def initialize(block)
           @block = block
+        end
+
+        def to_html
+          ApplicationController.render(self, layout: false)
         end
 
         private
@@ -17,10 +23,6 @@ module Blocks
 
         def tag(name, content)
           "<#{name}>#{content}</#{name}>"
-        end
-
-        def h(text)
-          CGI.escapeHTML(text)
         end
 
         def scrub_html(html)

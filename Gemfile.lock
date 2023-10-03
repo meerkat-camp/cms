@@ -423,7 +423,7 @@ DEPENDENCIES
   faker
   faraday
   i18n-tasks
-  image_processing (~> 1.2)
+  image_processing
   importmap-rails
   jbuilder
   nanoid

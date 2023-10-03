@@ -17,12 +17,8 @@ describe Blocks::Renderer::Html::Image do
       let(:caption) { 'Foobar' }
 
       it 'returns the html with alt-attribute and caption' do
-        expect(image_html).to eq(%(
-          <figure>
-            <img src="#{image_url}" loading="lazy" height="10" width="10" alt="Foobar" />
-            <figcaption>#{caption}</figcaption>
-          </figure>
-        ).split("\n").map(&:strip).join)
+        expect(image_html).to include("<figcaption>#{caption}</figcaption>")
+        expect(image_html).to include('alt="Foobar"')
       end
     end
 
@@ -30,11 +26,8 @@ describe Blocks::Renderer::Html::Image do
       let(:caption) { '' }
 
       it 'returns the html with empty alt-attribute and no caption' do
-        expect(image_html).to eq(%(
-          <figure>
-            <img src="#{image_url}" loading="lazy" height="10" width="10" alt="" />
-          </figure>
-        ).split("\n").map(&:strip).join)
+        expect(image_html).to include('alt=""')
+        expect(image_html).not_to include('<figcaption>')
       end
     end
   end

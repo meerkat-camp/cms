@@ -1,11 +1,11 @@
 module Hugo
   class PostFile < BaseFile
     def relative_path
-      "content/posts/#{object.id}.html"
+      "content/posts/#{object.public_id}.html"
     end
 
     def content
-      [front_matter.to_json, object.content_html].join("\n\n")
+      [front_matter.to_json, object.hugo_html].join("\n\n")
     end
 
     private
