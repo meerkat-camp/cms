@@ -43,7 +43,7 @@ class SitesController < ApplicationController
   private
 
   def set_site
-    @set_site ||= policy_scope(Site).find_by(id: params[:id])
+    @set_site ||= policy_scope(Site).find_by(public_id: params[:id])
   end
 
   def site_params

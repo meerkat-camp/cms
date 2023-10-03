@@ -22,7 +22,7 @@ module Rclone
       end
 
       def config_file_path
-        Rails.root.join("tmp", "rclone", "#{target.id}.conf").to_s
+        Rails.root.join("tmp", "rclone", "#{target.public_id}.conf").to_s
       end
 
       def config_file_content

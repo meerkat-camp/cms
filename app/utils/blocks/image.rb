@@ -5,7 +5,7 @@ module Blocks
     end
 
     def image_url
-      "/sites/#{image.site.id}/images/#{image.id}"
+      "/sites/#{image.site.public_id}/images/#{image.public_id}"
     end
 
     def image
@@ -17,7 +17,7 @@ module Blocks
     private
 
     def image_id
-      @data['file']['url'].match(%r{/images/([0-9a-f\-]{36})})[1]
+      @data['file']['url'].match(%r{/images/([0-9a-zA-Z\-]{12,36})})[1]
     end
   end
 end

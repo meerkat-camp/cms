@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_02_065037) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_03_075756) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -51,8 +51,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_02_065037) do
     t.text "encrypted_config"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "public_id", limit: 21, null: false
     t.index ["provider"], name: "index_deployment_targets_on_provider"
     t.index ["public_hostname"], name: "index_deployment_targets_on_public_hostname", unique: true
+    t.index ["public_id"], name: "index_deployment_targets_on_public_id", unique: true
     t.index ["site_id"], name: "index_deployment_targets_on_site_id"
     t.index ["type"], name: "index_deployment_targets_on_type"
   end
@@ -65,7 +67,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_02_065037) do
     t.uuid "imageable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "public_id", limit: 21, null: false
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable"
+    t.index ["public_id"], name: "index_images_on_public_id", unique: true
     t.index ["site_id"], name: "index_images_on_site_id"
   end
 
@@ -77,6 +81,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_02_065037) do
     t.uuid "site_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "public_id", limit: 21, null: false
+    t.index ["public_id"], name: "index_pages_on_public_id", unique: true
     t.index ["site_id"], name: "index_pages_on_site_id"
     t.index ["slug", "site_id"], name: "index_pages_on_slug_and_site_id", unique: true
   end
@@ -89,6 +95,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_02_065037) do
     t.uuid "site_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "public_id", limit: 21, null: false
+    t.index ["public_id"], name: "index_posts_on_public_id", unique: true
     t.index ["site_id"], name: "index_posts_on_site_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
@@ -97,6 +105,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_02_065037) do
     t.string "role", default: "editor", null: false
     t.uuid "site_id", null: false
     t.uuid "user_id", null: false
+    t.string "public_id", limit: 21, null: false
+    t.index ["public_id"], name: "index_site_users_on_public_id", unique: true
     t.index ["role"], name: "index_site_users_on_role"
     t.index ["site_id"], name: "index_site_users_on_site_id"
     t.index ["user_id", "site_id"], name: "index_site_users_on_user_id_and_site_id", unique: true
@@ -109,7 +119,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_02_065037) do
     t.string "language_code", default: "en", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "public_id", limit: 21, null: false
     t.index ["domain"], name: "index_sites_on_domain", unique: true
+    t.index ["public_id"], name: "index_sites_on_public_id", unique: true
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -118,7 +130,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_02_065037) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "super_admin", default: false, null: false
+    t.string "public_id", limit: 21, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["public_id"], name: "index_users_on_public_id", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

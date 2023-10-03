@@ -204,6 +204,7 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     mutex_m (0.1.2)
+    nanoid (2.0.0)
     net-imap (0.3.7)
       date
       net-protocol
@@ -431,6 +432,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  nanoid
   pg
   puma (~> 6.0)
   pundit

@@ -4,12 +4,12 @@ class ImagesController < ApplicationController
   before_action :find_imageable, only: %i[create from_url]
 
   def show
-    @image = policy_scope(Image).find(params[:id])
+    @image = policy_scope(Image).find_by(public_id: params[:id])
     authorize(@image)
 
-    response.headers['Content-Type'] = @image.file.content_type
-    response.headers['Content-Disposition'] = 'inline'
-    render body: @image.file.download
+    response.headers['Expires'] = 1.year.from_now.httpdate
+
+    send_file(@image.fs_path, disposition: 'inline', type: @image.file.content_type)
   end
 
   def create
