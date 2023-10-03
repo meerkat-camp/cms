@@ -23,7 +23,7 @@ module Sites
 
     def create_staging(site)
       site.deployment_targets.create!(
-        public_hostname: "#{site.id}.stage.#{ENV.fetch('BASE_HOSTNAME_AND_PORT')}",
+        public_hostname: "#{site.public_id}.stage.#{ENV.fetch('BASE_HOSTNAME_AND_PORT')}",
         type: :staging, provider: :internal
       )
     end

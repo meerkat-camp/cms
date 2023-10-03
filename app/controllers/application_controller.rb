@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
+
   before_action :authenticate!
 
   before_action :set_site
@@ -23,7 +24,7 @@ class ApplicationController < ActionController::Base
 
     return unless params[:site_id]
 
-    @set_site = policy_scope(Site).find(params[:site_id])
+    @set_site = policy_scope(Site).find_by(public_id: params[:site_id])
     authorize(@set_site, :show?)
   end
 

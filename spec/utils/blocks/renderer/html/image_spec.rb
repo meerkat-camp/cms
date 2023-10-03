@@ -1,13 +1,13 @@
 describe Blocks::Renderer::Html::Image do
   let(:image) { create(:image) }
-  let(:image_url) { "/sites/#{image.site.id}/images/#{image.id}" }
+  let(:image_url) { "/sites/#{image.site.public_id}/images/#{image.public_id}" }
   let(:block) do
     Blocks::Image.new(id: 'A70r8-SIog', data: { "file" => { "url" => image_url }, "caption" => caption })
   end
 
   before do
     allow(image).to receive_messages(width: 10, height: 10)
-    allow(Image).to receive(:find).with(image.id).and_return(image)
+    allow(Image).to receive(:find).with(image.public_id).and_return(image)
   end
 
   describe '#to_html' do
