@@ -8,28 +8,31 @@ class Image < ApplicationRecord
   }.freeze
   FORMATS = %i[avif webp].freeze
 
+  def self.variant_keys
+    SIZES.map { |name, _| FORMATS.map { |format| "#{name}_#{format}".to_sym } }.flatten + [:desktop_x1_jpg]
+  end
+
+  def self.variant_options(size:, format:)
+    { resize_to_limit: [size, size], format:, saver: { strip: true } }
+  end
+
   belongs_to :site
   belongs_to :imageable, polymorphic: true, optional: true
 
   scope :assigned, -> { where.not(imageable: nil) }
 
   has_one_attached :file do |attachable|
-    attachable.variant :desktop_x1_jpg, resize_to_limit: [1000, 1000], format: :jpg
+    attachable.variant :desktop_x1_jpg, **variant_options(size: 1000, format: :jpg)
 
     SIZES.each do |size_name, size|
       FORMATS.each do |format|
         key = "#{size_name}_#{format}".to_sym
-        options = { resize_to_limit: [size, size], format: }
-        attachable.variant key, **options
+        attachable.variant key, **variant_options(size:, format:)
       end
     end
   end
 
   validates :file, presence: true
-
-  def self.variant_keys
-    SIZES.map { |name, _| FORMATS.map { |format| "#{name}_#{format}".to_sym } }.flatten + [:desktop_x1_jpg]
-  end
 
   def height
     file.metadata['height']
