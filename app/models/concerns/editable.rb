@@ -4,10 +4,21 @@ module Editable
   included do
     has_many :images, as: :imageable, dependent: :destroy
     after_create :assign_images
+
+    before_save :parse_content
+  end
+
+  def parse_content
+    self.content = Blocks.from_editor_js(JSON.parse(content)) if content.is_a?(String)
+  end
+
+  def content
+    content = read_attribute(:content)
+    (content.presence || [])
   end
 
   def blocks
-    Blocks.from_editor_json(content)
+    Blocks.from_content(content)
   end
 
   def hugo_html

@@ -1,4 +1,6 @@
 class Image < ApplicationRecord
+  scope :orphaned, -> { where(imageable: nil).where('created_at < ?', 2.days.ago) }
+
   SIZES = {
     mobile_x1: 430,
     mobile_x2: 860,

@@ -8,7 +8,7 @@
       data-editor-image-from-url-endpoint-value="<%= from_url_path %>"
       >
       <div class="editorjs content" id="<%= @random_id %>"></div>
-      <%= @form.hidden_field(attribute, data: { "editor-target" => "jsonOutput" }) %>
+      <%= @form.hidden_field(attribute, value: editor_json, data: { "editor-target" => "jsonOutput" }) %>
     </div>
   </div>
 </div>

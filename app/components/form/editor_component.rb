@@ -11,6 +11,10 @@ module Form
       helpers.site_images_path(path_params)
     end
 
+    def editor_json
+      Blocks.to_editor_js(@form.object.blocks)
+    end
+
     def from_url_path
       helpers.from_url_site_images_path(path_params)
     end
