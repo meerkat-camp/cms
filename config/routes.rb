@@ -1,5 +1,3 @@
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
   get 'up' => 'rails/health#show'
   get '/api/caddy/check_domain', to: 'api/caddy#check_domain'
@@ -22,5 +20,5 @@ Rails.application.routes.draw do
   get 'login/:token', to: 'sessions#show', as: :login_token
   delete 'logout', to: 'sessions#destroy', as: :logout
 
-  mount Sidekiq::Web => '/sidekiq', constraints: SuperAdminConstraint.new
+  mount GoodJob::Engine => 'good_job', constraints: SuperAdminConstraint.new
 end
