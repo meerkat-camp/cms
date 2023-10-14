@@ -20,7 +20,7 @@ module Blocks
         end
 
         def srcset(format)
-          ::Image::SIZES.map do |size_name, size|
+          ::Image::Variants::SIZES.map do |size_name, size|
             "#{variant_url("#{size_name}_#{format}")} #{size}w"
           end.join(', ')
         end

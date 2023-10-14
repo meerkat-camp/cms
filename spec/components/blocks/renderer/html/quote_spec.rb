@@ -1,6 +1,6 @@
 describe Blocks::Renderer::Html::Quote do
   let(:block) do
-    Blocks::Quote.new(id: 'wu38wGs5jz', data: { 'text' => text, 'caption' => caption })
+    Blocks::Quote.new(id: 'wu38wGs5jz', text:, caption:)
   end
   let(:quote) { described_class.new(block) }
 

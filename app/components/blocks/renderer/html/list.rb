@@ -13,7 +13,7 @@ module Blocks
 
           list_content = items.map { |i| item_html(i) }.join
 
-          tag(@block.html_type, list_content)
+          tag(@block.style, list_content)
         end
 
         def item_html(item)

@@ -1,20 +1,12 @@
 module Blocks
   class Base
-    def initialize(id:, data:)
-      @id = id
-      @data = data
-    end
+    extend ::Portrayal
 
-    def type
-      raise NotImplementedError
-    end
+    keyword :id
+    keyword :type, default: proc { Blocks::MAPPING.key(self.class) }
 
-    def method_missing(method_name)
-      @data[method_name.to_s.underscore]
-    end
-
-    def respond_to_missing?(method_name, include_private = false)
-      @data.key?(method_name.to_s) || super
+    def to_editor_js
+      { 'id' => id, 'type' => type, 'data' => editor_js_data }
     end
   end
 end

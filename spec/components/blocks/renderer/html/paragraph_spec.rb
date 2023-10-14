@@ -2,7 +2,7 @@ describe Blocks::Renderer::Html::Paragraph do
   subject(:paragraph) { described_class }
 
   let(:block) do
-    Blocks::Paragraph.new(id: 'JXyF2m2GZQ', data: { "text" => text })
+    Blocks::Paragraph.new(id: 'JXyF2m2GZQ', text:)
   end
 
   describe '#to_html' do

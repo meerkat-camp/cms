@@ -3,12 +3,13 @@ describe Blocks::Renderer::Html do
 
   describe '.convert' do
     it 'converts editor js to html' do
-      expect(converter.render(
-               [
-                 Blocks::Paragraph.new(id: 'JXyF2m2GZQ', data: { 'text' => 'Foo' }),
-                 Blocks::Paragraph.new(id: 'Ufe53LgSM4', data: { 'text' => 'Bar' })
-               ]
-             )).to eq('<p>Foo</p><p>Bar</p>')
+      html = converter.render(
+        [
+          Blocks::Paragraph.new(id: 'JXyF2m2GZQ', text: 'Foo'),
+          Blocks::Paragraph.new(id: 'Ufe53LgSM4', text: 'Bar')
+        ]
+      )
+      expect(html).to eq('<p>Foo</p><p>Bar</p>')
     end
   end
 end

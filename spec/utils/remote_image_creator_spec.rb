@@ -8,7 +8,7 @@ describe RemoteImageCreator do
   describe '#create_from' do
     context 'when remote GET request does work' do
       before do
-        stub_request(:get, image_url).to_return(body: file_fixture('10x10.jpg').read)
+        stub_request(:get, image_url).to_return(body: file_fixture('15x15.jpg').read)
       end
 
       it 'creates an image' do

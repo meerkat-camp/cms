@@ -1,8 +1,7 @@
 describe Blocks::Renderer::Html::Image do
   let(:image) { create(:image) }
-  let(:image_url) { "/sites/#{image.site.public_id}/images/#{image.public_id}" }
   let(:block) do
-    Blocks::Image.new(id: 'A70r8-SIog', data: { "file" => { "url" => image_url }, "caption" => caption })
+    Blocks::Image.new(id: 'A70r8-SIog', image_id: image.public_id, caption:)
   end
 
   before do

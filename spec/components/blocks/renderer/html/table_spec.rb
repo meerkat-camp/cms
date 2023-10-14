@@ -2,10 +2,7 @@ require 'spec_helper'
 
 describe Blocks::Renderer::Html::Table do
   let(:block) do
-    Blocks::Table.new(
-      id: 'JXyF2m2GZQ',
-      data: { 'withHeadings' => with_headings, 'content' => content }
-    )
+    Blocks::Table.new(id: 'JXyF2m2GZQ', with_headings:, content:)
   end
 
   describe '#to_html' do

@@ -2,7 +2,7 @@ describe Blocks::Renderer::Html::Header do
   subject(:paragraph) { described_class }
 
   let(:block) do
-    Blocks::Header.new(id: 'JXyF2m2GZQ', data: { "text" => text, "level" => level })
+    Blocks::Header.new(id: 'JXyF2m2GZQ', text:, level:)
   end
 
   describe '#to_html' do

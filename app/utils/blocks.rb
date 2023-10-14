@@ -1,21 +1,39 @@
 module Blocks
   MAPPING = {
+    'code' => Code,
     'header' => Header,
-    'list' => List,
     'image' => Image,
+    'list' => List,
     'paragraph' => Paragraph,
     'quote' => Quote,
     'table' => Table
   }.freeze
 
-  def self.from_editor_json(json)
-    return [] if json.blank?
+  def self.from_content(content)
+    content.filter_map do |block_hash|
+      block_hash = block_hash.symbolize_keys
+      klass = MAPPING[block_hash[:type]]
+      next unless klass
 
-    parsed_json = JSON.parse(json)
-
-    parsed_json.fetch('blocks', []).map do |block_json|
-      block_type = "Blocks::#{block_json['type'].classify}".constantize
-      block_type.new(id: block_json['id'], data: block_json['data'])
+      klass.new(**block_hash)
     end
+  end
+
+  def self.from_editor_js(content)
+    content.fetch('blocks', []).filter_map do |block_hash|
+      klass = MAPPING[block_hash['type']]
+      next unless klass
+
+      klass.from_editor_js(block_hash)
+    end
+  end
+
+  def self.to_editor_js(blocks)
+    data = {
+      'time' => Time.now.to_i,
+      'blocks' => blocks.map(&:to_editor_js)
+    }
+
+    JSON.dump(data)
   end
 end

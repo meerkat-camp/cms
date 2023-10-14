@@ -1,15 +1,13 @@
 describe Blocks::Renderer::Html::List do
   subject(:list) { described_class }
 
-  let(:block) do
-    Blocks::List.new(id: 'ge0lvZrn4o', data: { 'style' => style, 'items' => items })
-  end
+  let(:block) { Blocks::List.new(id: 'ge0lvZrn4o', style:, items:) }
 
   describe '#to_html' do
     let(:list_html) { list.new(block).to_html }
 
     context 'when style is unordered' do
-      let(:style) { 'unordered' }
+      let(:style) { 'ul' }
 
       let(:items) do
         [
@@ -26,7 +24,7 @@ describe Blocks::Renderer::Html::List do
     end
 
     context 'when style is ordered' do
-      let(:style) { 'ordered' }
+      let(:style) { 'ol' }
 
       let(:items) do
         [
@@ -43,7 +41,7 @@ describe Blocks::Renderer::Html::List do
     end
 
     context 'with invalid content' do
-      let(:style) { 'ordered' }
+      let(:style) { 'ol' }
 
       let(:items) do
         [

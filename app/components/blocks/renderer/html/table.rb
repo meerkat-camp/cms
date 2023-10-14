@@ -2,7 +2,7 @@ module Blocks
   module Renderer
     module Html
       class Table < Base
-        delegate :thead?, :content, to: :@block
+        delegate :with_headings, :content, to: :@block
 
         def call
           tag(:table, thead + tbody)
@@ -21,6 +21,10 @@ module Blocks
 
           content = rows_data.map { |data| row(data) }.join
           tag(:tbody, content)
+        end
+
+        def thead?
+          with_headings
         end
 
         def row(row_data)

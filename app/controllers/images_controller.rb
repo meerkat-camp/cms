@@ -27,8 +27,9 @@ class ImagesController < ApplicationController
   private
 
   def image_from_url(url)
+    url = ExternalUrlChecker.new(url).check!
     RemoteImageCreator.new(current_site, @imageable).create_from(url)
-  rescue RemoteImageCreator::Error
+  rescue RemoteImageCreator::Error, ExternalUrlChecker::Error
     # Editorjs will show, that image upload failed.
     nil
   end

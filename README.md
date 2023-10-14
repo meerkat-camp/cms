@@ -20,6 +20,11 @@ Meerkat CMS is a Rails application that provides a web interface for managing sm
 ## Installation
 
 ```bash
+# Install dependencies
+brew install rclone
+brew install hugo
+brew install libvips
+
 # Install Ruby with a version manager of your choice.
 rbenv install 3.2.2
 rbenv local 3.2.2
