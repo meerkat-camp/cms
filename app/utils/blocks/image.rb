@@ -3,7 +3,7 @@ module Blocks
     keyword :type, default: 'image'
 
     keyword :image_id
-    keyword :caption
+    keyword :caption, default: ''
 
     def self.from_editor_js(hash)
       url = hash['data']['file']['url']

@@ -5,7 +5,7 @@ describe Hugo::ImageFile do
     it 'writes the image to the correct path' do
       image = create(:image)
       deployment_target = create(:deployment_target, :staging)
-      variant_key = Image.variant_keys.first
+      variant_key = Image::Variants.keys.first
 
       image_variant = Hugo::ImageVariant.new(image, variant_key)
       image_file = described_class.new(image_variant, deployment_target)
