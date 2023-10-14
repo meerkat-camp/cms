@@ -1,7 +1,5 @@
 module Blocks
   class Image < Base
-    keyword :type, default: 'image'
-
     keyword :image_id
     keyword :caption, default: ''
 
@@ -14,14 +12,10 @@ module Blocks
       )
     end
 
-    def to_editor_js
+    def editor_js_data
       {
-        'id' => id, 'type' => type,
-        'data' => {
-          'file' => { 'url' => image_url },
-          'caption' => caption,
-          'withBorder' => false, 'stretched' => false, 'withBackground' => false
-        }
+        'file' => { 'url' => image_url }, 'caption' => caption,
+        'withBorder' => false, 'stretched' => false, 'withBackground' => false
       }
     end
 

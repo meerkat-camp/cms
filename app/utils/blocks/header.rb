@@ -1,7 +1,5 @@
 module Blocks
   class Header < Base
-    keyword :type, default: 'header'
-
     keyword :level
     keyword :text
 
@@ -11,11 +9,8 @@ module Blocks
       new(id: hash['id'], level: hash['data']['level'], text: hash['data']['text'])
     end
 
-    def to_editor_js
-      {
-        'id' => id, 'type' => type,
-        'data' => { 'level' => level, 'text' => text }
-      }
+    def editor_js_data
+      { 'level' => level, 'text' => text }
     end
 
     def level

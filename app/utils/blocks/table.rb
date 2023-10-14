@@ -1,7 +1,5 @@
 module Blocks
   class Table < Base
-    keyword :type, default: 'table'
-
     keyword :content
     keyword :with_headings
 
@@ -13,11 +11,8 @@ module Blocks
       )
     end
 
-    def to_editor_js
-      {
-        'id' => id, 'type' => type,
-        'data' => { 'withHeadings' => with_headings, 'content' => content }
-      }
+    def editor_js_data
+      { 'withHeadings' => with_headings, 'content' => content }
     end
   end
 end

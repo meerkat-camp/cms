@@ -18,7 +18,7 @@ describe ImagesController do
     it 'creates a new image' do
       post = create(:post, site:)
       params = {
-        image: fixture_file_upload('10x10.jpg', 'image/jpeg'),
+        image: fixture_file_upload('15x15.jpg', 'image/jpeg'),
         imageable_type: 'post',
         imageable_id: post.id
       }
@@ -41,7 +41,7 @@ describe ImagesController do
 
     context 'with working remote url' do
       before do
-        stub_request(:get, remote_url).to_return(body: file_fixture('10x10.jpg').read)
+        stub_request(:get, remote_url).to_return(body: file_fixture('15x15.jpg').read)
       end
 
       it 'creates a new image' do

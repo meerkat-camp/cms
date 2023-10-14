@@ -1,7 +1,5 @@
 module Blocks
   class List < Base
-    keyword :type, default: 'list'
-
     STYLE_MAPPING = {
       'unordered' => :ul,
       'ordered' => :ol
@@ -18,14 +16,8 @@ module Blocks
       )
     end
 
-    def to_editor_js
-      {
-        'id' => id, 'type' => type,
-        'data' => {
-          'style' => STYLE_MAPPING.key(style),
-          'items' => items
-        }
-      }
+    def editor_js_data
+      { 'style' => STYLE_MAPPING.key(style), 'items' => items }
     end
   end
 end
