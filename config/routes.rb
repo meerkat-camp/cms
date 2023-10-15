@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   get 'up' => 'rails/health#show'
-  get '/api/caddy/check_domain', to: 'api/caddy#check_domain'
+
+  namespace :api do
+    resources :sites, only: [] do
+      resources :slugs, only: [:create]
+    end
+
+    resources :caddy, only: [] do
+      collection do
+        get :check_domain
+      end
+    end
+  end
 
   resources :sites do
     resources :posts

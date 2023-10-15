@@ -1,11 +1,12 @@
 module Form
   class BaseInputComponent < ViewComponent::Base
-    attr_reader :form, :attribute, :placeholder
+    attr_reader :form, :attribute, :data, :placeholder
 
-    def initialize(form:, attribute:, placeholder: nil)
+    def initialize(form:, attribute:, placeholder: nil, data: {})
       @form = form
       @attribute = attribute
       @placeholder = placeholder
+      @data = data
     end
 
     protected

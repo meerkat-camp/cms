@@ -1,7 +1,6 @@
 <%= turbo_frame_tag(:form) do %>
   <%= form_for([current_site, page], class: 'mb-4') do |form| %>
-    <%= component('form/text_field', form:, attribute: :title) %>
-    <%= component('form/text_field', form:, attribute: :slug, placeholder: '/homepage') %>
+    <%= component('form/title_and_slug', form:) %>
     <%= component('form/editor', form:, attribute: :content) %>
 
     <div class="columns">
