@@ -13,6 +13,7 @@ module Hugo
     def front_matter
       front_matter = { date: object.created_at.strftime('%Y-%m-%d') }
 
+      front_matter[:url] = object.slug if object.slug.present?
       front_matter[:short] = true if object.title.blank?
       front_matter[:title] = object.title if object.title.present?
       front_matter[:emoji] = object.emoji if object.emoji.present?
