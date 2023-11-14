@@ -18,7 +18,7 @@ gem 'portrayal'
 gem 'puma', '~> 6.0'
 gem 'pundit'
 
-gem 'rails', '~> 7.1.0'
+gem 'rails', '~> 7.1.2'
 gem 'redis', '~> 5.0'
 gem 'sassc-rails'
 gem 'sprockets-rails'
