@@ -15,7 +15,7 @@ gem 'jbuilder'
 gem 'nanoid'
 gem 'pg'
 gem 'portrayal'
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 6.4'
 gem 'pundit'
 
 gem 'rails', '~> 7.1.2'
