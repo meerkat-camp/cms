@@ -14,7 +14,7 @@ class SitePolicy < ApplicationPolicy
   end
 
   def show?
-    super_admin? || site_user?
+    super_admin? || site_user?(record)
   end
 
   def create?
@@ -22,12 +22,6 @@ class SitePolicy < ApplicationPolicy
   end
 
   def update?
-    super_admin? || site_user?
-  end
-
-  private
-
-  def site_user?
-    scope.exists?(id: record.id)
+    super_admin? || site_user?(record)
   end
 end
