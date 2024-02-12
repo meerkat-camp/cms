@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.3.0'
 
 gem 'active_interaction'
 gem 'bcrypt', '~> 3.1.7'
@@ -36,6 +36,7 @@ group :development do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'i18n-tasks'
+  gem 'foreman'
 
   gem 'rspec-rails'
   gem 'rubocop'
