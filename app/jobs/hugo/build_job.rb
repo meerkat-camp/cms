@@ -25,6 +25,7 @@ module Hugo
 
       files += site.posts.map { |post| Hugo::PostFile.new(post, deployment_target) }
       files += site.pages.map { |page| Hugo::PageFile.new(page, deployment_target) }
+      files << Hugo::RobotsTxtFile.new(deployment_target)
       files += image_files(site, deployment_target)
 
       files.each(&:write)
