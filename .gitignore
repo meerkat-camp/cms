@@ -38,3 +38,4 @@ coverage
 # Ingnore .env file containing credentials.
 .env
 !.env.example
+.env.production
