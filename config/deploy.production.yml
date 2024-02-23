@@ -1,23 +1,25 @@
 service: meerkat
 image: ghcr.io/meerkat-camp/cms
-
-servers:
-  - 23.88.127.8
-
 registry:
   server: ghcr.io
   username: shostakovich
   password:
     - KAMAL_REGISTRY_PASSWORD
 
-web:
-  hosts:
-    - 23.88.127.8
+servers:
+  web:
+    hosts:
+      - 23.88.127.8
+  job:
+    hosts:
+      - 23.88.127.8
+    cmd: bundle exec good_job start
 
-job:
-  hosts:
-    - 23.88.127.8
-  cmd: bundle exec good_job start
+traefik:
+  host_port: 10.0.0.3:80
+
+volumes:
+  - /root/meerkat-caddy/static:/static
 
 env:
  secret:
@@ -44,9 +46,11 @@ accessories:
   caddy:
     image: caddy:2
     host: 23.88.127.8
-    ports:
-      - 23.88.127.8:80
-      - 23.88.127.8:443
+    options:
+      publish:
+        - "23.88.127.8:80:80"
+        - "23.88.127.8:443:443"
+        - "23.88.127.8:443:443/udp"
     directories:
       - static:/static
       - data:/data
@@ -54,7 +58,7 @@ accessories:
   postgres:
     image: postgres:16.0
     host: 23.88.127.8
-    port: 10.0.0.3:5432
+    port: "10.0.0.3:5432:5432"
     directories:
       - data:/var/lib/postgresql/data
     env:
@@ -65,6 +69,6 @@ accessories:
   redis:
     image: redis:7.0
     host: 23.88.127.8
-    port: 10.0.0.3:6379
+    port: "10.0.0.3:6379:6379"
     directories:
       - data:/data
