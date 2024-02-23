@@ -6,12 +6,12 @@ describe 'Administration of deployment targets' do
         deployment_target = create(:deployment_target, site:)
 
         visit site_deployment_targets_path(site)
-        click_link 'Edit'
+        click_on 'Edit'
 
         deployment_target_attributes = attributes_for(:deployment_target)
         fill_in 'Public hostname', with: deployment_target_attributes[:public_hostname]
 
-        click_button 'Update Deployment target'
+        click_on 'Update Deployment target'
 
         expect(page).to have_content('Deployment target was successfully updated.')
         expect(deployment_target.reload.public_hostname).to eq(deployment_target_attributes[:public_hostname])

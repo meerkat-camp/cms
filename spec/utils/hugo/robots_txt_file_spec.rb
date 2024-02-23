@@ -7,7 +7,7 @@ describe Hugo::RobotsTxtFile do
     let(:file_path) { Rails.root.join(deployment_target.build_path, 'content/robots.txt') }
     let(:file_content) { File.read(file_path) }
 
-    before(:each) do
+    before do
       robots_txt_file.write
     end
 
@@ -24,7 +24,6 @@ describe Hugo::RobotsTxtFile do
 
       it 'allows acces for robots in the written file' do
         expect(file_content).to eql("User-agent: *\nAllow: /")
-
       end
     end
   end

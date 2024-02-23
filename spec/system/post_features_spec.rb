@@ -20,14 +20,14 @@ describe 'Post features' do
         site = create(:site, users: [user])
 
         visit site_posts_path(site)
-        click_link '🖊 New Post'
+        click_on '🖊 New Post'
 
         post_attributes = attributes_for(:post)
         fill_in 'Title', with: post_attributes[:title]
-        click_button 'Create Post'
+        click_on 'Create Post'
 
         expect(page).to have_content('Post was successfully created.')
-        expect(site.posts).to be_exist(title: post_attributes[:title])
+        expect(site.posts).to exist(title: post_attributes[:title])
       end
     end
   end
@@ -39,12 +39,12 @@ describe 'Post features' do
         post = create(:post, site:)
 
         visit site_posts_path(site)
-        click_link 'Edit'
+        click_on 'Edit'
 
         post_attributes = attributes_for(:post)
         fill_in 'Title', with: post_attributes[:title]
 
-        click_button 'Update Post'
+        click_on 'Update Post'
 
         expect(page).to have_content('Post was successfully updated.')
         expect(page).to have_content(post_attributes[:title])
@@ -61,10 +61,10 @@ describe 'Post features' do
 
         visit site_posts_path(site)
         accept_confirm do
-          click_link 'Delete'
+          click_on 'Delete'
         end
 
-        expect(page).not_to have_content(post.title)
+        expect(page).to have_no_content(post.title)
       end
     end
   end

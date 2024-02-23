@@ -13,7 +13,7 @@ describe Form::TextFieldComponent, type: :component do
       render_inline(described_class.new(form:, attribute: :name))
 
       expect(page).to have_css('.field')
-      expect(page).not_to have_css('p.help')
+      expect(page).to have_no_css('p.help')
     end
   end
 

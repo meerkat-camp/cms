@@ -9,11 +9,11 @@ module Hugo
     def content
       lines = ["User-agent: *"]
 
-      if deployment_target.staging?
-        lines << "Disallow: /"
-      else
-        lines << "Allow: /"
-      end
+      lines << if deployment_target.staging?
+                 "Disallow: /"
+               else
+                 "Allow: /"
+               end
 
       lines.join("\n")
     end

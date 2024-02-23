@@ -35,8 +35,8 @@ group :development do
   gem 'brakeman'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'i18n-tasks'
   gem 'foreman'
+  gem 'i18n-tasks'
 
   gem 'rspec-rails'
   gem 'rubocop'
