@@ -1,0 +1,9 @@
+<%= turbo_frame_tag(deployment_target) do %>
+  <tr>
+    <td><%= deployment_target.public_hostname %></td>
+    <td><%= t("deployment_target.types.#{deployment_target.type}") %></td>
+    <td>
+      <%= link_to 'Edit', edit_site_deployment_target_path(current_site, deployment_target), class: 'button is-small' %>
+    </td>
+  </tr>
+<% end %>

@@ -22,7 +22,7 @@ module Blocks
         end
 
         def tag(name, content)
-          "<#{name}>#{content}</#{name}>"
+          raw("<#{name}>#{content}</#{name}>")
         end
 
         def scrub_html(html)
@@ -32,7 +32,7 @@ module Blocks
 
           html_fragment = Loofah.fragment(html)
           html_fragment.scrub!(scrubber)
-          html_fragment.to_s
+          raw(html_fragment.to_s)
         end
       end
     end

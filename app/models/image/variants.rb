@@ -10,7 +10,7 @@ class Image
     FORMATS = %i[avif webp].freeze
 
     def self.keys
-      SIZES.map { |name, _| FORMATS.map { |format| "#{name}_#{format}".to_sym } }.flatten + [:desktop_x1_jpg]
+      SIZES.map { |name, _| FORMATS.map { |format| :"#{name}_#{format}" } }.flatten + [:desktop_x1_jpg]
     end
 
     def self.options(size:, format:)
@@ -22,7 +22,7 @@ class Image
 
       SIZES.each do |size_name, size|
         FORMATS.each do |format|
-          key = "#{size_name}_#{format}".to_sym
+          key = :"#{size_name}_#{format}"
           attachable.variant(key, **options(size:, format:))
         end
       end

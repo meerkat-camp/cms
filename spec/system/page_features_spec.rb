@@ -20,15 +20,15 @@ describe 'Page features' do
         site = create(:site, users: [user])
 
         visit site_pages_path(site)
-        click_link '📑 New Page'
+        click_on '📑 New Page'
 
         page_attributes = attributes_for(:page)
         fill_in 'Title', with: page_attributes[:title]
         fill_in 'Slug', with: page_attributes[:slug]
-        click_button 'Create Page'
+        click_on 'Create Page'
 
         expect(page).to have_content('Page was successfully created.')
-        expect(site.pages).to be_exist(title: page_attributes[:title])
+        expect(site.pages).to exist(title: page_attributes[:title])
       end
     end
   end
@@ -40,12 +40,12 @@ describe 'Page features' do
         old_page = create(:page, site:)
 
         visit site_pages_path(site)
-        click_link 'Edit'
+        click_on 'Edit'
 
         page_attributes = attributes_for(:page)
         fill_in 'Title', with: page_attributes[:title]
 
-        click_button 'Update Page'
+        click_on 'Update Page'
 
         expect(page).to have_content('Page was successfully updated.')
         expect(page).to have_content(page_attributes[:title])
@@ -62,10 +62,10 @@ describe 'Page features' do
 
         visit site_pages_path(site)
         accept_confirm do
-          click_link 'Delete'
+          click_on 'Delete'
         end
 
-        expect(page).not_to have_content(old_page.title)
+        expect(page).to have_no_content(old_page.title)
         expect(page).to have_content('Page was successfully deleted.')
       end
     end

@@ -1,0 +1,12 @@
+<%= turbo_frame_tag(:form) do %>
+  <%= form_for(deployment_target, as: :deployment_target, url: site_deployment_target_path(deployment_target.site), method: :patch, class: 'mb-4') do |form| %>
+  <%= component('form/text_field', form:, attribute: :public_hostname) %>
+  <%= component('form/select', form:, attribute: :type, options: DeploymentTarget.types.keys.map { |key| [t("deployment_target.types.#{key}"), key] }) %>
+
+  <div class="field is-grouped">
+    <%= form.submit('Update Deployment target', class: 'button is-link') %>
+    &nbsp;
+    <%= link_to 'Cancel', site_deployment_targets_path(current_site), 'data-turbo-frame': '_top', class: 'button is-link is-light' %>
+  </div>
+  <% end %>
+<% end %>

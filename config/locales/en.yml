@@ -6,6 +6,14 @@ en:
         domain: Domain
         language_code: Language
         title: Title
+  deployment_target:
+    types:
+      backup: Backup
+      production: Production
+      staging: Staging
+  deployment_targets:
+    update:
+      notice: Deployment target was successfully updated.
   domain: Domain
   form:
     cancel: Cancel

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :sites do
     resources :posts
     resources :pages
+    resources :deployment_targets, only: %i[index edit update]
 
     get 'image/create'
     resources :images, only: %i[show create] do

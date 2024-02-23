@@ -10,7 +10,7 @@ module Editable
 
   def content
     content = read_attribute(:content)
-    (content.presence || [])
+    content.presence || []
   end
 
   def blocks

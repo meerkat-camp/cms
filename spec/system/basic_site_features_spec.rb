@@ -9,7 +9,7 @@ describe 'Basic Site features' do
           visit root_path
 
           expect(page).to have_content(allowed_site.title)
-          expect(page).not_to have_content(disallowed_site.title)
+          expect(page).to have_no_content(disallowed_site.title)
         end
       end
     end
@@ -35,7 +35,7 @@ describe 'Basic Site features' do
 
           fill_in 'Title', with: 'My Site'
 
-          click_button 'Create Site'
+          click_on 'Create Site'
 
           expect(page).to have_content('Site was successfully created.')
           expect(page).to have_content('My Site')
@@ -48,7 +48,7 @@ describe 'Basic Site features' do
         as_user do
           visit new_site_path
 
-          click_button 'Create Site'
+          click_on 'Create Site'
 
           expect(page).to have_content("can't be blank")
         end
@@ -68,7 +68,7 @@ describe 'Basic Site features' do
           fill_in 'Domain', with: 'rocu.de'
           select 'fr', from: 'Language'
 
-          click_button 'Update Site'
+          click_on 'Update Site'
 
           expect(page).to have_content('Site was successfully updated.')
           expect(page).to have_content('Other Title')

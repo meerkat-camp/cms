@@ -62,4 +62,8 @@ class ApplicationPolicy
   def scope
     Pundit::PolicyFinder.new(record.class).scope.new(user, record.class).resolve
   end
+
+  def site_user?(site)
+    SitePolicy::Scope.new(@user, Site).resolve.exists?(id: site.id)
+  end
 end
