@@ -422,7 +422,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_interaction
-  bcrypt (~> 3.1.7)
+  bcrypt (~> 3.1.20)
   bootsnap
   brakeman
   capybara

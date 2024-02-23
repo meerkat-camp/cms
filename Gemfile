@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.3.0'
 
 gem 'active_interaction'
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.20'
 gem 'bootsnap', require: false
 gem 'dotenv-rails', require: 'dotenv/load'
 gem 'faraday'
