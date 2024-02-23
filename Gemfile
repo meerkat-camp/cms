@@ -6,7 +6,7 @@ ruby '3.3.0'
 gem 'active_interaction'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
-gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'dotenv-rails', require: 'dotenv/load'
 gem 'faraday'
 gem 'good_job'
 gem 'image_processing'
