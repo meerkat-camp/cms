@@ -1,6 +1,6 @@
 {
         on_demand_tls {
-                ask https://meerkat.camp/caddy/check_domain
+                ask https://meerkat.camp/api/caddy/check_domain
         }
 }
 
@@ -9,6 +9,6 @@ https:// {
                 on_demand
         }
 
-        root * /data/web/caddy/static/{host}
+        root * /static/{host}
         file_server
 }
