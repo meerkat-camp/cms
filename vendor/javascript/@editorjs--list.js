@@ -1,2 +1,130 @@
-var t="undefined"!==typeof globalThis?globalThis:"undefined"!==typeof self?self:global;var r={};!function(t,d){r=d()}(window,(function(){return function(t){var r={};function n(d){if(r[d])return r[d].exports;var h=r[d]={i:d,l:!1,exports:{}};return t[d].call(h.exports,h,h.exports,n),h.l=!0,h.exports}return n.m=t,n.c=r,n.d=function(t,r,d){n.o(t,r)||Object.defineProperty(t,r,{enumerable:!0,get:d})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,r){if(1&r&&(t=n(t)),8&r)return t;if(4&r&&"object"==typeof t&&t&&t.__esModule)return t;var d=Object.create(null);if(n.r(d),Object.defineProperty(d,"default",{enumerable:!0,value:t}),2&r&&"string"!=typeof t)for(var h in t)n.d(d,h,function(r){return t[r]}.bind(null,h));return d},n.n=function(t){var r=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(r,"a",r),r},n.o=function(t,r){return Object.prototype.hasOwnProperty.call(t,r)},n.p="/",n(n.s=4)}([function(t,r,d){var h=d(1),m=d(2);"string"==typeof(m=m.__esModule?m.default:m)&&(m=[[t.i,m,""]]);var v={insert:"head",singleton:!1};h(m,v);t.exports=m.locals||{}},function(t,r,d){var h,i=function(){return void 0===h&&(h=Boolean(window&&document&&document.all&&!window.atob)),h},m=function(){var t={};return function(r){if(void 0===t[r]){var d=document.querySelector(r);if(window.HTMLIFrameElement&&d instanceof window.HTMLIFrameElement)try{d=d.contentDocument.head}catch(t){d=null}t[r]=d}return t[r]}}(),v=[];function s(t){for(var r=-1,d=0;d<v.length;d++)if(v[d].identifier===t){r=d;break}return r}function c(t,r){for(var d={},h=[],m=0;m<t.length;m++){var g=t[m],b=r.base?g[0]+r.base:g[0],w=d[b]||0,k="".concat(b," ").concat(w);d[b]=w+1;var S=s(k),x={css:g[1],media:g[2],sourceMap:g[3]};-1!==S?(v[S].references++,v[S].updater(x)):v.push({identifier:k,updater:y(x,r),references:1}),h.push(k)}return h}function l(t){var r=document.createElement("style"),h=t.attributes||{};if(void 0===h.nonce){var v=d.nc;v&&(h.nonce=v)}if(Object.keys(h).forEach((function(t){r.setAttribute(t,h[t])})),"function"==typeof t.insert)t.insert(r);else{var g=m(t.insert||"head");if(!g)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");g.appendChild(r)}return r}var g,b=(g=[],function(t,r){return g[t]=r,g.filter(Boolean).join("\n")});function f(t,r,d,h){var m=d?"":h.media?"@media ".concat(h.media," {").concat(h.css,"}"):h.css;if(t.styleSheet)t.styleSheet.cssText=b(r,m);else{var v=document.createTextNode(m),g=t.childNodes;g[r]&&t.removeChild(g[r]),g.length?t.insertBefore(v,g[r]):t.appendChild(v)}}function p(t,r,d){var h=d.css,m=d.media,v=d.sourceMap;if(m?t.setAttribute("media",m):t.removeAttribute("media"),v&&btoa&&(h+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(v))))," */")),t.styleSheet)t.styleSheet.cssText=h;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(h))}}var w=null,k=0;function y(t,r){var d,h,m;if(r.singleton){var v=k++;d=w||(w=l(r)),h=f.bind(null,d,v,!1),m=f.bind(null,d,v,!0)}else d=l(r),h=p.bind(null,d,r),m=function(){!function(t){if(null===t.parentNode)return!1;t.parentNode.removeChild(t)}(d)};return h(t),function(r){if(r){if(r.css===t.css&&r.media===t.media&&r.sourceMap===t.sourceMap)return;h(t=r)}else m()}}t.exports=function(t,r){(r=r||{}).singleton||"boolean"==typeof r.singleton||(r.singleton=i());var d=c(t=t||[],r);return function(t){if(t=t||[],"[object Array]"===Object.prototype.toString.call(t)){for(var h=0;h<d.length;h++){var m=s(d[h]);v[m].references--}for(var g=c(t,r),b=0;b<d.length;b++){var w=s(d[b]);0===v[w].references&&(v[w].updater(),v.splice(w,1))}d=g}}}},function(t,r,d){(r=d(3)(!1)).push([t.i,".cdx-list {\n    margin: 0;\n    padding-left: 40px;\n    outline: none;\n}\n\n    .cdx-list__item {\n        padding: 5.5px 0 5.5px 3px;\n        line-height: 1.6em;\n    }\n\n    .cdx-list--unordered {\n        list-style: disc;\n    }\n\n    .cdx-list--ordered {\n        list-style: decimal;\n    }\n\n    .cdx-list-settings {\n        display: flex;\n    }\n\n    .cdx-list-settings .cdx-settings-button {\n            width: 50%;\n        }\n",""]),t.exports=r},function(r,d,h){r.exports=function(r){var d=[];return d.toString=function(){return this.map((function(t){var d=function(t,r){var d=t[1]||"",h=t[3];if(!h)return d;if(r&&"function"==typeof btoa){var m=(g=h,b=btoa(unescape(encodeURIComponent(JSON.stringify(g)))),w="sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(b),"/*# ".concat(w," */")),v=h.sources.map((function(t){return"/*# sourceURL=".concat(h.sourceRoot||"").concat(t," */")}));return[d].concat(v).concat([m]).join("\n")}var g,b,w;return[d].join("\n")}(t,r);return t[2]?"@media ".concat(t[2]," {").concat(d,"}"):d})).join("")},d.i=function(r,h,m){"string"==typeof r&&(r=[[null,r,""]]);var v={};if(m)for(var g=0;g<(this||t).length;g++){var b=(this||t)[g][0];null!=b&&(v[b]=!0)}for(var w=0;w<r.length;w++){var k=[].concat(r[w]);m&&v[k[0]]||(h&&(k[2]?k[2]="".concat(h," and ").concat(k[2]):k[2]=h),d.push(k))}},d}},function(r,d,h){h.r(d),h.d(d,"default",(function(){return v}));h(0);const m='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="9" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 17H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 12H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 7H4.99002"/></svg>';function i(t){return function(t){if(Array.isArray(t))return o(t)}(t)||function(t){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(t))return Array.from(t)}(t)||function(t,r){if(t){if("string"==typeof t)return o(t,r);var d=Object.prototype.toString.call(t).slice(8,-1);"Object"===d&&t.constructor&&(d=t.constructor.name);return"Map"===d||"Set"===d?Array.from(t):"Arguments"===d||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(d)?o(t,r):void 0}}(t)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function o(t,r){(null==r||r>t.length)&&(r=t.length);for(var d=0,h=new Array(r);d<r;d++)h[d]=t[d];return h}function a(t,r){var d=Object.keys(t);if(Object.getOwnPropertySymbols){var h=Object.getOwnPropertySymbols(t);r&&(h=h.filter((function(r){return Object.getOwnPropertyDescriptor(t,r).enumerable}))),d.push.apply(d,h)}return d}function s(t){for(var r=1;r<arguments.length;r++){var d=null!=arguments[r]?arguments[r]:{};r%2?a(Object(d),!0).forEach((function(r){c(t,r,d[r])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(d)):a(Object(d)).forEach((function(r){Object.defineProperty(t,r,Object.getOwnPropertyDescriptor(d,r))}))}return t}function c(t,r,d){return r in t?Object.defineProperty(t,r,{value:d,enumerable:!0,configurable:!0,writable:!0}):t[r]=d,t}function l(t,r){for(var d=0;d<r.length;d++){var h=r[d];h.enumerable=h.enumerable||!1,h.configurable=!0,"value"in h&&(h.writable=!0),Object.defineProperty(t,h.key,h)}}function u(t,r,d){return r&&l(t.prototype,r),d&&l(t,d),t}var v=function(){function e(r){var d=r.data,h=r.config,v=r.api,g=r.readOnly;!function(t,r){if(!(t instanceof r))throw new TypeError("Cannot call a class as a function")}(this||t,e),(this||t)._elements={wrapper:null},(this||t).api=v,(this||t).readOnly=g,(this||t).settings=[{name:"unordered",label:(this||t).api.i18n.t("Unordered"),icon:m,default:"unordered"===h.defaultStyle||!1},{name:"ordered",label:(this||t).api.i18n.t("Ordered"),icon:'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="12" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7.79999 14L7.79999 7.2135C7.79999 7.12872 7.7011 7.0824 7.63597 7.13668L4.79999 9.5"/></svg>',default:"ordered"===h.defaultStyle||!0}],(this||t)._data={style:(this||t).settings.find((function(t){return!0===t.default})).name,items:[]},(this||t).data=d}return u(e,null,[{key:"isReadOnlySupported",get:function(){return!0}},{key:"enableLineBreaks",get:function(){return!0}},{key:"toolbox",get:function(){return{icon:m,title:"List"}}}]),u(e,[{key:"render",value:function(){var r=this||t;return(this||t)._elements.wrapper=this.makeMainTag((this||t)._data.style),(this||t)._data.items.length?(this||t)._data.items.forEach((function(t){r._elements.wrapper.appendChild(r._make("li",r.CSS.item,{innerHTML:t}))})):(this||t)._elements.wrapper.appendChild(this._make("li",(this||t).CSS.item)),(this||t).readOnly||(this||t)._elements.wrapper.addEventListener("keydown",(function(t){switch(t.keyCode){case 13:r.getOutofList(t);break;case 8:r.backspace(t)}}),!1),(this||t)._elements.wrapper}},{key:"save",value:function(){return(this||t).data}},{key:"renderSettings",value:function(){var r=this||t;return(this||t).settings.map((function(t){return s(s({},t),{},{isActive:r._data.style===t.name,closeOnActivate:!0,onActivate:function(){return r.toggleTune(t.name)}})}))}},{key:"onPaste",value:function(r){var d=r.detail.data;(this||t).data=this.pasteHandler(d)}},{key:"makeMainTag",value:function(r){var d="ordered"===r?(this||t).CSS.wrapperOrdered:(this||t).CSS.wrapperUnordered,h="ordered"===r?"ol":"ul";return this._make(h,[(this||t).CSS.baseBlock,(this||t).CSS.wrapper,d],{contentEditable:!(this||t).readOnly})}},{key:"toggleTune",value:function(r){for(var d=this.makeMainTag(r);(this||t)._elements.wrapper.hasChildNodes();)d.appendChild((this||t)._elements.wrapper.firstChild);(this||t)._elements.wrapper.replaceWith(d),(this||t)._elements.wrapper=d,(this||t)._data.style=r}},{key:"_make",value:function(t){var r,d=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null,h=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},m=document.createElement(t);Array.isArray(d)?(r=m.classList).add.apply(r,i(d)):d&&m.classList.add(d);for(var v in h)m[v]=h[v];return m}},{key:"getOutofList",value:function(r){var d=(this||t)._elements.wrapper.querySelectorAll("."+(this||t).CSS.item);if(!(d.length<2)){var h=d[d.length-1],m=(this||t).currentItem;m!==h||h.textContent.trim().length||(m.parentElement.removeChild(m),(this||t).api.blocks.insert(),(this||t).api.caret.setToBlock((this||t).api.blocks.getCurrentBlockIndex()),r.preventDefault(),r.stopPropagation())}}},{key:"backspace",value:function(r){var d=(this||t)._elements.wrapper.querySelectorAll("."+(this||t).CSS.item),h=d[0];h&&d.length<2&&!h.innerHTML.replace("<br>"," ").trim()&&r.preventDefault()}},{key:"selectItem",value:function(r){r.preventDefault();var d=window.getSelection(),h=d.anchorNode.parentNode.closest("."+(this||t).CSS.item),m=new Range;m.selectNodeContents(h),d.removeAllRanges(),d.addRange(m)}},{key:"pasteHandler",value:function(t){var r,d=t.tagName;switch(d){case"OL":r="ordered";break;case"UL":case"LI":r="unordered"}var h={style:r,items:[]};if("LI"===d)h.items=[t.innerHTML];else{var m=Array.from(t.querySelectorAll("LI"));h.items=m.map((function(t){return t.innerHTML})).filter((function(t){return!!t.trim()}))}return h}},{key:"CSS",get:function(){return{baseBlock:(this||t).api.styles.block,wrapper:"cdx-list",wrapperOrdered:"cdx-list--ordered",wrapperUnordered:"cdx-list--unordered",item:"cdx-list__item"}}},{key:"data",set:function(r){r||(r={}),(this||t)._data.style=r.style||(this||t).settings.find((function(t){return!0===t.default})).name,(this||t)._data.items=r.items||[];var d=(this||t)._elements.wrapper;d&&d.parentNode.replaceChild(this.render(),d)},get:function(){(this||t)._data.items=[];for(var r=(this||t)._elements.wrapper.querySelectorAll(".".concat((this||t).CSS.item)),d=0;d<r.length;d++)r[d].innerHTML.replace("<br>"," ").trim()&&(this||t)._data.items.push(r[d].innerHTML);return(this||t)._data}},{key:"currentItem",get:function(){var r=window.getSelection().anchorNode;return r.nodeType!==Node.ELEMENT_NODE&&(r=r.parentNode),r.closest(".".concat((this||t).CSS.item))}}],[{key:"conversionConfig",get:function(){return{export:function(t){return t.items.join(". ")},import:function(t){return{items:[t],style:"unordered"}}}}},{key:"sanitize",get:function(){return{style:{},items:{br:!0}}}},{key:"pasteConfig",get:function(){return{tags:["OL","UL","LI"]}}}]),e}()}]).default}));var d=r;const h=r.List;export{h as List,d as default};
+(function(){try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode(".cdx-list{margin:0;padding-left:40px;outline:none}.cdx-list__item{padding:5.5px 0 5.5px 3px;line-height:1.6em}.cdx-list--unordered{list-style:disc}.cdx-list--ordered{list-style:decimal}.cdx-list-settings{display:flex}.cdx-list-settings .cdx-settings-button{width:50%}")),document.head.appendChild(e)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();const e='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="9" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 17H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 12H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 7H4.99002"/></svg>',t='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="12" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7.79999 14L7.79999 7.2135C7.79999 7.12872 7.7011 7.0824 7.63597 7.13668L4.79999 9.5"/></svg>';class d{
+/**
+   * Notify core that read-only mode is supported
+   *
+   * @returns {boolean}
+   */
+static get isReadOnlySupported(){return!0}
+/**
+   * Allow to use native Enter behaviour
+   *
+   * @returns {boolean}
+   * @public
+   */static get enableLineBreaks(){return!0}
+/**
+   * Get Tool toolbox settings
+   * icon - Tool icon's SVG
+   * title - title to show in toolbox
+   *
+   * @returns {{icon: string, title: string}}
+   */static get toolbox(){return{icon:e,title:"List"}}
+/**
+   * Render plugin`s main Element and fill it with saved data
+   *
+   * @param {object} params - tool constructor options
+   * @param {ListData} params.data - previously saved data
+   * @param {object} params.config - user config for Tool
+   * @param {object} params.api - Editor.js API
+   * @param {boolean} params.readOnly - read-only mode flag
+   */constructor({data:r,config:s,api:i,readOnly:n}){this._elements={wrapper:null},this.api=i,this.readOnly=n,this.settings=[{name:"unordered",label:this.api.i18n.t("Unordered"),icon:e,default:s.defaultStyle==="unordered"||!1},{name:"ordered",label:this.api.i18n.t("Ordered"),icon:t,default:s.defaultStyle==="ordered"||!0}],this._data={style:this.settings.find((e=>e.default===!0)).name,items:[]},this.data=r
+/**
+   * Returns list tag with items
+   *
+   * @returns {Element}
+   * @public
+   */}render(){return this._elements.wrapper=this.makeMainTag(this._data.style),this._data.items.length?this._data.items.forEach((e=>{this._elements.wrapper.appendChild(this._make("li",this.CSS.item,{innerHTML:e}))})):this._elements.wrapper.appendChild(this._make("li",this.CSS.item)),this.readOnly||this._elements.wrapper.addEventListener("keydown",(e=>{const[t,r]=[13,8];switch(e.keyCode){case t:this.getOutofList(e);break;case r:this.backspace(e);break}}),!1),this._elements.wrapper
+/**
+   * @returns {ListData}
+   * @public
+   */}save(){return this.data}
+/**
+   * Allow List Tool to be converted to/from other block
+   *
+   * @returns {{export: Function, import: Function}}
+   */static get conversionConfig(){return{
+/**
+       * To create exported string from list, concatenate items by dot-symbol.
+       *
+       * @param {ListData} data - list data to create a string from thats
+       * @returns {string}
+       */
+export:e=>e.items.join(". ")
+/**
+       * To create a list from other block's string, just put it at the first item
+       *
+       * @param {string} string - string to create list tool data from that
+       * @returns {ListData}
+       */,import:e=>({items:[e],style:"unordered"})}}
+/**
+   * Sanitizer rules
+   *
+   * @returns {object}
+   */static get sanitize(){return{style:{},items:{br:!0}}}
+/**
+   * Settings
+   *
+   * @public
+   * @returns {Array}
+   */renderSettings(){return this.settings.map((e=>({...e,isActive:this._data.style===e.name,closeOnActivate:!0,onActivate:()=>this.toggleTune(e.name)})))}
+/**
+   * On paste callback that is fired from Editor
+   *
+   * @param {PasteEvent} event - event with pasted data
+   */onPaste(e){const t=e.detail.data;this.data=this.pasteHandler(t)}static get pasteConfig(){return{tags:["OL","UL","LI"]}}
+/**
+   * Creates main <ul> or <ol> tag depended on style
+   *
+   * @param {string} style - 'ordered' or 'unordered'
+   * @returns {HTMLOListElement|HTMLUListElement}
+   */makeMainTag(e){const t=e==="ordered"?this.CSS.wrapperOrdered:this.CSS.wrapperUnordered,r=e==="ordered"?"ol":"ul";return this._make(r,[this.CSS.baseBlock,this.CSS.wrapper,t],{contentEditable:!this.readOnly})}
+/**
+   * Toggles List style
+   *
+   * @param {string} style - 'ordered'|'unordered'
+   */toggleTune(e){const t=this.makeMainTag(e);for(;this._elements.wrapper.hasChildNodes();)t.appendChild(this._elements.wrapper.firstChild);this._elements.wrapper.replaceWith(t),this._elements.wrapper=t,this._data.style=e}get CSS(){return{baseBlock:this.api.styles.block,wrapper:"cdx-list",wrapperOrdered:"cdx-list--ordered",wrapperUnordered:"cdx-list--unordered",item:"cdx-list__item"}}
+/**
+   * List data setter
+   *
+   * @param {ListData} listData
+   */set data(e){e||(e={}),this._data.style=e.style||this.settings.find((e=>e.default===!0)).name,this._data.items=e.items||[];const t=this._elements.wrapper;t&&t.parentNode.replaceChild(this.render(),t)}
+/**
+   * Return List data
+   *
+   * @returns {ListData}
+   */get data(){this._data.items=[];const e=this._elements.wrapper.querySelectorAll(`.${this.CSS.item}`);for(let t=0;t<e.length;t++)e[t].innerHTML.replace("<br>"," ").trim()&&this._data.items.push(e[t].innerHTML);return this._data}
+/**
+   * Helper for making Elements with attributes
+   *
+   * @param  {string} tagName           - new Element tag name
+   * @param  {Array|string} classNames  - list or name of CSS classname(s)
+   * @param  {object} attributes        - any attributes
+   * @returns {Element}
+   */_make(e,t=null,r={}){const s=document.createElement(e);Array.isArray(t)?s.classList.add(...t):t&&s.classList.add(t);for(const e in r)s[e]=r[e];return s}
+/**
+   * Returns current List item by the caret position
+   *
+   * @returns {Element}
+   */get currentItem(){let e=window.getSelection().anchorNode;return e.nodeType!==Node.ELEMENT_NODE&&(e=e.parentNode),e.closest(`.${this.CSS.item}`)
+/**
+   * Get out from List Tool
+   * by Enter on the empty last item
+   *
+   * @param {KeyboardEvent} event
+   */}getOutofList(e){const t=this._elements.wrapper.querySelectorAll("."+this.CSS.item);if(t.length<2)return;const r=t[t.length-1],s=this.currentItem;s===r&&!r.textContent.trim().length&&(s.parentElement.removeChild(s),this.api.blocks.insert(),this.api.caret.setToBlock(this.api.blocks.getCurrentBlockIndex()),e.preventDefault(),e.stopPropagation())}
+/**
+   * Handle backspace
+   *
+   * @param {KeyboardEvent} event
+   */backspace(e){const t=this._elements.wrapper.querySelectorAll("."+this.CSS.item),r=t[0];r&&t.length<2&&!r.innerHTML.replace("<br>"," ").trim()&&e.preventDefault()}
+/**
+   * Select LI content by CMD+A
+   *
+   * @param {KeyboardEvent} event
+   */selectItem(e){e.preventDefault();const t=window.getSelection(),r=t.anchorNode.parentNode,s=r.closest("."+this.CSS.item),i=new Range;i.selectNodeContents(s),t.removeAllRanges(),t.addRange(i)
+/**
+   * Handle UL, OL and LI tags paste and returns List data
+   *
+   * @param {HTMLUListElement|HTMLOListElement|HTMLLIElement} element
+   * @returns {ListData}
+   */}pasteHandler(e){const{tagName:t}=e;let r;switch(t){case"OL":r="ordered";break;case"UL":case"LI":r="unordered"}const s={style:r,items:[]};if(t==="LI")s.items=[e.innerHTML];else{const t=Array.from(e.querySelectorAll("LI"));s.items=t.map((e=>e.innerHTML)).filter((e=>!!e.trim()))}return s}}export{d as default};
 

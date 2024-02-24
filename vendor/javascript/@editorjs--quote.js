@@ -1,2 +1,110 @@
-var e="undefined"!==typeof globalThis?globalThis:"undefined"!==typeof self?self:global;var a={};!function(e,s){a=s()}(window,(function(){return function(e){var a={};function n(s){if(a[s])return a[s].exports;var c=a[s]={i:s,l:!1,exports:{}};return e[s].call(c.exports,c,c.exports,n),c.l=!0,c.exports}return n.m=e,n.c=a,n.d=function(e,a,s){n.o(e,a)||Object.defineProperty(e,a,{enumerable:!0,get:s})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,a){if(1&a&&(e=n(e)),8&a)return e;if(4&a&&"object"==typeof e&&e&&e.__esModule)return e;var s=Object.create(null);if(n.r(s),Object.defineProperty(s,"default",{enumerable:!0,value:e}),2&a&&"string"!=typeof e)for(var c in e)n.d(s,c,function(a){return e[a]}.bind(null,c));return s},n.n=function(e){var a=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(a,"a",a),a},n.o=function(e,a){return Object.prototype.hasOwnProperty.call(e,a)},n.p="/",n(n.s=5)}([function(e,a,s){var c=s(1);"string"==typeof c&&(c=[[e.i,c,""]]);var u={hmr:!0,transform:void 0,insertInto:void 0};s(3)(c,u);c.locals&&(e.exports=c.locals)},function(e,a,s){(e.exports=s(2)(!1)).push([e.i,".cdx-quote-icon svg {\n  transform: rotate(180deg);\n}\n\n.cdx-quote {\n  margin: 0;\n}\n\n.cdx-quote__text {\n  min-height: 158px;\n  margin-bottom: 10px;\n}\n\n.cdx-quote__caption {}\n\n.cdx-quote [contentEditable=true][data-placeholder]::before{\n  position: absolute;\n  content: attr(data-placeholder);\n  color: #707684;\n  font-weight: normal;\n  opacity: 0;\n}\n\n.cdx-quote [contentEditable=true][data-placeholder]:empty::before {\n  opacity: 1;\n}\n\n.cdx-quote [contentEditable=true][data-placeholder]:empty:focus::before {\n  opacity: 0;\n}\n\n\n.cdx-quote-settings {\n  display: flex;\n}\n\n.cdx-quote-settings .cdx-settings-button {\n  width: 50%;\n}\n",""])},function(a,s){a.exports=function(a){var s=[];return s.toString=function(){return this.map((function(e){var s=function(e,a){var s=e[1]||"",c=e[3];if(!c)return s;if(a&&"function"==typeof btoa){var u=(f=c,"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(f))))+" */"),l=c.sources.map((function(e){return"/*# sourceURL="+c.sourceRoot+e+" */"}));return[s].concat(l).concat([u]).join("\n")}var f;return[s].join("\n")}(e,a);return e[2]?"@media "+e[2]+"{"+s+"}":s})).join("")},s.i=function(a,c){"string"==typeof a&&(a=[[null,a,""]]);for(var u={},l=0;l<(this||e).length;l++){var f=(this||e)[l][0];"number"==typeof f&&(u[f]=!0)}for(l=0;l<a.length;l++){var m=a[l];"number"==typeof m[0]&&u[m[0]]||(c&&!m[2]?m[2]=c:c&&(m[2]="("+m[2]+") and ("+c+")"),s.push(m))}},s}},function(a,s,c){var u,l,f={},m=(u=function(){return window&&document&&document.all&&!window.atob},function(){return void 0===l&&(l=u.apply(this||e,arguments)),l}),w=function(a){var s={};return function(a){if("function"==typeof a)return a();if(void 0===s[a]){var c=function(e){return document.querySelector(e)}.call(this||e,a);if(window.HTMLIFrameElement&&c instanceof window.HTMLIFrameElement)try{c=c.contentDocument.head}catch(a){c=null}s[a]=c}return s[a]}}(),C=null,k=0,L=[],S=c(4);function d(e,a){for(var s=0;s<e.length;s++){var c=e[s],u=f[c.id];if(u){u.refs++;for(var l=0;l<u.parts.length;l++)u.parts[l](c.parts[l]);for(;l<c.parts.length;l++)u.parts.push(b(c.parts[l],a))}else{var m=[];for(l=0;l<c.parts.length;l++)m.push(b(c.parts[l],a));f[c.id]={id:c.id,refs:1,parts:m}}}}function p(e,a){for(var s=[],c={},u=0;u<e.length;u++){var l=e[u],f=a.base?l[0]+a.base:l[0],m={css:l[1],media:l[2],sourceMap:l[3]};c[f]?c[f].parts.push(m):s.push(c[f]={id:f,parts:[m]})}return s}function h(e,a){var s=w(e.insertInto);if(!s)throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");var c=L[L.length-1];if("top"===e.insertAt)c?c.nextSibling?s.insertBefore(a,c.nextSibling):s.appendChild(a):s.insertBefore(a,s.firstChild),L.push(a);else if("bottom"===e.insertAt)s.appendChild(a);else{if("object"!=typeof e.insertAt||!e.insertAt.before)throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");var u=w(e.insertInto+" "+e.insertAt.before);s.insertBefore(a,u)}}function v(e){if(null===e.parentNode)return!1;e.parentNode.removeChild(e);var a=L.indexOf(e);a>=0&&L.splice(a,1)}function y(e){var a=document.createElement("style");return void 0===e.attrs.type&&(e.attrs.type="text/css"),g(a,e.attrs),h(e,a),a}function g(e,a){Object.keys(a).forEach((function(s){e.setAttribute(s,a[s])}))}function b(e,a){var s,c,u,l;if(a.transform&&e.css){if(!(l=a.transform(e.css)))return function(){};e.css=l}if(a.singleton){var f=k++;s=C||(C=y(a)),c=x.bind(null,s,f,!1),u=x.bind(null,s,f,!0)}else e.sourceMap&&"function"==typeof URL&&"function"==typeof URL.createObjectURL&&"function"==typeof URL.revokeObjectURL&&"function"==typeof Blob&&"function"==typeof btoa?(s=function(e){var a=document.createElement("link");return void 0===e.attrs.type&&(e.attrs.type="text/css"),e.attrs.rel="stylesheet",g(a,e.attrs),h(e,a),a}(a),c=function(e,a,s){var c=s.css,u=s.sourceMap,l=void 0===a.convertToAbsoluteUrls&&u;(a.convertToAbsoluteUrls||l)&&(c=S(c));u&&(c+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(u))))+" */");var f=new Blob([c],{type:"text/css"}),m=e.href;e.href=URL.createObjectURL(f),m&&URL.revokeObjectURL(m)}.bind(null,s,a),u=function(){v(s),s.href&&URL.revokeObjectURL(s.href)}):(s=y(a),c=function(e,a){var s=a.css,c=a.media;c&&e.setAttribute("media",c);if(e.styleSheet)e.styleSheet.cssText=s;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(s))}}.bind(null,s),u=function(){v(s)});return c(e),function(a){if(a){if(a.css===e.css&&a.media===e.media&&a.sourceMap===e.sourceMap)return;c(e=a)}else u()}}a.exports=function(e,a){if("undefined"!=typeof DEBUG&&DEBUG&&"object"!=typeof document)throw new Error("The style-loader cannot be used in a non-browser environment");(a=a||{}).attrs="object"==typeof a.attrs?a.attrs:{},a.singleton||"boolean"==typeof a.singleton||(a.singleton=m()),a.insertInto||(a.insertInto="head"),a.insertAt||(a.insertAt="bottom");var s=p(e,a);return d(s,a),function(e){for(var c=[],u=0;u<s.length;u++){var l=s[u];(m=f[l.id]).refs--,c.push(m)}e&&d(p(e,a),a);for(u=0;u<c.length;u++){var m;if(0===(m=c[u]).refs){for(var w=0;w<m.parts.length;w++)m.parts[w]();delete f[m.id]}}}};var A,E=(A=[],function(e,a){return A[e]=a,A.filter(Boolean).join("\n")});function x(e,a,s,c){var u=s?"":c.css;if(e.styleSheet)e.styleSheet.cssText=E(a,u);else{var l=document.createTextNode(u),f=e.childNodes;f[a]&&e.removeChild(f[a]),f.length?e.insertBefore(l,f[a]):e.appendChild(l)}}},function(e,a){e.exports=function(e){var a="undefined"!=typeof window&&window.location;if(!a)throw new Error("fixUrls requires window.location");if(!e||"string"!=typeof e)return e;var s=a.protocol+"//"+a.host,c=s+a.pathname.replace(/\/[^\/]*$/,"/");return e.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi,(function(e,a){var u,l=a.trim().replace(/^"(.*)"$/,(function(e,a){return a})).replace(/^'(.*)'$/,(function(e,a){return a}));return/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(l)?e:(u=0===l.indexOf("//")?l:0===l.indexOf("/")?s+l:c+l.replace(/^\.\//,""),"url("+JSON.stringify(u)+")")}))}},function(a,s,c){c.r(s);c(0);function r(e){return function(e){if(Array.isArray(e)){for(var a=0,s=new Array(e.length);a<e.length;a++)s[a]=e[a];return s}}(e)||function(e){if(Symbol.iterator in Object(e)||"[object Arguments]"===Object.prototype.toString.call(e))return Array.from(e)}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance")}()}function o(e,a){for(var s=0;s<a.length;s++){var c=a[s];c.enumerable=c.enumerable||!1,c.configurable=!0,"value"in c&&(c.writable=!0),Object.defineProperty(e,c.key,c)}}function i(e,a,s){return a&&o(e.prototype,a),s&&o(e,s),e}c.d(s,"default",(function(){return u}));var u=function(){function t(a){var s=a.data,c=a.config,u=a.api,l=a.readOnly;!function(e,a){if(!(e instanceof a))throw new TypeError("Cannot call a class as a function")}(this||e,t);var f=t.ALIGNMENTS,m=t.DEFAULT_ALIGNMENT;(this||e).api=u,(this||e).readOnly=l,(this||e).quotePlaceholder=c.quotePlaceholder||t.DEFAULT_QUOTE_PLACEHOLDER,(this||e).captionPlaceholder=c.captionPlaceholder||t.DEFAULT_CAPTION_PLACEHOLDER,(this||e).data={text:s.text||"",caption:s.caption||"",alignment:Object.values(f).includes(s.alignment)&&s.alignment||c.defaultAlignment||m}}return i(t,[{key:"CSS",get:function(){return{baseClass:(this||e).api.styles.block,wrapper:"cdx-quote",text:"cdx-quote__text",input:(this||e).api.styles.input,caption:"cdx-quote__caption"}}},{key:"settings",get:function(){return[{name:"left",icon:'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M17 7L5 7"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M17 17H5"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M13 12L5 12"/></svg>'},{name:"center",icon:'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18 7L6 7"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18 17H6"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16 12L8 12"/></svg>'}]}}],[{key:"isReadOnlySupported",get:function(){return!0}},{key:"toolbox",get:function(){return{icon:'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 10.8182L9 10.8182C8.80222 10.8182 8.60888 10.7649 8.44443 10.665C8.27998 10.5651 8.15181 10.4231 8.07612 10.257C8.00043 10.0909 7.98063 9.90808 8.01922 9.73174C8.0578 9.55539 8.15304 9.39341 8.29289 9.26627C8.43275 9.13913 8.61093 9.05255 8.80491 9.01747C8.99889 8.98239 9.19996 9.00039 9.38268 9.0692C9.56541 9.13801 9.72159 9.25453 9.83147 9.40403C9.94135 9.55353 10 9.72929 10 9.90909L10 12.1818C10 12.664 9.78929 13.1265 9.41421 13.4675C9.03914 13.8084 8.53043 14 8 14"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 10.8182L15 10.8182C14.8022 10.8182 14.6089 10.7649 14.4444 10.665C14.28 10.5651 14.1518 10.4231 14.0761 10.257C14.0004 10.0909 13.9806 9.90808 14.0192 9.73174C14.0578 9.55539 14.153 9.39341 14.2929 9.26627C14.4327 9.13913 14.6109 9.05255 14.8049 9.01747C14.9989 8.98239 15.2 9.00039 15.3827 9.0692C15.5654 9.13801 15.7216 9.25453 15.8315 9.40403C15.9414 9.55353 16 9.72929 16 9.90909L16 12.1818C16 12.664 15.7893 13.1265 15.4142 13.4675C15.0391 13.8084 14.5304 14 14 14"/></svg>',title:"Quote"}}},{key:"contentless",get:function(){return!0}},{key:"enableLineBreaks",get:function(){return!0}},{key:"DEFAULT_QUOTE_PLACEHOLDER",get:function(){return"Enter a quote"}},{key:"DEFAULT_CAPTION_PLACEHOLDER",get:function(){return"Enter a caption"}},{key:"ALIGNMENTS",get:function(){return{left:"left",center:"center"}}},{key:"DEFAULT_ALIGNMENT",get:function(){return t.ALIGNMENTS.left}},{key:"conversionConfig",get:function(){return{import:"text",export:function(e){return e.caption?"".concat(e.text," — ").concat(e.caption):e.text}}}}]),i(t,[{key:"render",value:function(){var a=this._make("blockquote",[(this||e).CSS.baseClass,(this||e).CSS.wrapper]),s=this._make("div",[(this||e).CSS.input,(this||e).CSS.text],{contentEditable:!(this||e).readOnly,innerHTML:(this||e).data.text}),c=this._make("div",[(this||e).CSS.input,(this||e).CSS.caption],{contentEditable:!(this||e).readOnly,innerHTML:(this||e).data.caption});return s.dataset.placeholder=(this||e).quotePlaceholder,c.dataset.placeholder=(this||e).captionPlaceholder,a.appendChild(s),a.appendChild(c),a}},{key:"save",value:function(a){var s=a.querySelector(".".concat((this||e).CSS.text)),c=a.querySelector(".".concat((this||e).CSS.caption));return Object.assign((this||e).data,{text:s.innerHTML,caption:c.innerHTML})}},{key:"renderSettings",value:function(){var a=this||e;return(this||e).settings.map((function(e){return{icon:e.icon,label:a.api.i18n.t("Align ".concat((s=e.name,s[0].toUpperCase()+s.substr(1)))),onActivate:function(){return a._toggleTune(e.name)},isActive:a.data.alignment===e.name,closeOnActivate:!0};var s}))}},{key:"_toggleTune",value:function(a){(this||e).data.alignment=a}},{key:"_make",value:function(e){var a,s=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null,c=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},u=document.createElement(e);Array.isArray(s)?(a=u.classList).add.apply(a,r(s)):s&&u.classList.add(s);for(var l in c)u[l]=c[l];return u}}],[{key:"sanitize",get:function(){return{text:{br:!0},caption:{br:!0},alignment:{}}}}]),t}()}]).default}));var s=a;const c=a.Quote;export{c as Quote,s as default};
+(function(){try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode(".cdx-quote-icon svg{transform:rotate(180deg)}.cdx-quote{margin:0}.cdx-quote__text{min-height:158px;margin-bottom:10px}.cdx-quote [contentEditable=true][data-placeholder]:before{position:absolute;content:attr(data-placeholder);color:#707684;font-weight:400;opacity:0}.cdx-quote [contentEditable=true][data-placeholder]:empty:before{opacity:1}.cdx-quote [contentEditable=true][data-placeholder]:empty:focus:before{opacity:0}.cdx-quote-settings{display:flex}.cdx-quote-settings .cdx-settings-button{width:50%}")),document.head.appendChild(e)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();const e='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18 7L6 7"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18 17H6"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16 12L8 12"/></svg>',n='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M17 7L5 7"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M17 17H5"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M13 12L5 12"/></svg>',o='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 10.8182L9 10.8182C8.80222 10.8182 8.60888 10.7649 8.44443 10.665C8.27998 10.5651 8.15181 10.4231 8.07612 10.257C8.00043 10.0909 7.98063 9.90808 8.01922 9.73174C8.0578 9.55539 8.15304 9.39341 8.29289 9.26627C8.43275 9.13913 8.61093 9.05255 8.80491 9.01747C8.99889 8.98239 9.19996 9.00039 9.38268 9.0692C9.56541 9.13801 9.72159 9.25453 9.83147 9.40403C9.94135 9.55353 10 9.72929 10 9.90909L10 12.1818C10 12.664 9.78929 13.1265 9.41421 13.4675C9.03914 13.8084 8.53043 14 8 14"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 10.8182L15 10.8182C14.8022 10.8182 14.6089 10.7649 14.4444 10.665C14.28 10.5651 14.1518 10.4231 14.0761 10.257C14.0004 10.0909 13.9806 9.90808 14.0192 9.73174C14.0578 9.55539 14.153 9.39341 14.2929 9.26627C14.4327 9.13913 14.6109 9.05255 14.8049 9.01747C14.9989 8.98239 15.2 9.00039 15.3827 9.0692C15.5654 9.13801 15.7216 9.25453 15.8315 9.40403C15.9414 9.55353 16 9.72929 16 9.90909L16 12.1818C16 12.664 15.7893 13.1265 15.4142 13.4675C15.0391 13.8084 14.5304 14 14 14"/></svg>';class i{
+/**
+   * Notify core that read-only mode is supported
+   *
+   * @returns {boolean}
+   */
+static get isReadOnlySupported(){return!0}
+/**
+   * Get Tool toolbox settings
+   * icon - Tool icon's SVG
+   * title - title to show in toolbox
+   *
+   * @returns {{icon: string, title: string}}
+   */static get toolbox(){return{icon:o,title:"Quote"}}
+/**
+   * Empty Quote is not empty Block
+   *
+   * @public
+   * @returns {boolean}
+   */static get contentless(){return!0}
+/**
+   * Allow to press Enter inside the Quote
+   *
+   * @public
+   * @returns {boolean}
+   */static get enableLineBreaks(){return!0}
+/**
+   * Default placeholder for quote text
+   *
+   * @public
+   * @returns {string}
+   */static get DEFAULT_QUOTE_PLACEHOLDER(){return"Enter a quote"}
+/**
+   * Default placeholder for quote caption
+   *
+   * @public
+   * @returns {string}
+   */static get DEFAULT_CAPTION_PLACEHOLDER(){return"Enter a caption"}
+/**
+   * Allowed quote alignments
+   *
+   * @public
+   * @returns {{left: string, center: string}}
+   */static get ALIGNMENTS(){return{left:"left",center:"center"}}
+/**
+   * Default quote alignment
+   *
+   * @public
+   * @returns {string}
+   */static get DEFAULT_ALIGNMENT(){return i.ALIGNMENTS.left}static get conversionConfig(){return{import:"text",
+/**
+       * To create string from Quote data, concatenate text and caption
+       *
+       * @param {QuoteData} quoteData
+       * @returns {string}
+       */
+export:function(e){return e.caption?`${e.text} — ${e.caption}`:e.text}}}
+/**
+   * Tool`s styles
+   *
+   * @returns {{baseClass: string, wrapper: string, quote: string, input: string, caption: string}}
+   */get CSS(){return{baseClass:this.api.styles.block,wrapper:"cdx-quote",text:"cdx-quote__text",input:this.api.styles.input,caption:"cdx-quote__caption"}}
+/**
+   * Tool`s settings properties
+   *
+   * @returns {*[]}
+   */get settings(){return[{name:"left",icon:n},{name:"center",icon:e}]}
+/**
+   * Render plugin`s main Element and fill it with saved data
+   *
+   * @param {{data: QuoteData, config: QuoteConfig, api: object}}
+   *   data — previously saved data
+   *   config - user config for Tool
+   *   api - Editor.js API
+   *   readOnly - read-only mode flag
+   */constructor({data:e,config:n,api:o,readOnly:r}){const{ALIGNMENTS:a,DEFAULT_ALIGNMENT:s}=i;this.api=o,this.readOnly=r,this.quotePlaceholder=n.quotePlaceholder||i.DEFAULT_QUOTE_PLACEHOLDER,this.captionPlaceholder=n.captionPlaceholder||i.DEFAULT_CAPTION_PLACEHOLDER,this.data={text:e.text||"",caption:e.caption||"",alignment:Object.values(a).includes(e.alignment)&&e.alignment||n.defaultAlignment||s}
+/**
+   * Create Quote Tool container with inputs
+   *
+   * @returns {Element}
+   */}render(){const e=this._make("blockquote",[this.CSS.baseClass,this.CSS.wrapper]),n=this._make("div",[this.CSS.input,this.CSS.text],{contentEditable:!this.readOnly,innerHTML:this.data.text}),o=this._make("div",[this.CSS.input,this.CSS.caption],{contentEditable:!this.readOnly,innerHTML:this.data.caption});return n.dataset.placeholder=this.quotePlaceholder,o.dataset.placeholder=this.captionPlaceholder,e.appendChild(n),e.appendChild(o),e
+/**
+   * Extract Quote data from Quote Tool element
+   *
+   * @param {HTMLDivElement} quoteElement - element to save
+   * @returns {QuoteData}
+   */}save(e){const n=e.querySelector(`.${this.CSS.text}`),o=e.querySelector(`.${this.CSS.caption}`);return Object.assign(this.data,{text:n.innerHTML,caption:o.innerHTML})}static get sanitize(){return{text:{br:!0},caption:{br:!0},alignment:{}}}
+/**
+   * Create wrapper for Tool`s settings buttons:
+   * 1. Left alignment
+   * 2. Center alignment
+   *
+   * @returns {TunesMenuConfig}
+   *
+   */renderSettings(){const t=e=>e[0].toUpperCase()+e.substr(1);return this.settings.map((e=>({icon:e.icon,label:this.api.i18n.t(`Align ${t(e.name)}`),onActivate:()=>this._toggleTune(e.name),isActive:this.data.alignment===e.name,closeOnActivate:!0})))}
+/**
+   * Toggle quote`s alignment
+   *
+   * @param {string} tune - alignment
+   * @private
+   */_toggleTune(e){this.data.alignment=e}
+/**
+   * Helper for making Elements with attributes
+   *
+   * @param  {string} tagName           - new Element tag name
+   * @param  {Array|string} classNames  - list or name of CSS classname(s)
+   * @param  {object} attributes        - any attributes
+   * @returns {Element}
+   */_make(e,n=null,o={}){const r=document.createElement(e);Array.isArray(n)?r.classList.add(...n):n&&r.classList.add(n);for(const e in o)r[e]=o[e];return r}}export{i as default};
 

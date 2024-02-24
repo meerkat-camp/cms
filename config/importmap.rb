@@ -19,5 +19,5 @@ pin '@editorjs/table', to: '@editorjs--table.js' # @2.2.2
 pin '@editorjs/inline-code', to: '@editorjs--inline-code.js' # @1.4.0
 pin '@editorjs/header', to: '@editorjs--header.js' # @2.7.0
 pin '@editorjs/image', to: '@editorjs--image.js' # @2.8.1
-pin "@editorjs/code", to: "@editorjs--code.js" # @2.8.0
-pin "@editorjs/embed", to: "@editorjs--embed.js" # @2.5.3
+pin "@editorjs/code", to: "@editorjs--code.js" # @2.9.0
+pin "@editorjs/embed", to: "@editorjs--embed.js" # @2.7.0

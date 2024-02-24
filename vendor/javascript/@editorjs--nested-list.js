@@ -1,2 +1,212 @@
-var r="undefined"!==typeof globalThis?globalThis:"undefined"!==typeof self?self:global;var c={};!function(r,p){c=p()}(self,(function(){return(()=>{var c={384:(r,c,p)=>{p.d(c,{Z:()=>S});var m=p(645),g=p.n(m)()((function(r){return r[1]}));g.push([r.id,'.cdx-nested-list {\n  margin: 0;\n  padding: 0;\n  outline: none;\n  counter-reset: item;\n  list-style: none;\n}\n\n  .cdx-nested-list__item {\n    line-height: 1.6em;\n    display: flex;\n    margin: 2px 0;\n  }\n\n  .cdx-nested-list__item [contenteditable]{\n      outline: none;\n    }\n\n  .cdx-nested-list__item-body {\n      flex-grow: 2;\n    }\n\n  .cdx-nested-list__item-content,\n    .cdx-nested-list__item-children {\n      flex-basis: 100%;\n    }\n\n  .cdx-nested-list__item-content {\n      word-break: break-word;\n      white-space: pre-wrap;\n    }\n\n  .cdx-nested-list__item-children {}\n\n  .cdx-nested-list__item::before {\n      counter-increment: item;\n      margin-right: 5px;\n      white-space: nowrap;\n    }\n\n  .cdx-nested-list--ordered > .cdx-nested-list__item::before {\n    content: counters(item, ".") ". ";\n  }\n\n  .cdx-nested-list--unordered > .cdx-nested-list__item::before {\n    content: "•";\n  }\n\n  .cdx-nested-list__settings {\n    display: flex;\n  }\n\n  .cdx-nested-list__settings .cdx-settings-button {\n      width: 50%;\n    }\n',""]);const S=g},645:c=>{c.exports=function(c){var p=[];return p.toString=function(){return this.map((function(r){var p=c(r);return r[2]?"@media ".concat(r[2]," {").concat(p,"}"):p})).join("")},p.i=function(c,m,g){"string"==typeof c&&(c=[[null,c,""]]);var S={};if(g)for(var v=0;v<(this||r).length;v++){var C=(this||r)[v][0];null!=C&&(S[C]=!0)}for(var y=0;y<c.length;y++){var w=[].concat(c[y]);g&&S[w[0]]||(m&&(w[2]?w[2]="".concat(m," and ").concat(w[2]):w[2]=m),p.push(w))}},p}},379:(r,c,p)=>{var m,g=function(){var r={};return function(c){if(void 0===r[c]){var p=document.querySelector(c);if(window.HTMLIFrameElement&&p instanceof window.HTMLIFrameElement)try{p=p.contentDocument.head}catch(r){p=null}r[c]=p}return r[c]}}(),S=[];function o(r){for(var c=-1,p=0;p<S.length;p++)if(S[p].identifier===r){c=p;break}return c}function a(r,c){for(var p={},m=[],g=0;g<r.length;g++){var v=r[g],C=c.base?v[0]+c.base:v[0],y=p[C]||0,w="".concat(C," ").concat(y);p[C]=y+1;var b=o(w),x={css:v[1],media:v[2],sourceMap:v[3]};-1!==b?(S[b].references++,S[b].updater(x)):S.push({identifier:w,updater:f(x,c),references:1}),m.push(w)}return m}function d(r){var c=document.createElement("style"),m=r.attributes||{};if(void 0===m.nonce){var S=p.nc;S&&(m.nonce=S)}if(Object.keys(m).forEach((function(r){c.setAttribute(r,m[r])})),"function"==typeof r.insert)r.insert(c);else{var v=g(r.insert||"head");if(!v)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");v.appendChild(c)}return c}var v,C=(v=[],function(r,c){return v[r]=c,v.filter(Boolean).join("\n")});function u(r,c,p,m){var g=p?"":m.media?"@media ".concat(m.media," {").concat(m.css,"}"):m.css;if(r.styleSheet)r.styleSheet.cssText=C(c,g);else{var S=document.createTextNode(g),v=r.childNodes;v[c]&&r.removeChild(v[c]),v.length?r.insertBefore(S,v[c]):r.appendChild(S)}}function h(r,c,p){var m=p.css,g=p.media,S=p.sourceMap;if(g?r.setAttribute("media",g):r.removeAttribute("media"),S&&"undefined"!=typeof btoa&&(m+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(S))))," */")),r.styleSheet)r.styleSheet.cssText=m;else{for(;r.firstChild;)r.removeChild(r.firstChild);r.appendChild(document.createTextNode(m))}}var y=null,w=0;function f(r,c){var p,m,g;if(c.singleton){var S=w++;p=y||(y=d(c)),m=u.bind(null,p,S,!1),g=u.bind(null,p,S,!0)}else p=d(c),m=h.bind(null,p,c),g=function(){!function(r){if(null===r.parentNode)return!1;r.parentNode.removeChild(r)}(p)};return m(r),function(c){if(c){if(c.css===r.css&&c.media===r.media&&c.sourceMap===r.sourceMap)return;m(r=c)}else g()}}r.exports=function(r,c){(c=c||{}).singleton||"boolean"==typeof c.singleton||(c.singleton=(void 0===m&&(m=Boolean(window&&document&&document.all&&!window.atob)),m));var p=a(r=r||[],c);return function(r){if(r=r||[],"[object Array]"===Object.prototype.toString.call(r)){for(var m=0;m<p.length;m++){var g=o(p[m]);S[g].references--}for(var v=a(r,c),C=0;C<p.length;C++){var y=o(p[C]);0===S[y].references&&(S[y].updater(),S.splice(y,1))}p=v}}}}},p={};function n(r){var m=p[r];if(void 0!==m)return m.exports;var g=p[r]={id:r,exports:{}};return c[r](g,g.exports,n),g.exports}n.n=r=>{var c=r&&r.__esModule?()=>r.default:()=>r;return n.d(c,{a:c}),c},n.d=(r,c)=>{for(var p in c)n.o(c,p)&&!n.o(r,p)&&Object.defineProperty(r,p,{enumerable:!0,get:c[p]})},n.o=(r,c)=>Object.prototype.hasOwnProperty.call(r,c);var m={};return(()=>{function e(r,c=null,p={}){const m=document.createElement(r);Array.isArray(c)?m.classList.add(...c):c&&m.classList.add(c);for(const r in p)m[r]=p[r];return m}function t(r){const c=e("div");return c.appendChild(r),c.innerHTML}function i(r){let c;return r.nodeType!==Node.ELEMENT_NODE?c=r.textContent:(c=r.innerHTML,c=c.replaceAll("<br>","")),0===c.trim().length}n.d(m,{default:()=>l});class s{constructor(){this.savedFakeCaret=void 0}save(){const r=s.range,c=e("span");c.hidden=!0,r.insertNode(c),this.savedFakeCaret=c}restore(){if(!this.savedFakeCaret)return;const r=window.getSelection(),c=new Range;c.setStartAfter(this.savedFakeCaret),c.setEndAfter(this.savedFakeCaret),r.removeAllRanges(),r.addRange(c),setTimeout((()=>{this.savedFakeCaret.remove()}),150)}static get range(){const r=window.getSelection();return r&&r.rangeCount?r.getRangeAt(0):null}static extractFragmentFromCaretPositionTillTheEnd(){const r=window.getSelection();if(!r.rangeCount)return;const c=r.getRangeAt(0);let p=c.startContainer;p.nodeType!==Node.ELEMENT_NODE&&(p=p.parentNode);const m=p.closest("[contenteditable]");c.deleteContents();const g=c.cloneRange();return g.selectNodeContents(m),g.setStart(c.endContainer,c.endOffset),g.extractContents()}static focus(r,c=!0){const p=document.createRange(),m=window.getSelection();p.selectNodeContents(r),p.collapse(c),m.removeAllRanges(),m.addRange(p)}static isAtStart(){const r=window.getSelection();if(r.focusOffset>0)return!1;const c=r.focusNode;return s.getHigherLevelSiblings(c,"left").every((r=>i(r)))}static getHigherLevelSiblings(r,c="left"){let p=r;const m=[];for(;p.parentNode&&"true"!==p.parentNode.contentEditable;)p=p.parentNode;const g="left"===c?"previousSibling":"nextSibling";for(;p[g];)p=p[g],m.push(p);return m}}const r='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="12" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7.79999 14L7.79999 7.2135C7.79999 7.12872 7.7011 7.0824 7.63597 7.13668L4.79999 9.5"/></svg>';var c=n(379),p=n.n(c),g=n(384);p()(g.Z,{insert:"head",singleton:!1}),g.Z.locals;class l{static get isReadOnlySupported(){return!0}static get enableLineBreaks(){return!0}static get toolbox(){return{icon:r,title:"List"}}constructor({data:r,config:c,api:p,readOnly:m}){this.nodes={wrapper:null},this.api=p,this.readOnly=m,this.config=c,this.defaultListStyle="ordered"===this.config.defaultStyle?"ordered":"unordered";const g={style:this.defaultListStyle,items:[]};this.data=r&&Object.keys(r).length?r:g,this.caret=new s}render(){return this.nodes.wrapper=this.makeListWrapper(this.data.style,[this.CSS.baseBlock]),this.data.items.length?this.appendItems(this.data.items,this.nodes.wrapper):this.appendItems([{content:"",items:[]}],this.nodes.wrapper),this.readOnly||this.nodes.wrapper.addEventListener("keydown",(r=>{switch(r.key){case"Enter":this.enterPressed(r);break;case"Backspace":this.backspace(r);break;case"Tab":r.shiftKey?this.shiftTab(r):this.addTab(r)}}),!1),this.nodes.wrapper}renderSettings(){return[{name:"unordered",label:this.api.i18n.t("Unordered"),icon:'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="9" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 17H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 12H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 7H4.99002"/></svg>'},{name:"ordered",label:this.api.i18n.t("Ordered"),icon:r}].map((r=>({name:r.name,icon:r.icon,label:r.label,isActive:this.data.style===r.name,closeOnActivate:!0,onActivate:()=>{this.listStyle=r.name}})))}static get pasteConfig(){return{tags:["OL","UL","LI"]}}onPaste(r){const c=r.detail.data;this.data=this.pasteHandler(c);const p=this.nodes.wrapper;p&&p.parentNode.replaceChild(this.render(),p)}pasteHandler(r){const{tagName:c}=r;let p,m;switch(c){case"OL":p="ordered",m="ol";break;case"UL":case"LI":p="unordered",m="ul"}const g={style:p,items:[]},s=r=>Array.from(r.querySelectorAll(":scope > li")).map((r=>{const c=r.querySelector(`:scope > ${m}`),p=c?s(c):[];return{content:r?.firstChild?.textContent||"",items:p}}));return g.items=s(r),g}appendItems(r,c){r.forEach((r=>{const p=this.createItem(r.content,r.items);c.appendChild(p)}))}createItem(r,c=[]){const p=e("li",this.CSS.item),m=e("div",this.CSS.itemBody),g=e("div",this.CSS.itemContent,{innerHTML:r,contentEditable:!this.readOnly});return m.appendChild(g),p.appendChild(m),c&&c.length>0&&this.addChildrenList(p,c),p}save(){const e=r=>Array.from(r.querySelectorAll(`:scope > .${this.CSS.item}`)).map((r=>{const c=r.querySelector(`.${this.CSS.itemChildren}`);return{content:this.getItemContent(r),items:c?e(c):[]}}));return{style:this.data.style,items:e(this.nodes.wrapper)}}addChildrenList(r,c){const p=r.querySelector(`.${this.CSS.itemBody}`),m=this.makeListWrapper(void 0,[this.CSS.itemChildren]);this.appendItems(c,m),p.appendChild(m)}makeListWrapper(r=this.listStyle,c=[]){const p="ordered"===r?"ol":"ul",m="ordered"===r?this.CSS.wrapperOrdered:this.CSS.wrapperUnordered;return c.push(m),e(p,[this.CSS.wrapper,...c])}get CSS(){return{baseBlock:this.api.styles.block,wrapper:"cdx-nested-list",wrapperOrdered:"cdx-nested-list--ordered",wrapperUnordered:"cdx-nested-list--unordered",item:"cdx-nested-list__item",itemBody:"cdx-nested-list__item-body",itemContent:"cdx-nested-list__item-content",itemChildren:"cdx-nested-list__item-children",settingsWrapper:"cdx-nested-list__settings",settingsButton:this.api.styles.settingsButton,settingsButtonActive:this.api.styles.settingsButtonActive}}get listStyle(){return this.data.style||this.defaultListStyle}set listStyle(r){const c=Array.from(this.nodes.wrapper.querySelectorAll(`.${this.CSS.wrapper}`));c.push(this.nodes.wrapper),c.forEach((c=>{c.classList.toggle(this.CSS.wrapperUnordered,"unordered"===r),c.classList.toggle(this.CSS.wrapperOrdered,"ordered"===r)})),this.data.style=r}get currentItem(){let r=window.getSelection().anchorNode;return r.nodeType!==Node.ELEMENT_NODE&&(r=r.parentNode),r.closest(`.${this.CSS.item}`)}enterPressed(r){const c=this.currentItem;r.stopPropagation(),r.preventDefault();const p=0===this.getItemContent(c).trim().length,m=c.parentNode===this.nodes.wrapper,g=null===c.nextElementSibling;if(m&&g&&p)return void this.getOutOfList();if(g&&p)return void this.unshiftItem();const S=t(s.extractFragmentFromCaretPositionTillTheEnd()),v=c.querySelector(`.${this.CSS.itemChildren}`),C=this.createItem(S,void 0);v&&Array.from(v.querySelectorAll(`.${this.CSS.item}`)).length>0?v.prepend(C):c.after(C),this.focusItem(C)}unshiftItem(){const r=this.currentItem,c=r.parentNode.closest(`.${this.CSS.item}`);if(!c)return;this.caret.save(),c.after(r),this.caret.restore();const p=c.querySelector(`.${this.CSS.itemChildren}`);0===p.children.length&&p.remove()}getItemContent(r){const c=r.querySelector(`.${this.CSS.itemContent}`);return i(c)?"":c.innerHTML}focusItem(r,c=!0){const p=r.querySelector(`.${this.CSS.itemContent}`);s.focus(p,c)}getOutOfList(){this.currentItem.remove(),this.api.blocks.insert(),this.api.caret.setToBlock(this.api.blocks.getCurrentBlockIndex())}backspace(r){if(!s.isAtStart())return;r.preventDefault();const c=this.currentItem,p=c.previousSibling,m=c.parentNode.closest(`.${this.CSS.item}`);if(!p&&!m)return;let g;if(r.stopPropagation(),p){const r=p.querySelectorAll(`.${this.CSS.item}`);g=Array.from(r).pop()||p}else g=m;const S=t(s.extractFragmentFromCaretPositionTillTheEnd()),v=g.querySelector(`.${this.CSS.itemContent}`);s.focus(v,!1),this.caret.save(),v.insertAdjacentHTML("beforeend",S);let C=c.querySelectorAll(`.${this.CSS.itemChildren} > .${this.CSS.item}`);C=Array.from(C),C=C.filter((r=>r.parentNode.closest(`.${this.CSS.item}`)===c)),C.reverse().forEach((r=>{p?g.after(r):c.after(r)})),c.remove(),this.caret.restore()}addTab(r){r.stopPropagation(),r.preventDefault();const c=this.currentItem,p=c.previousSibling;if(!p)return;const m=p.querySelector(`.${this.CSS.itemChildren}`);if(this.caret.save(),m)m.appendChild(c);else{const r=this.makeListWrapper(void 0,[this.CSS.itemChildren]),m=p.querySelector(`.${this.CSS.itemBody}`);r.appendChild(c),m.appendChild(r)}this.caret.restore()}shiftTab(r){r.stopPropagation(),r.preventDefault(),this.unshiftItem()}static joinRecursive(r){return r.items.map((r=>`${r.content} ${l.joinRecursive(r)}`)).join("")}static get conversionConfig(){return{export:r=>l.joinRecursive(r),import:r=>({items:[{content:r,items:[]}],style:"unordered"})}}}})(),m.default})()}));var p=c;const m=c.NestedList;export{m as NestedList,p as default};
+(function(){try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode('.cdx-nested-list{margin:0;padding:0;outline:none;counter-reset:item;list-style:none}.cdx-nested-list__item{line-height:1.6em;display:flex;margin:2px 0}.cdx-nested-list__item [contenteditable]{outline:none}.cdx-nested-list__item-body{flex-grow:2}.cdx-nested-list__item-content,.cdx-nested-list__item-children{flex-basis:100%}.cdx-nested-list__item-content{word-break:break-word;white-space:pre-wrap}.cdx-nested-list__item:before{counter-increment:item;margin-right:5px;white-space:nowrap}.cdx-nested-list--ordered>.cdx-nested-list__item:before{content:counters(item,".") ". "}.cdx-nested-list--unordered>.cdx-nested-list__item:before{content:"•"}.cdx-nested-list__settings{display:flex}.cdx-nested-list__settings .cdx-settings-button{width:50%}')),document.head.appendChild(t)}}catch(t){console.error("vite-plugin-css-injected-by-js",t)}})();function p(t,r=null,s={}){const n=document.createElement(t);Array.isArray(r)?n.classList.add(...r):r&&n.classList.add(r);for(const t in s)n[t]=s[t];return n}function g(t){const r=p("div");return r.appendChild(t),r.innerHTML}function C(t){let r;return t.nodeType!==Node.ELEMENT_NODE?r=t.textContent:(r=t.innerHTML,r=r.replaceAll("<br>","")),r.trim().length===0}class c{constructor(){this.savedFakeCaret=void 0}
+/**
+   * Saves caret position using hidden <span>
+   *
+   * @returns {void}
+   */save(){const t=c.range,r=p("span");r.hidden=!0,t.insertNode(r),this.savedFakeCaret=r
+/**
+   * Restores the caret position saved by the save() method
+   *
+   * @returns {void}
+   */}restore(){if(!this.savedFakeCaret)return;const t=window.getSelection(),r=new Range;r.setStartAfter(this.savedFakeCaret),r.setEndAfter(this.savedFakeCaret),t.removeAllRanges(),t.addRange(r),setTimeout((()=>{this.savedFakeCaret.remove()}),150)
+/**
+   * Returns the first range
+   *
+   * @returns {Range|null}
+   */}static get range(){const t=window.getSelection();return t&&t.rangeCount?t.getRangeAt(0):null}
+/**
+   * Extract content fragment from Caret position to the end of contenteditable element
+   *
+   * @returns {DocumentFragment|void}
+   */static extractFragmentFromCaretPositionTillTheEnd(){const t=window.getSelection();if(!t.rangeCount)return;const r=t.getRangeAt(0);let s=r.startContainer;s.nodeType!==Node.ELEMENT_NODE&&(s=s.parentNode);const n=s.closest("[contenteditable]");r.deleteContents();const i=r.cloneRange();return i.selectNodeContents(n),i.setStart(r.endContainer,r.endOffset),i.extractContents()
+/**
+   * Set focus to contenteditable or native input element
+   *
+   * @param {HTMLElement} element - element where to set focus
+   * @param {boolean} atStart - where to set focus: at the start or at the end
+   * @returns {void}
+   */}static focus(t,r=!0){const s=document.createRange(),n=window.getSelection();s.selectNodeContents(t),s.collapse(r),n.removeAllRanges(),n.addRange(s)
+/**
+   * Check if the caret placed at the start of the contenteditable element
+   *
+   * @returns {void}
+   */}static isAtStart(){const t=window.getSelection();if(t.focusOffset>0)return!1;const r=t.focusNode;return c.getHigherLevelSiblings(r,"left").every((t=>C(t)))}
+/**
+   * Get all first-level (first child of [contenteditabel]) siblings from passed node
+   * Then you can check it for emptiness
+   *
+   * @example
+   * <div contenteditable>
+   * <p></p>                            |
+   * <p></p>                            | left first-level siblings
+   * <p></p>                            |
+   * <blockquote><a><b>adaddad</b><a><blockquote>       <-- passed node for example <b>
+   * <p></p>                            |
+   * <p></p>                            | right first-level siblings
+   * <p></p>                            |
+   * </div>
+   * @param {HTMLElement} from - element from which siblings should be searched
+   * @param {'left' | 'right'} direction - direction of search
+   * @returns {HTMLElement[]}
+   */static getHigherLevelSiblings(t,r="left"){let s=t;const n=[];for(;s.parentNode&&s.parentNode.contentEditable!=="true";)s=s.parentNode;const i=r==="left"?"previousSibling":"nextSibling";for(;s[i];)s=s[i],n.push(s);return n}}const t='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="9" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="9" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 17H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 12H4.99002"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5.00001 7H4.99002"/></svg>',r='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><line x1="12" x2="19" y1="7" y2="7" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="12" y2="12" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><line x1="12" x2="19" y1="17" y2="17" stroke="currentColor" stroke-linecap="round" stroke-width="2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M7.79999 14L7.79999 7.2135C7.79999 7.12872 7.7011 7.0824 7.63597 7.13668L4.79999 9.5"/></svg>';class u{
+/**
+   * Notify core that read-only mode is supported
+   *
+   * @returns {boolean}
+   */
+static get isReadOnlySupported(){return!0}
+/**
+   * Allow to use native Enter behaviour
+   *
+   * @returns {boolean}
+   * @public
+   */static get enableLineBreaks(){return!0}
+/**
+   * Get Tool toolbox settings
+   * icon - Tool icon's SVG
+   * title - title to show in toolbox
+   *
+   * @returns {{icon: string, title: string}}
+   */static get toolbox(){return{icon:r,title:"List"}}
+/**
+   * Render plugin`s main Element and fill it with saved data
+   *
+   * @param {object} params - tool constructor options
+   * @param {ListData} params.data - previously saved data
+   * @param {object} params.config - user config for Tool
+   * @param {object} params.api - Editor.js API
+   * @param {boolean} params.readOnly - read-only mode flag
+   */constructor({data:t,config:r,api:s,readOnly:n}){this.nodes={wrapper:null},this.api=s,this.readOnly=n,this.config=r,this.defaultListStyle=this.config.defaultStyle==="ordered"?"ordered":"unordered";const i={style:this.defaultListStyle,items:[]};this.data=t&&Object.keys(t).length?t:i,this.caret=new c
+/**
+   * Returns list tag with items
+   *
+   * @returns {Element}
+   * @public
+   */}render(){return this.nodes.wrapper=this.makeListWrapper(this.data.style,[this.CSS.baseBlock]),this.data.items.length?this.appendItems(this.data.items,this.nodes.wrapper):this.appendItems([{content:"",items:[]}],this.nodes.wrapper),this.readOnly||this.nodes.wrapper.addEventListener("keydown",(t=>{switch(t.key){case"Enter":this.enterPressed(t);break;case"Backspace":this.backspace(t);break;case"Tab":t.shiftKey?this.shiftTab(t):this.addTab(t);break}}),!1),this.nodes.wrapper
+/**
+   * Creates Block Tune allowing to change the list style
+   *
+   * @public
+   * @returns {Array}
+   */}renderSettings(){return[{name:"unordered",label:this.api.i18n.t("Unordered"),icon:t},{name:"ordered",label:this.api.i18n.t("Ordered"),icon:r}].map((t=>({name:t.name,icon:t.icon,label:t.label,isActive:this.data.style===t.name,closeOnActivate:!0,onActivate:()=>{this.listStyle=t.name}})))}
+/**
+   * On paste sanitzation config. Allow only tags that are allowed in the Tool.
+   *
+   * @returns {PasteConfig} - paste config.
+   */static get pasteConfig(){return{tags:["OL","UL","LI"]}}
+/**
+   * On paste callback that is fired from Editor.
+   *
+   * @param {PasteEvent} event - event with pasted data
+   */onPaste(t){const r=t.detail.data;this.data=this.pasteHandler(r);const s=this.nodes.wrapper;s&&s.parentNode.replaceChild(this.render(),s)}
+/**
+   * Handle UL, OL and LI tags paste and returns List data
+   *
+   * @param {HTMLUListElement|HTMLOListElement|HTMLLIElement} element
+   * @returns {ListData}
+   */pasteHandler(t){const{tagName:r}=t;let s,n;switch(r){case"OL":s="ordered",n="ol";break;case"UL":case"LI":s="unordered",n="ul"}const i={style:s,items:[]},o=t=>Array.from(t.querySelectorAll(":scope > li")).map((t=>{var r;const s=t.querySelector(`:scope > ${n}`),i=s?o(s):[];return{content:((r=t==null?void 0:t.firstChild)==null?void 0:r.textContent)||"",items:i}}));return i.items=o(t),i
+/**
+   * Renders children list
+   *
+   * @param {ListItem[]} items - items data to append
+   * @param {Element} parentItem - where to append
+   * @returns {void}
+   */}appendItems(t,r){t.forEach((t=>{const s=this.createItem(t.content,t.items);r.appendChild(s)}))}
+/**
+   * Renders the single item
+   *
+   * @param {string} content - item content to render
+   * @param {ListItem[]} [items] - children
+   * @returns {Element}
+   */createItem(t,r=[]){const s=p("li",this.CSS.item),n=p("div",this.CSS.itemBody),i=p("div",this.CSS.itemContent,{innerHTML:t,contentEditable:!this.readOnly});return n.appendChild(i),s.appendChild(n),r&&r.length>0&&this.addChildrenList(s,r),s
+/**
+   * Extracts tool's data from the DOM
+   *
+   * @returns {ListData}
+   */}save(){const e=t=>Array.from(t.querySelectorAll(`:scope > .${this.CSS.item}`)).map((t=>{const r=t.querySelector(`.${this.CSS.itemChildren}`),s=this.getItemContent(t),n=r?e(r):[];return{content:s,items:n}}));return{style:this.data.style,items:e(this.nodes.wrapper)}}
+/**
+   * Append children list to passed item
+   *
+   * @param {Element} parentItem - item that should contain passed sub-items
+   * @param {ListItem[]} items - sub items to append
+   */addChildrenList(t,r){const s=t.querySelector(`.${this.CSS.itemBody}`),n=this.makeListWrapper(void 0,[this.CSS.itemChildren]);this.appendItems(r,n),s.appendChild(n)
+/**
+   * Creates main <ul> or <ol> tag depended on style
+   *
+   * @param {string} [style] - 'ordered' or 'unordered'
+   * @param {string[]} [classes] - additional classes to append
+   * @returns {HTMLOListElement|HTMLUListElement}
+   */}makeListWrapper(t=this.listStyle,r=[]){const s=t==="ordered"?"ol":"ul",n=t==="ordered"?this.CSS.wrapperOrdered:this.CSS.wrapperUnordered;return r.push(n),p(s,[this.CSS.wrapper,...r])
+/**
+   * Styles
+   *
+   * @returns {object} - CSS classes names by keys
+   * @private
+   */}get CSS(){return{baseBlock:this.api.styles.block,wrapper:"cdx-nested-list",wrapperOrdered:"cdx-nested-list--ordered",wrapperUnordered:"cdx-nested-list--unordered",item:"cdx-nested-list__item",itemBody:"cdx-nested-list__item-body",itemContent:"cdx-nested-list__item-content",itemChildren:"cdx-nested-list__item-children",settingsWrapper:"cdx-nested-list__settings",settingsButton:this.api.styles.settingsButton,settingsButtonActive:this.api.styles.settingsButtonActive}}
+/**
+   * Get list style name
+   *
+   * @returns {string}
+   */get listStyle(){return this.data.style||this.defaultListStyle}
+/**
+   * Set list style
+   *
+   * @param {string} style - new style to set
+   */set listStyle(t){const r=Array.from(this.nodes.wrapper.querySelectorAll(`.${this.CSS.wrapper}`));r.push(this.nodes.wrapper),r.forEach((r=>{r.classList.toggle(this.CSS.wrapperUnordered,t==="unordered"),r.classList.toggle(this.CSS.wrapperOrdered,t==="ordered")})),this.data.style=t
+/**
+   * Returns current List item by the caret position
+   *
+   * @returns {Element}
+   */}get currentItem(){let t=window.getSelection().anchorNode;return t.nodeType!==Node.ELEMENT_NODE&&(t=t.parentNode),t.closest(`.${this.CSS.item}`)
+/**
+   * Handles Enter keypress
+   *
+   * @param {KeyboardEvent} event - keydown
+   * @returns {void}
+   */}enterPressed(t){const r=this.currentItem;if(t.stopPropagation(),t.preventDefault(),t.isComposing)return;const s=this.getItemContent(r).trim().length===0,n=r.parentNode===this.nodes.wrapper,i=r.nextElementSibling===null;if(n&&i&&s){this.getOutOfList();return}if(i&&s){this.unshiftItem();return}const a=c.extractFragmentFromCaretPositionTillTheEnd(),d=g(a),l=r.querySelector(`.${this.CSS.itemChildren}`),h=this.createItem(d,void 0);l&&Array.from(l.querySelectorAll(`.${this.CSS.item}`)).length>0?l.prepend(h):r.after(h),this.focusItem(h)
+/**
+   * Decrease indentation of the current item
+   *
+   * @returns {void}
+   */}unshiftItem(){const t=this.currentItem,r=t.parentNode.closest(`.${this.CSS.item}`);if(!r)return;this.caret.save(),r.after(t),this.caret.restore();const s=r.querySelector(`.${this.CSS.itemChildren}`);s.children.length===0&&s.remove()}
+/**
+   * Return the item content
+   *
+   * @param {Element} item - item wrapper (<li>)
+   * @returns {string}
+   */getItemContent(t){const r=t.querySelector(`.${this.CSS.itemContent}`);return C(r)?"":r.innerHTML}
+/**
+   * Sets focus to the item's content
+   *
+   * @param {Element} item - item (<li>) to select
+   * @param {boolean} atStart - where to set focus: at the start or at the end
+   * @returns {void}
+   */focusItem(t,r=!0){const s=t.querySelector(`.${this.CSS.itemContent}`);c.focus(s,r)}
+/**
+   * Get out from List Tool by Enter on the empty last item
+   *
+   * @returns {void}
+   */getOutOfList(){this.currentItem.remove(),this.api.blocks.insert(),this.api.caret.setToBlock(this.api.blocks.getCurrentBlockIndex())
+/**
+   * Handle backspace
+   *
+   * @param {KeyboardEvent} event - keydown
+   */}backspace(t){if(!c.isAtStart())return;t.preventDefault();const r=this.currentItem,s=r.previousSibling,n=r.parentNode.closest(`.${this.CSS.item}`);if(!s&&!n)return;t.stopPropagation();let i;if(s){const t=s.querySelectorAll(`.${this.CSS.item}`);i=Array.from(t).pop()||s}else i=n;const a=c.extractFragmentFromCaretPositionTillTheEnd(),d=g(a),l=i.querySelector(`.${this.CSS.itemContent}`);c.focus(l,!1),this.caret.save(),l.insertAdjacentHTML("beforeend",d);let h=r.querySelectorAll(`.${this.CSS.itemChildren} > .${this.CSS.item}`);h=Array.from(h),h=h.filter((t=>t.parentNode.closest(`.${this.CSS.item}`)===r)),h.reverse().forEach((t=>{s?i.after(t):r.after(t)})),r.remove(),this.caret.restore()
+/**
+   * Add indentation to current item
+   *
+   * @param {KeyboardEvent} event - keydown
+   */}addTab(t){t.stopPropagation(),t.preventDefault();const r=this.currentItem,s=r.previousSibling;if(!s)return;const n=s.querySelector(`.${this.CSS.itemChildren}`);if(this.caret.save(),n)n.appendChild(r);else{const t=this.makeListWrapper(void 0,[this.CSS.itemChildren]),n=s.querySelector(`.${this.CSS.itemBody}`);t.appendChild(r),n.appendChild(t)}this.caret.restore()}
+/**
+   * Reduce indentation for current item
+   *
+   * @param {KeyboardEvent} event - keydown
+   * @returns {void}
+   */shiftTab(t){t.stopPropagation(),t.preventDefault(),this.unshiftItem()
+/**
+   * Convert from list to text for conversionConfig
+   *
+   * @param {ListData} data
+   * @returns {string}
+   */}static joinRecursive(t){return t.items.map((t=>`${t.content} ${u.joinRecursive(t)}`)).join("")}static get conversionConfig(){return{export:t=>u.joinRecursive(t),import:t=>({items:[{content:t,items:[]}],style:"unordered"})}}}export{u as default};
 
