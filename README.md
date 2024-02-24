@@ -46,3 +46,11 @@ foreman start
 rspec
 ```
 
+# Deployment
+
+```bash
+kamal lock release -d production
+kamal envify -d production
+kamal accessory boot all -d production
+kamal deploy -d production
+```

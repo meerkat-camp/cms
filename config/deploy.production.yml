@@ -19,7 +19,7 @@ traefik:
   host_port: 10.0.0.3:80
 
 volumes:
-  - /root/meerkat-caddy/static:/static
+  - /web/data/caddy/static:/static
 
 env:
  secret:
@@ -52,15 +52,15 @@ accessories:
         - "23.88.127.8:443:443"
         - "23.88.127.8:443:443/udp"
     directories:
-      - static:/static
-      - data:/data
-      - config:/etc/caddy
+      - /web/data/caddy/static:/static
+      - /web/data/caddy/data:/data
+      - /web/data/caddy/config:/etc/caddy
   postgres:
     image: postgres:16.0
     host: 23.88.127.8
     port: "10.0.0.3:5432:5432"
     directories:
-      - data:/var/lib/postgresql/data
+      - /web/data/postgres:/var/lib/postgresql/data
     env:
       secret:
         - POSTGRES_DB
@@ -71,4 +71,4 @@ accessories:
     host: 23.88.127.8
     port: "10.0.0.3:6379:6379"
     directories:
-      - data:/data
+      - /web/data/redis:/data
