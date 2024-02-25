@@ -5,7 +5,8 @@ class SitesController < ApplicationController
   end
 
   def show
-    @site = @current_site
+    @site = current_site
+    @posts = current_site.posts.latest.limit(10)
   end
 
   def new

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.2.3'
 
 gem 'active_interaction'
 gem 'bcrypt', '~> 3.1.20'
@@ -28,6 +28,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component'
 
 group :development, :test do
+  gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
 
