@@ -32,7 +32,7 @@ module Hugo
     end
 
     def image_files(site, deployment_target)
-      site.images.map do |image|
+      site.images.assigned.map do |image|
         Image::Variants.keys.map do |variant|
           image_variant = ImageVariant.new(image, variant)
           Hugo::ImageFile.new(image_variant, deployment_target)
