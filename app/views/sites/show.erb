@@ -7,7 +7,8 @@
   <hr />
   <div class="mt-4">
     <h2 class="title is-4">🖊 Latest Blogposts</h2>
-
-    <%= render partial: 'posts/compact_post', collection: @posts, as: :post  %>
+    <%= turbo_frame_tag(:posts) do %>
+      <%= render @posts  %>
+    <% end %>
   </div>
 <% end %>
