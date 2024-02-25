@@ -20,6 +20,7 @@ traefik:
 
 volumes:
   - /web/data/caddy/static:/static
+  - /web/data/meerkat:/rails/storage
 
 env:
  secret:
