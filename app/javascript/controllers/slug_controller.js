@@ -3,7 +3,7 @@ import ApiClient from 'utils/ApiClient'
 
 export default class extends Controller {
   static values = { url: String }
-  static targets = [ "title", "slug" ]
+  static targets = ['title', 'slug']
   static slugManuallyChanged = false
 
   connect () {
@@ -26,13 +26,13 @@ export default class extends Controller {
     this.checkAndSetSlug(slug)
   }
 
-  checkAndSetSlug(slug) {
-    (new ApiClient).post(this.urlValue, { slug: slug }).then(response => {
+  checkAndSetSlug (slug) {
+    (new ApiClient()).post(this.urlValue, { slug }).then(response => {
       if (response.ok) {
         this.slugTarget.value = slug
       }
 
-      if(response.status === 423) {
+      if (response.status === 423) {
         response.text().then(slug => {
           this.slugTarget.value = slug
         })
@@ -40,10 +40,10 @@ export default class extends Controller {
     })
   }
 
-  sluggalize(text) {
-    var slug = text.toLowerCase()
+  sluggalize (text) {
+    let slug = text.toLowerCase()
     slug = slug.trim()
-    slug = slug.replace(/[^a-z0-9\-]+/g, '-')
+    slug = slug.replace(/[^a-z0-9-]+/g, '-')
     slug = slug.replace(/-+/g, '-')
     return `/${slug}`
   }

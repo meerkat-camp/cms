@@ -1,9 +1,9 @@
 export default class ApiClient {
-  constructor() {
+  constructor () {
     this.csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   }
 
-  post(url, data) {
+  post (url, data) {
     return fetch(url, {
       method: 'POST',
       headers: {
