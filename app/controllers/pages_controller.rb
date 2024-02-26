@@ -1,8 +1,10 @@
 class PagesController < ApplicationController
+  include Paginatable
+
   before_action :set_page, only: %i[edit update destroy]
 
   def index
-    @pages = current_site.pages
+    @pagy, @pages = pagy(current_site.pages)
   end
 
   def new

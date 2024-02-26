@@ -1,7 +1,6 @@
 # Pin npm packages by running ./bin/importmap
 
 pin 'application', preload: true
-pin_all_from 'app/javascript/controllers', under: 'controllers'
 
 pin_all_from 'app/javascript/controllers', under: 'controllers'
 pin_all_from 'app/javascript/utils', under: 'utils'
@@ -21,3 +20,5 @@ pin '@editorjs/header', to: '@editorjs--header.js' # @2.7.0
 pin '@editorjs/image', to: '@editorjs--image.js' # @2.8.1
 pin "@editorjs/code", to: "@editorjs--code.js" # @2.9.0
 pin "@editorjs/embed", to: "@editorjs--embed.js" # @2.7.0
+
+pin 'pagy-module'

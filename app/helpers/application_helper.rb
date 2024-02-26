@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def component(name, *, **)
     name = name.to_s.camelize.gsub('/', '::')
     component_class = "#{name.camelize}Component".constantize
