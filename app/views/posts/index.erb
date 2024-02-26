@@ -7,5 +7,7 @@
 
   <%= turbo_frame_tag(:posts) do %>
     <%= render @posts %>
+
+    <%= render('layouts/pagination') %>
   <% end %>
 <% end %>
