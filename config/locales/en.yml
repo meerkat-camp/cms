@@ -50,3 +50,7 @@ en:
   user_mailer:
     login:
       subject: Your login-link from meerkat.camp
+  navigation:
+    title:
+      main: 💂🏾‍♂️ Main Navigation
+      footer: 🦶🏻 Footer Navigation

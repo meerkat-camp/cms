@@ -1,0 +1,28 @@
+<div class="block">
+  <h2 class="title is-5"><%= title %></h2>
+  <div class="field is-grouped buttons are-small">
+    <p class="control">
+
+      <%= link_to(new_item_path, class: 'button', "data-turbo-frame": dom_id(@navigation, 'new_item_form')) do %>
+        <span class="icon">
+          <i class="ion-md-add-circle-outline"></i>
+        </span>
+        <span>Add Item</span>
+      <% end %>
+    </p>
+    <p class="control">
+      <%= link_to(new_item_path, class: 'button is-danger is-inverted') do %>
+        <span class="icon">
+          <i class="ion-md-trash"></i>
+        </span>
+        <span>Delete</span>
+      <% end %>
+    </p>
+  </div>
+
+  <div class="block">
+    <%= helpers.turbo_frame_tag(@navigation, "new_item_form") %>
+  </div>
+  <%= render(NavigationItemComponent.with_collection(navigation_items)) %>
+  <hr>
+</div>
