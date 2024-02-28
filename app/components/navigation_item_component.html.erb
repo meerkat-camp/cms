@@ -1,0 +1,42 @@
+<div class="block">
+  <turbo-frame id="navigation-item_<%= navigation_item.id %>">
+    <div class="box">
+      <div class="block">
+        <%= title %> <span class="tag"><%= external_url %></span>
+      </div>
+
+      <div class="field is-grouped buttons are-small">
+        <p class="control">
+          <a href="/menus/1/edit" class="button">
+            <span class="icon">
+              <i class="ion-md-add-circle-outline"></i>
+            </span>
+            <span>Sub-Item</span>
+          </a>
+        </p>
+        <p class="control">
+          <a href="/menus/1/edit" class="button">
+            <span class="icon">
+              <i class="ion-md-arrow-up"></i>
+            </span>
+            <span>Move up</span>
+          </a>
+        </p>
+        <p class="control">
+          <a href="/menus/1/edit" class="button disabled">
+            <span class="icon">
+              <i class="ion-md-arrow-down"></i>
+            </span>
+            <span>Move down</span>
+          </a>
+        </p>
+
+          <%= link_to(site_navigation_navigation_item_path(navigation_item.navigation.site, navigation_item.navigation, navigation_item), class: "button", data: { turbo_method: :delete }) do %>
+            <span class="icon"><i class="ion-md-trash"></i></span>
+            <span>Delete</span>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </turbo-frame>
+</div>

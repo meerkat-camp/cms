@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_25_153365) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_28_144232) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "navigation_type", ["main", "footer"]
 
   create_table "active_storage_attachments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
@@ -152,6 +156,33 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_25_153365) do
     t.index ["site_id"], name: "index_images_on_site_id"
   end
 
+  create_table "navigation_items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "public_id", limit: 21, null: false
+    t.uuid "navigation_id", null: false
+    t.uuid "parent_id"
+    t.string "title", null: false
+    t.string "linked_object_type"
+    t.uuid "linked_object_id"
+    t.string "external_url"
+    t.boolean "new_tab"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["navigation_id", "parent_id", "title"], name: "idx_on_navigation_id_parent_id_title_26b6acb32f", unique: true
+    t.index ["navigation_id"], name: "index_navigation_items_on_navigation_id"
+    t.index ["public_id"], name: "index_navigation_items_on_public_id", unique: true
+  end
+
+  create_table "navigations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "site_id", null: false
+    t.string "public_id", limit: 21, null: false
+    t.enum "type", null: false, enum_type: "navigation_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["public_id"], name: "index_navigations_on_public_id", unique: true
+    t.index ["site_id", "type"], name: "index_navigations_on_site_id_and_type", unique: true
+    t.index ["site_id"], name: "index_navigations_on_site_id"
+  end
+
   create_table "pages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -218,6 +249,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_25_153365) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "deployment_targets", "sites"
   add_foreign_key "images", "sites"
+  add_foreign_key "navigation_items", "navigations"
+  add_foreign_key "navigations", "sites"
   add_foreign_key "pages", "sites"
   add_foreign_key "posts", "sites"
   add_foreign_key "site_users", "sites"

@@ -44,6 +44,7 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails'
   gem 'rubocop-rspec', require: false
+  gem 'solargraph', require: false
 
   gem 'rack-mini-profiler'
   gem 'web-console'
@@ -58,3 +59,4 @@ group :test do
   gem 'simplecov-lcov', require: false
   gem 'webmock'
 end
+

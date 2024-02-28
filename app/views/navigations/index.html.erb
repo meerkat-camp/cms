@@ -1,0 +1,21 @@
+<%= turbo_frame_tag(:content) do %>
+  <h1 class="title">🧭 Navigation</h1>
+
+  <p>From here you can manage different menus on your site.</p>
+
+  <% if !current_site.navigations.exists?(type: 'main') %>
+    <%= link_to "💂🏾‍♂️ Create Main Navigation", site_navigations_path(navigation: {type: :main}), data: { turbo_method: :post }, class: "button mb-4" %>
+  <% end %>
+  <% if !current_site.navigations.exists?(type: 'footer') %>
+    <%= link_to "🦶🏻 Create Footer Navigation", site_navigations_path(navigation: {type: :footer}), data: { turbo_method: :post }, class: "button mb-4" %>
+  <% end %>
+
+  <hr>
+
+  <%= turbo_frame_tag(:menus) do %>
+
+    <% @navigations.each do |navigation| %>
+      <%= render NavigationComponent.new(navigation:) %>
+    <% end %>
+  <% end %>
+<% end %>

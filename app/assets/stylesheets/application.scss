@@ -63,3 +63,15 @@
     padding-bottom: 3em !important;
   }
 }
+
+.card-menu{
+  margin-bottom: 1.5rem;
+
+  .card {
+    margin-top: 1rem;
+  }
+
+  .card:first-child {
+    margin-top: 0rem;
+  }
+}
