@@ -5,6 +5,10 @@
         <%= title %> <span class="tag"><%= external_url %></span>
       </div>
 
+      <% navigation_item.children.each do |child| %>
+        <%= render NavigationItemComponent.new(navigation_item: child) %>
+      <% end %>
+
       <div class="field is-grouped buttons are-small">
         <p class="control">
           <a href="/menus/1/edit" class="button">

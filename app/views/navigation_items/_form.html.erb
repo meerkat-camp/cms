@@ -3,9 +3,11 @@
     <%= form_for([current_site, navigation_item.navigation, navigation_item], class: "mb-4") do |form| %>
       <div class="columns">
         <div class="column">
+          <%= form.label :title %>
           <%= form.text_field(:title, placeholder: 'Title', class: 'input has-text-weight-bold') %>
         </div>
         <div class="column">
+          <%= form.label :external_url %>
           <%= form.text_field(:external_url, placeholder: 'https://example.com/awesome', class: 'input') %>
         </div>
       </div>

@@ -1,6 +1,6 @@
 class NavigationsController < ApplicationController
   def index
-    @navigations = current_site.navigations.all
+    @navigations = current_site.navigations
   end
 
   def create

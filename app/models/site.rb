@@ -7,6 +7,11 @@ class Site < ApplicationRecord
   has_many :deployment_targets, dependent: :destroy
   has_many :navigations, dependent: :destroy
 
+  after_create do
+    navigations.create(type: 'main')
+    navigations.create(type: 'footer')
+  end
+
   def publish(to: :staging)
     deployment_targets.where(type: to.to_s).find_each(&:deploy)
   end

@@ -8,9 +8,9 @@ class NavigationItemsController < ApplicationController
   def create
     navigation_item = @navigation.navigation_items.new(navigation_item_params)
 
-    if navigation_item.save
-      turbo_redirect_to(site_navigations_path(current_site))
-    end
+    return unless navigation_item.save
+
+    turbo_redirect_to(site_navigations_path(current_site))
   end
 
   def destroy
