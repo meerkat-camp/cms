@@ -10,6 +10,7 @@
 
   <p class="menu-label">Administration</p>
   <ul class="menu-list">
+    <li><%= link_to("🧭️ Navigation", site_navigations_path(current_site), class: "navbar-item") %></li>
     <li><%= link_to("⚙️ Settings", edit_site_path(current_site), class: "navbar-item") %></li>
     <li><%= link_to("📦️ Deployments", site_deployment_targets_path(current_site), class: "navbar-item") %></li>
   </ul>

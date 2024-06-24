@@ -1,0 +1,13 @@
+<%= turbo_frame_tag(:content) do %>
+  <h1 class="title">🧭 Navigation</h1>
+
+  <p>From here you can manage different menus on your site.</p>
+
+  <hr>
+
+  <%= turbo_frame_tag(:navigations) do %>
+    <% @navigations.each do |navigation| %>
+      <%= render NavigationComponent.new(navigation:) %>
+    <% end %>
+  <% end %>
+<% end %>
