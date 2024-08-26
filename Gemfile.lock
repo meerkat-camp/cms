@@ -143,9 +143,10 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.3)
       i18n (>= 1.8.11, < 2)
-    faraday (2.9.0)
-      faraday-net_http (>= 2.0, < 3.2)
-    faraday-net_http (3.1.0)
+    faraday (2.11.0)
+      faraday-net_http (>= 2.0, < 3.4)
+      logger
+    faraday-net_http (3.3.0)
       net-http
     ffi (1.16.3)
     foreman (0.87.2)
@@ -203,6 +204,7 @@ GEM
       thor (~> 1.2)
       zeitwerk (~> 2.5)
     language_server-protocol (3.17.0.3)
+    logger (1.6.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
