@@ -1,10 +1,9 @@
-(function(){try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode(".inline-code{background:rgba(250,239,240,.78);color:#b44437;padding:3px 4px;border-radius:5px;margin:0 1px;font-family:inherit;font-size:.86em;font-weight:500;letter-spacing:.3px}")),document.head.appendChild(t)}}catch(t){console.error("vite-plugin-css-injected-by-js",t)}})();const t='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9.5 8L6.11524 11.8683C6.04926 11.9437 6.04926 12.0563 6.11524 12.1317L9.5 16"/><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M15 8L18.3848 11.8683C18.4507 11.9437 18.4507 12.0563 18.3848 12.1317L15 16"/></svg>';class s{
+(function(){try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode(".inline-code{background:rgba(250,239,240,.78);color:#b44437;padding:3px 4px;border-radius:5px;margin:0 1px;font-family:inherit;font-size:.86em;font-weight:500;letter-spacing:.3px}")),document.head.appendChild(t)}}catch(t){console.error("vite-plugin-css-injected-by-js",t)}})();const t='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8L5 12L9 16"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 8L19 12L15 16"/></svg>';class s{constructor({api:t}){this.tag="CODE",this.api=t,this.button=null,this.iconClasses={base:this.api.styles.inlineToolButton,active:this.api.styles.inlineToolButtonActive}
 /**
    * Class name for term-tag
    *
    * @type {string}
-   */
-static get CSS(){return"inline-code"}constructor({api:t}){this.api=t,this.button=null,this.tag="CODE",this.iconClasses={base:this.api.styles.inlineToolButton,active:this.api.styles.inlineToolButtonActive}}static get isInline(){return!0}render(){return this.button=document.createElement("button"),this.button.type="button",this.button.classList.add(this.iconClasses.base),this.button.innerHTML=this.toolboxIcon,this.button
+   */}static get CSS(){return"inline-code"}static get isInline(){return!0}render(){return this.button=document.createElement("button"),this.button.type="button",this.button.classList.add(this.iconClasses.base),this.button.innerHTML=this.toolboxIcon,this.button
 /**
    * Wrap/Unwrap selected fragment
    *
@@ -19,5 +18,5 @@ static get CSS(){return"inline-code"}constructor({api:t}){this.api=t,this.button
    * Unwrap term-tag
    *
    * @param {HTMLElement} termWrapper - term wrapper tag
-   */}unwrap(t){this.api.selection.expandToTag(t);let e=window.getSelection(),n=e.getRangeAt(0),i=n.extractContents();t.parentNode.removeChild(t),n.insertNode(i),e.removeAllRanges(),e.addRange(n)}checkState(){const t=this.api.selection.findParentTag(this.tag,s.CSS);this.button.classList.toggle(this.iconClasses.active,!!t)}get toolboxIcon(){return t}static get sanitize(){return{code:{class:s.CSS}}}}export{s as default};
+   */}unwrap(t){var e;this.api.selection.expandToTag(t);const n=window.getSelection();if(!n)return;const i=n.getRangeAt(0),o=i.extractContents();(e=t.parentNode)==null||e.removeChild(t),i.insertNode(o),n.removeAllRanges(),n.addRange(i)}checkState(){const t=this.api.selection.findParentTag(this.tag,s.CSS);return this.button&&this.button.classList.toggle(this.iconClasses.active,!!t),!!t}get toolboxIcon(){return t}static get sanitize(){return{code:{class:s.CSS}}}}export{s as default};
 

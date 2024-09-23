@@ -110,12 +110,12 @@ export:e=>e.items.join(". ")
    * by Enter on the empty last item
    *
    * @param {KeyboardEvent} event
-   */}getOutofList(e){const t=this._elements.wrapper.querySelectorAll("."+this.CSS.item);if(t.length<2)return;const r=t[t.length-1],s=this.currentItem;s===r&&!r.textContent.trim().length&&(s.parentElement.removeChild(s),this.api.blocks.insert(),this.api.caret.setToBlock(this.api.blocks.getCurrentBlockIndex()),e.preventDefault(),e.stopPropagation())}
+   */}getOutofList(e){const t=this._elements.wrapper.querySelectorAll("."+this.CSS.item);if(t.length<2)return;const r=t[t.length-1],s=this.currentItem;s===r&&!r.textContent.trim().length&&(s.parentElement.removeChild(s),this.api.blocks.insert(),this.api.caret.setToBlock(this.api.blocks.getCurrentBlockIndex()),e.preventDefault(),e.stopPropagation()
 /**
    * Handle backspace
    *
    * @param {KeyboardEvent} event
-   */backspace(e){const t=this._elements.wrapper.querySelectorAll("."+this.CSS.item),r=t[0];r&&t.length<2&&!r.innerHTML.replace("<br>"," ").trim()&&e.preventDefault()}
+   */)}backspace(e){const t=this._elements.wrapper.querySelectorAll("."+this.CSS.item),r=t[0];r&&t.length<2&&!r.innerHTML.replace("<br>"," ").trim()&&e.preventDefault()}
 /**
    * Select LI content by CMD+A
    *
