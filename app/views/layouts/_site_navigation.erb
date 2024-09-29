@@ -1,15 +1,15 @@
 
-<div class="menu m-8">
-  <div class="title is-4 pt-6"><%= current_site.title %></div>
+<div class="title">🏡 <%= current_site.title %></div>
 
-  <ul class="menu-list">
-    <li><%= link_to("🖊 Blogposts", site_posts_path(current_site), class: "navbar-item") %></li>
-    <li><%= link_to("📑 Pages", site_pages_path(current_site), class: "navbar-item") %></li>
-  </ul>
-
-  <p class="menu-label">Administration</p>
-  <ul class="menu-list">
-    <li><%= link_to("⚙️ Settings", edit_site_path(current_site), class: "navbar-item") %></li>
-    <li><%= link_to("📦️ Deployments", site_deployment_targets_path(current_site), class: "navbar-item") %></li>
-  </ul>
+<div class="navbar">
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <%= link_to("🖊 Blogposts", site_posts_path(current_site), class: "navbar-item") %>
+      <%= link_to("📑 Pages", site_pages_path(current_site), class: "navbar-item") %>
+    </div>
+  </div>
+  <div class="navbar-end">
+    <%= link_to("⚙️ Settings", edit_site_path(current_site), class: "navbar-item") %>
+    <%= link_to("📦️ Deployments", site_deployment_targets_path(current_site), class: "navbar-item") %>
+  </div>
 </div>

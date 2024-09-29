@@ -11,27 +11,13 @@
   </head>
   <body>
     <%= render 'layouts/top_navigation' %>
-    <div class="container">
+    <div class="container mt-6">
       <% if current_site %>
-          <div class="columns is-mobile">
-            <div class="column is-3">
-              <% if current_site %>
-                <%= render 'layouts/site_navigation' %>
-              <% end %>
-            </div>
-            <div class="column">
-              <div class="mt-6">
-                <%= render 'layouts/notices' %>
-                <%= yield %>
-              </div>
-            </div>
-          </div>
-      <% else %>
-        <div class="section">
-          <%= render 'layouts/notices' %>
-          <%= yield %>
-        </div>
+        <%= render 'layouts/site_navigation' %>
+        <hr />
       <% end %>
-    </div>
+      <%= render 'layouts/notices' %>
+      <%= yield %>
+  </div>
   </body>
 </html>
