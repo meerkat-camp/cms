@@ -39,8 +39,6 @@ en:
       update: Update Site
     new_form:
       create: Create Site
-    site:
-      manage: Manage
     title_placeholder: Timon's Blog
     update:
       notice: Site was successfully updated.

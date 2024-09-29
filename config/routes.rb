@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sites do
+  resources :sites, except: [:show] do
     resources :posts
     resources :pages
     resources :deployment_targets, only: %i[index edit update]

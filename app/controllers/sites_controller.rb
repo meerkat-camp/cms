@@ -4,11 +4,6 @@ class SitesController < ApplicationController
     @sites = policy_scope(Site)
   end
 
-  def show
-    @site = current_site
-    @posts = current_site.posts.latest.limit(10)
-  end
-
   def new
     authorize(Site)
     @site = Sites::CreateSite.new
@@ -30,7 +25,7 @@ class SitesController < ApplicationController
 
     @site = Sites::CreateSite.run(site_params)
 
-    turbo_redirect_to(site_path(@site.result), notice: t('.notice')) if @site.valid?
+    turbo_redirect_to(site_posts_path(@site.result), notice: t('.notice')) if @site.valid?
   end
 
   def update
@@ -38,7 +33,7 @@ class SitesController < ApplicationController
 
     @site = Sites::UpdateSite.run(site_params.merge(site: current_site))
 
-    turbo_redirect_to(site_path(@site.result), notice: t('.notice')) if @site.valid?
+    turbo_redirect_to(edit_site_path(@site.result), notice: t('.notice')) if @site.valid?
   end
 
   private
