@@ -16,7 +16,8 @@ class SitesController < ApplicationController
       site: current_site,
       title: current_site.title,
       language_code: current_site.language_code,
-      domain: current_site.domain
+      domain: current_site.domain,
+      theme_id: current_site.theme_id
     )
   end
 
@@ -33,7 +34,10 @@ class SitesController < ApplicationController
 
     @site = Sites::UpdateSite.run(site_params.merge(site: current_site))
 
-    turbo_redirect_to(edit_site_path(@site.result), notice: t('.notice')) if @site.valid?
+    return unless @site.valid?
+
+    turbo_redirect_to(edit_site_path(@site.result), notice: t('.notice'))
+    current_site.publish
   end
 
   private
@@ -43,6 +47,6 @@ class SitesController < ApplicationController
   end
 
   def site_params
-    params.require(:site).permit(:title, :language_code, :domain).merge(current_user:)
+    params.require(:site).permit(:title, :language_code, :domain, :theme_id).merge(current_user:)
   end
 end
