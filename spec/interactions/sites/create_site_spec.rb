@@ -4,6 +4,10 @@ describe Sites::CreateSite do
   let(:title) { 'My Site' }
   let(:current_user) { create(:user) }
 
+  before do
+    create(:theme, :simple_emoji)
+  end
+
   describe '#execute' do
     context 'when site is valid' do
       let(:created_site) { outcome.result }

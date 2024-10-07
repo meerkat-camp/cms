@@ -6,6 +6,8 @@ module Sites
     string :title
     validates :title, presence: true
 
+    string :theme_id, presence: true, inclusion: { in: Theme.pluck(:id) }
+
     string :language_code
     validates :language_code, presence: true, inclusion: {
       in: Form::LanguageSelectComponent::Codes::ISO_CODES
@@ -17,7 +19,7 @@ module Sites
     }
 
     def execute
-      site.assign_attributes(title:, language_code:, domain:)
+      site.assign_attributes(title:, language_code:, domain:, theme_id:)
 
       errors.merge!(site.errors) unless site.save
 

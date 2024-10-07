@@ -6,6 +6,8 @@ class Site < ApplicationRecord
   has_many :users, through: :site_users
   has_many :deployment_targets, dependent: :destroy
 
+  belongs_to :theme
+
   def publish(to: :staging)
     deployment_targets.where(type: to.to_s).find_each(&:deploy)
   end

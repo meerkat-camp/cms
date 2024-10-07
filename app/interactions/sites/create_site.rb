@@ -8,6 +8,8 @@ module Sites
     def execute
       site = Site.new(title:)
 
+      add_default_theme(site)
+
       if site.save
         current_user.sites << site
         add_home_page(site)
@@ -30,6 +32,10 @@ module Sites
 
     def add_home_page(site)
       site.pages.create(title: 'Home', slug: '/')
+    end
+
+    def add_default_theme(site)
+      site.theme = Theme.find_by(hugo_theme: 'simple_emoji')
     end
   end
 end

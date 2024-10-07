@@ -1,12 +1,22 @@
 describe Sites::UpdateSite do
-  subject(:outcome) { described_class.run(title:, language_code:, domain:, current_user:, site:) }
+  subject(:outcome) do
+    described_class.run(
+      title:,
+      language_code:,
+      domain:,
+      current_user:,
+      theme_id:,
+      site:
+    )
+  end
 
-  let(:site) { build(:site) }
+  let(:site) { build(:site, theme_id: create(:theme, hugo_theme: 'foobar').id) }
   let(:current_user) { build(:user) }
 
   let(:title) { site.title }
   let(:language_code) { site.language_code }
   let(:domain) { site.domain }
+  let(:theme_id) { site.theme.id }
 
   describe '#valid?' do
     context 'with missing title' do
