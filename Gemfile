@@ -38,7 +38,7 @@ group :development do
   gem 'faker'
   gem 'foreman'
   gem 'i18n-tasks'
-  gem 'kamal', '~> 1.0'
+  gem 'kamal', '~> 2.2'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-performance', require: false
