@@ -17,7 +17,7 @@ describe Blocks::List do
 
       expect(list.id).to eq('_zLjlxHSNY')
       expect(list.type).to eq('list')
-      expect(list.style).to eq(:ol)
+      expect(list.style).to eq('ol')
       expect(list.items).to eq(editor_js_hash['data']['items'])
     end
   end
