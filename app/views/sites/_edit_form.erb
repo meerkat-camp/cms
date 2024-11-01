@@ -1,6 +1,11 @@
 <%= turbo_frame_tag(:form) do %>
   <%= form_for(site, as: :site, url: site_path(site.site), method: :patch, class: 'mb-4') do |form| %>
     <%= component('form/text_field', form:, attribute: :title, placeholder: t('sites.title_placeholder')) %>
+
+        <%= component('form/select', form:, attribute: :theme_id, options:
+      options_from_collection_for_select(Theme.all, 'id', 'name', site.theme_id))
+    %>
+
     <div class="columns">
       <div class="column">
           <%= component('form/text_field', form:, attribute: :domain, placeholder: t('sites.domain_placeholder')) %>
