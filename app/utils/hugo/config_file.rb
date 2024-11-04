@@ -11,8 +11,25 @@ module Hugo
         title: site.title,
         summaryLength: site.summary_length,
         params: { emoji: site.emoji },
-        theme: 'simple_emoji'
+        theme: site.theme.hugo_theme,
+        menu: {
+          main: pages
+        }
       }.to_json
+    end
+
+    def pages
+      i = 1
+      site.pages.where.not(slug: '/').map do |page|
+        {
+          name: page.title,
+          url: page.slug,
+          weight: i += 1,
+          params: {
+            emoji: page.emoji
+          }
+        }
+      end
     end
   end
 end

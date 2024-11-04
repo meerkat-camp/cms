@@ -1,8 +1,8 @@
 {{ define "main" }}
   <ul class="page-list">
-  {{- range site.Menus.main }}
+  {{- range .Site.Menus.main }}
     <li>
-      {{ .Page.Params.Emoji }} <a class="page-link" href="{{ .URL }}">{{ .Page.Params.Title }}</a>
+      {{ .Params.Emoji }} <a class="page-link" href="{{ .URL }}">{{ .Name }}</a>
     </li>
   {{- end }}
   </ul>
