@@ -40,10 +40,14 @@ group :development do
   gem 'i18n-tasks'
   gem 'kamal', '~> 1.0'
   gem 'rspec-rails'
+
   gem 'rubocop'
+  gem 'rubocop-capybara', require: false
+  gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
-  gem 'rubocop-rails'
+  gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec_rails', require: false
 
   gem 'rack-mini-profiler'
   gem 'web-console'

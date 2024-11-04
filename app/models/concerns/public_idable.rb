@@ -9,7 +9,7 @@ module PublicIdable
     before_create :set_public_id
 
     def self.find(identifier)
-      find_by(public_id: identifier) || super(identifier)
+      find_by(public_id: identifier) || super
     end
   end
 

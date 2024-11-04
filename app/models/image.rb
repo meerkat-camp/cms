@@ -3,7 +3,7 @@ class Image < ApplicationRecord
   belongs_to :imageable, polymorphic: true, optional: true
 
   scope :assigned, -> { where.not(imageable: nil) }
-  scope :orphaned, -> { where(imageable: nil).where('created_at < ?', 2.days.ago) }
+  scope :orphaned, -> { where(imageable: nil).where(created_at: ...2.days.ago) }
 
   has_one_attached :file do |attachable|
     Variants.configure(attachable)

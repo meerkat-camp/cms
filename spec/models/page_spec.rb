@@ -1,4 +1,4 @@
-describe Page, type: :model do
+describe Page do
   subject(:page) { build(:page) }
 
   describe "validations" do
