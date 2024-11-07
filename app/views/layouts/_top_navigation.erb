@@ -1,13 +1,16 @@
 <nav class="navbar is-fixed-top is-info">
   <div class="container">
       <div class="navbar-brand">
-        <%= link_to "🌱 meerkat.camp", root_path, class: "navbar-item" %>
+        <%= link_to(root_path, class: "navbar-item") do %>
+          <%= image_tag('logo')%>
+          Meerkat.camp
+        <% end %>
       </div>
       <div class="navbar-menu">
         <div class="navbar-end">
           <% if current_user %>
-            <%= link_to("📒 Sites", sites_path, class: "navbar-item") %>
-            <%= link_to("🚪 Logout", logout_path, data: { turbo_method: "delete", turbo_frame: '_top', turbo_action: 'replace'}, class: "navbar-item") %>
+            <%= link_to("Sites", sites_path, class: "navbar-item") %>
+            <%= link_to("Logout", logout_path, data: { turbo_method: "delete", turbo_frame: '_top', turbo_action: 'replace'}, class: "navbar-item") %>
           <% else %>
             <%= link_to("🔑 Login", login_path, class: "navbar-item") %>
           <% end %>
