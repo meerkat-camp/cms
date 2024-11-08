@@ -47,6 +47,9 @@ Rails/SkipsModelValidations:
 RSpec/ExampleLength:
   Enabled: false
 
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
 RSpec/MessageSpies:
   Enabled: false
 

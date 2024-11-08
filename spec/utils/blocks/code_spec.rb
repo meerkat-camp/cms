@@ -1,6 +1,6 @@
 describe Blocks::Code do
   let(:editor_js_hash) do
-    { "id" => "jGoevTELVm", "type" => "code", "data" => { "code" => "hallo" } }
+    { "id" => "jGoevTELVm", "type" => "code", "data" => { "code" => "hallo", "language" => "ruby" } }
   end
 
   describe '.from_editor_js' do

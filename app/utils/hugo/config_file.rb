@@ -14,6 +14,15 @@ module Hugo
         theme: site.theme.hugo_theme,
         menu: {
           main: pages
+        },
+        markup: {
+          highlight: {
+            guessSyntax: true,
+            lineNos: true,
+            lineNumbersInTable: true,
+            style: "monokai",
+            tabWidth: 2
+          }
         }
       }.to_json
     end
