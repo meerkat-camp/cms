@@ -8,16 +8,11 @@ Bundler.require(*Rails.groups)
 
 module MeerkatCamp
   class Application < Rails::Application
-    config.load_defaults 7.1
     # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 8.0
+
     config.autoload_lib(ignore: %w[assets tasks])
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
     config.eager_load_paths << Rails.root.join('app/utils')
     config.eager_load_paths << Rails.root.join('app/inertactions')
 

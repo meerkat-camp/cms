@@ -1,5 +1,7 @@
 describe Sites::CreateSite do
-  subject(:outcome) { described_class.run(title:, current_user:) }
+  subject(:outcome) do
+    described_class.call(title:, current_user:, domain: 'example.com', language_code: 'en')
+  end
 
   let(:title) { 'My Site' }
   let(:current_user) { create(:user) }
@@ -10,7 +12,7 @@ describe Sites::CreateSite do
 
   describe '#execute' do
     context 'when site is valid' do
-      let(:created_site) { outcome.result }
+      let(:created_site) { outcome.site }
 
       it 'creates a site' do
         expect(created_site).to be_persisted
@@ -40,23 +42,8 @@ describe Sites::CreateSite do
       let(:title) { nil }
 
       it 'does not create a site' do
-        expect(outcome.result).to be_blank
-      end
-    end
-  end
-
-  describe '#valid?' do
-    context 'with title' do
-      it 'is valid' do
-        expect(outcome).to be_valid
-      end
-    end
-
-    context 'without title' do
-      let(:title) { nil }
-
-      it 'is not valid' do
-        expect(outcome).not_to be_valid
+        expect { outcome }.not_to change(Site, :count)
+        expect(outcome).not_to be_success
       end
     end
   end

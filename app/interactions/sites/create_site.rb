@@ -1,41 +1,64 @@
 module Sites
-  class CreateSite < ActiveInteraction::Base
-    string :title
-    object :current_user, class: User
+  class CreateSite
+    extend LightService::Organizer
 
-    validates :title, presence: true
-
-    def execute
-      site = Site.new(title:)
-
-      add_default_theme(site)
-
-      if site.save
-        current_user.sites << site
-        add_home_page(site)
-        create_staging(site)
-      else
-        errors.merge!(site.errors)
-      end
-
-      site
-    end
-
-    private
-
-    def create_staging(site)
-      site.deployment_targets.create!(
-        public_hostname: "#{site.public_id}.stage.#{ENV.fetch('BASE_HOSTNAME_AND_PORT')}",
-        type: :staging, provider: :internal
+    def self.call(title:, current_user:, language_code:, domain:)
+      with(title:, current_user:, language_code:, domain:).reduce(
+        SaveSite,
+        AssociateUserWithSite,
+        AddHomePage,
+        CreateStaging
       )
     end
+  end
 
-    def add_home_page(site)
-      site.pages.create(title: 'Home', slug: '/')
+  class SaveSite
+    extend LightService::Action
+
+    expects :title, :language_code, :domain
+    promises :site
+
+    executed do |context|
+      context.site = Site.new(
+        title: context.title,
+        language_code: context.language_code,
+        domain: context.domain
+      )
+      context.site.theme = Theme.find_by(hugo_theme: 'simple_emoji')
+      context.fail_and_return!(context.site.errors.full_messages.to_sentence) unless context.site.save
     end
+  end
 
-    def add_default_theme(site)
-      site.theme = Theme.find_by(hugo_theme: 'simple_emoji')
+  class AssociateUserWithSite
+    extend LightService::Action
+
+    expects :site, :current_user
+
+    executed do |context|
+      context.current_user.sites << context.site
+    end
+  end
+
+  class AddHomePage
+    extend LightService::Action
+
+    expects :site
+
+    executed do |context|
+      context.site.pages.create(title: 'Home', slug: '/')
+    end
+  end
+
+  class CreateStaging
+    extend LightService::Action
+
+    expects :site
+
+    executed do |context|
+      context.site.deployment_targets.create!(
+        public_hostname: "#{context.site.public_id}.stage.#{ENV.fetch('BASE_HOSTNAME_AND_PORT')}",
+        type: :staging, provider: :internal
+      )
     end
   end
 end
