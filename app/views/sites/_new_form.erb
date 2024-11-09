@@ -3,6 +3,15 @@
 
     <%= component('form/text_field', form:, attribute: :title) %>
 
+    <div class="columns">
+      <div class="column">
+          <%= component('form/text_field', form:, attribute: :domain, placeholder: t('sites.domain_placeholder')) %>
+      </div>
+      <div class="column">
+          <%= component('form/language_select', form:, attribute: :language_code) %>
+      </div>
+    </div>
+
     <div class="field is-grouped">
       <%= form.submit(t('.create'), class: 'button is-link') %>
       &nbsp;

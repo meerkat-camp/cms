@@ -1,20 +1,18 @@
 module DeploymentTargets
-  class UpdateDeploymentTarget < ActiveInteraction::Base
-    object :deployment_target, class: DeploymentTarget
-    object :current_user, class: User
-    delegate :site, to: :deployment_target
+  class UpdateDeploymentTarget
+    extend LightService::Action
 
-    string :public_hostname
+    expects :deployment_target, :public_hostname, :type
 
-    string :type
-    validates :type, presence: true, inclusion: { in: DeploymentTarget.types.keys }
+    executed do |context|
+      deployment_target = context.deployment_target
 
-    def execute
-      deployment_target.assign_attributes(public_hostname:, type:)
+      deployment_target.assign_attributes(
+        public_hostname: context.public_hostname,
+        type: context.type
+      )
 
-      errors.merge!(deployment_target.errors) unless deployment_target.save
-
-      deployment_target
+      context.fail!(deployment_target.errors.full_messages.join(", ")) unless deployment_target.save
     end
   end
 end

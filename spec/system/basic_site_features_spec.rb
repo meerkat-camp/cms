@@ -38,6 +38,8 @@ describe 'Basic Site features' do
           visit new_site_path
 
           fill_in 'Title', with: 'My Site'
+          fill_in 'Domain', with: 'rocu.de'
+          select 'fr', from: 'Language'
 
           click_on 'Create Site'
 

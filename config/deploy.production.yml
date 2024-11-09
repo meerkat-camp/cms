@@ -19,9 +19,6 @@ servers:
       - 23.88.127.8
     cmd: bundle exec good_job start
 
-proxy:
-  app_port: 3000
-
 volumes:
   - /web/data/caddy/static:/static
   - /web/data/meerkat:/rails/storage

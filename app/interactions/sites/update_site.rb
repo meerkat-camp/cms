@@ -1,29 +1,18 @@
 module Sites
-  class UpdateSite < ActiveInteraction::Base
-    object :site, class: Site
-    object :current_user, class: User
+  class UpdateSite
+    extend LightService::Action
 
-    string :title
-    validates :title, presence: true
+    expects :site, :title, :theme_id, :language_code, :domain
 
-    string :theme_id, presence: true, inclusion: { in: Theme.pluck(:id) }
+    executed do |context|
+      context.site.assign_attributes(
+        title: context.title,
+        language_code: context.language_code,
+        domain: context.domain,
+        theme_id: context.theme_id
+      )
 
-    string :language_code
-    validates :language_code, presence: true, inclusion: {
-      in: Form::LanguageSelectComponent::Codes::ISO_CODES
-    }
-
-    object :domain, class: DomainNormalizer, converter: :new
-    validates :domain, presence: true, format: {
-      with: /\A[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}\z/i
-    }
-
-    def execute
-      site.assign_attributes(title:, language_code:, domain:, theme_id:)
-
-      errors.merge!(site.errors) unless site.save
-
-      site
+      context.fail_and_return!(context.site.errors.full_messages.join(", ")) unless context.site.save
     end
   end
 end

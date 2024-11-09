@@ -7,21 +7,18 @@ class DeploymentTargetsController < ApplicationController
 
   def edit
     authorize(@deployment_target)
-
-    @deployment_target = DeploymentTargets::UpdateDeploymentTarget.new(
-      deployment_target: @deployment_target,
-      public_hostname: @deployment_target.public_hostname,
-      type: @deployment_target.type
-    )
   end
 
   def update
     authorize(@deployment_target)
 
-    run_params = deployment_target_params.merge(deployment_target: @deployment_target)
-    @deployment_target = DeploymentTargets::UpdateDeploymentTarget.run(run_params)
+    result = DeploymentTargets::UpdateDeploymentTarget.execute(
+      deployment_target: @deployment_target,
+      public_hostname: deployment_target_params[:public_hostname],
+      type: deployment_target_params[:type]
+    )
 
-    return unless @deployment_target.valid?
+    return unless result.success?
 
     turbo_redirect_to(
       site_deployment_targets_path(@deployment_target.site),

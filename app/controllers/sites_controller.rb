@@ -6,37 +6,43 @@ class SitesController < ApplicationController
 
   def new
     authorize(Site)
-    @site = Sites::CreateSite.new
+    @site = Site.new
   end
 
   def edit
     authorize(current_site)
 
-    @site = Sites::UpdateSite.new(
-      site: current_site,
-      title: current_site.title,
-      language_code: current_site.language_code,
-      domain: current_site.domain,
-      theme_id: current_site.theme_id
-    )
+    @site = current_site
   end
 
   def create
     authorize(Site)
 
-    @site = Sites::CreateSite.run(site_params)
+    outcome = Sites::CreateSite.call(
+      title: site_params[:title],
+      language_code: site_params[:language_code],
+      domain: site_params[:domain],
+      current_user:
+    )
+    @site = outcome.site
 
-    turbo_redirect_to(site_posts_path(@site.result), notice: t('.notice')) if @site.valid?
+    turbo_redirect_to(site_posts_path(outcome.site), notice: t('.notice')) if outcome.success?
   end
 
   def update
     authorize(current_site)
 
-    @site = Sites::UpdateSite.run(site_params.merge(site: current_site))
+    outcome = Sites::UpdateSite.execute(
+      site: current_site,
+      title: site_params[:title],
+      language_code: site_params[:language_code],
+      domain: site_params[:domain],
+      theme_id: site_params[:theme_id]
+    )
 
-    return unless @site.valid?
+    return unless outcome.success?
 
-    turbo_redirect_to(edit_site_path(@site.result), notice: t('.notice'))
+    turbo_redirect_to(edit_site_path(current_site), notice: t('.notice'))
     current_site.publish
   end
 
