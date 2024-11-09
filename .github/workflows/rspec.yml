@@ -33,7 +33,6 @@ jobs:
           bundle exec rails db:create
           bundle exec rails db:setup
           bundle exec rspec
-          bundle exec i18n-tasks health
         env:
           HTTPS: false
           BASE_HOSTNAME_AND_PORT: localhost:3000

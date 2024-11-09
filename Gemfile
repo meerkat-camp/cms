@@ -37,7 +37,6 @@ group :development do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'foreman'
-  gem 'i18n-tasks'
   gem 'kamal', '~> 2.0', require: false
   gem 'rspec-rails'
 
