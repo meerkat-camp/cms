@@ -2,7 +2,7 @@
 import '@hotwired/turbo-rails'
 import 'controllers'
 
-addEventListener('turbo:before-stream-render', (event) => {
+window.addEventListener('turbo:before-stream-render', (event) => {
   const fallbackToDefaultActions = event.detail.render
 
   event.detail.render = function (streamElement) {

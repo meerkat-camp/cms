@@ -30,5 +30,10 @@ jobs:
           BASE_HOSTNAME_AND_PORT: localhost:3000
           HEADLESS: true
           STAGING_SITES_PATH: /tmp/staging_sites
+      - name: Run jest tests
+        run: |
+          yarn install
+          yarn test
+          yarn lint
       - name: Coveralls
         uses: coverallsapp/github-action@v2

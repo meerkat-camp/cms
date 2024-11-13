@@ -1,5 +1,5 @@
 <%= turbo_frame_tag(:form) do %>
-  <%= form_for([current_site, post], class: "mb-4") do |form| %>
+  <%= form_for([current_site, post], class: "mb-4", data: { controller: 'post_form' }) do |form| %>
     <%= component('form/title_and_slug', form:) %>
     <%= component('form/editor', form:, attribute: :content) %>
     <%= component('form/checkbox', form:, attribute: :draft) %>
