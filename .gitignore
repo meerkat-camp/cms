@@ -39,3 +39,7 @@ coverage
 .env
 !.env.example
 .env.production
+
+.DS_Store
+.idea
+.nova
