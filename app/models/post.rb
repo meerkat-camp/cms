@@ -3,5 +3,21 @@ class Post < ApplicationRecord
 
   belongs_to :site
 
-  scope :latest, -> { order(created_at: :desc) }
+  before_validation :normalize_slug
+  before_validation :set_publish_at
+
+  validates :slug, uniqueness: { scope: :site_id }
+  validates :slug, format: { with: %r{\A/[a-z0-9-]+\z} }, allow_nil: true
+
+  scope :latest, -> { order(publish_at: :desc) }
+
+  private
+
+  def normalize_slug
+    self.slug = nil if slug.blank?
+  end
+
+  def set_publish_at
+    self.publish_at ||= Time.current
+  end
 end
