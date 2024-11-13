@@ -20,8 +20,8 @@ gem 'propshaft'
 gem 'puma', '~> 6.0'
 gem 'pundit'
 gem 'rails', '~> 8.0.0'
-gem 'redis', '~> 5.0'
 gem 'sassc-rails'
+gem "solid_cable", "~> 3.0"
 gem 'stimulus-rails'
 gem "thruster", require: false
 gem 'turbo-rails'

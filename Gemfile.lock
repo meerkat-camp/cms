@@ -300,10 +300,6 @@ GEM
     rake (13.2.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
-    redis (5.3.0)
-      redis-client (>= 0.22.0)
-    redis-client (0.22.2)
-      connection_pool
     regexp_parser (2.9.2)
     reline (0.5.11)
       io-console (~> 0.5)
@@ -381,6 +377,11 @@ GEM
     simplecov-html (0.13.1)
     simplecov-lcov (0.8.0)
     simplecov_json_formatter (0.1.4)
+    solid_cable (3.0.2)
+      actioncable (>= 7.2)
+      activejob (>= 7.2)
+      activerecord (>= 7.2)
+      railties (>= 7.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -483,7 +484,6 @@ DEPENDENCIES
   pundit
   rack-mini-profiler
   rails (~> 8.0.0)
-  redis (~> 5.0)
   rspec-rails
   rubocop
   rubocop-capybara
@@ -496,6 +496,7 @@ DEPENDENCIES
   selenium-webdriver
   simplecov
   simplecov-lcov
+  solid_cable (~> 3.0)
   stimulus-rails
   thruster
   turbo-rails
