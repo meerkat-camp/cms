@@ -1,4 +1,27 @@
 describe Post do
+  describe '.published' do
+    context 'when publish_at timestamp is in the past' do
+      it 'is included in the results' do
+        post = create(:post, publish_at: 1.day.ago)
+        expect(described_class.published).to include(post)
+      end
+
+      context 'when the post is a draft' do
+        it 'is not included in the results' do
+          post = create(:post, publish_at: 1.day.ago, draft: true)
+          expect(described_class.published).not_to include(post)
+        end
+      end
+    end
+
+    context 'when publish_at timestamp is in the future' do
+      it 'is included in the results' do
+        post = create(:post, publish_at: 1.day.from_now)
+        expect(described_class.published).not_to include(post)
+      end
+    end
+  end
+
   describe 'slug validation' do
     context 'with a duplicate slug on the same site' do
       it 'fails validation' do

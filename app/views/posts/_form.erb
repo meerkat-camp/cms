@@ -2,7 +2,7 @@
   <%= form_for([current_site, post], class: "mb-4") do |form| %>
     <%= component('form/title_and_slug', form:) %>
     <%= component('form/editor', form:, attribute: :content) %>
-
+    <%= component('form/checkbox', form:, attribute: :draft) %>
     <div class="columns">
       <div class="column is-2">
         <%= component('form/text_field', form:, attribute: :emoji) %>

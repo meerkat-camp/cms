@@ -10,6 +10,9 @@ class Post < ApplicationRecord
   validates :slug, format: { with: %r{\A/[a-z0-9-]+\z} }, allow_nil: true
 
   scope :latest, -> { order(publish_at: :desc) }
+  scope :published, lambda {
+    where(draft: false).where(publish_at: (..Time.current))
+  }
 
   private
 
