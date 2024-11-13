@@ -53,6 +53,9 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/MessageSpies:
   Enabled: false
 
+RSpec/NestedGroups:
+  Enabled: false
+
 RSpec/LetSetup:
   Enabled: false
 
