@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_13_084150) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_13_091618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -216,7 +216,9 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_13_084150) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "public_id", limit: 21, null: false
+    t.datetime "publish_at"
     t.index ["public_id"], name: "index_posts_on_public_id", unique: true
+    t.index ["publish_at"], name: "index_posts_on_publish_at"
     t.index ["site_id"], name: "index_posts_on_site_id"
     t.index ["slug", "site_id"], name: "index_posts_on_slug_and_site_id", unique: true
   end

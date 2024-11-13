@@ -38,7 +38,7 @@ describe Post do
     context 'when no publish_at timestamp is set' do
       it 'sets the published_at timestamp to the current time' do
         post = create(:post, publish_at: nil)
-        expect(post.published_at).to be_within(1.second).of(Time.current)
+        expect(post.publish_at).to be_within(1.second).of(Time.current)
       end
     end
   end
