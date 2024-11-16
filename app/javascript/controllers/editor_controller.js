@@ -9,7 +9,7 @@ import InlineCode from '@editorjs/inline-code'
 import ImageTool from '@editorjs/image'
 import Header from '@editorjs/header'
 // @ts-ignore
-import CodeTool from '@editorjs/code';
+import CodeTool from '@editorjs/code'
 
 export default class extends Controller {
   static values = {
@@ -22,26 +22,27 @@ export default class extends Controller {
   static editor = null
 
   connect () {
+    const data = this.loadData()
     this.editor = new EditorJS({
       holder: this.editorIdValue,
-      data: this.loadData(),
+      data,
       tools: this.toolsConfig(),
       onChange: (api, _event) => { this.saveData(api) }
     })
-    window.editor = this.editor
+    this.dispatch('change', { detail: { data } })
   }
 
   toolsConfig () {
     return {
       header: { class: Header, config: { levels: [2, 3, 4], defaultLevel: 2 } },
       image: {
-      class: ImageTool,
-      config: {
-        endpoints: {
-        byFile: this.imageEndpointValue,
-        byUrl: this.imageFromUrlEndpointValue
+        class: ImageTool,
+        config: {
+          endpoints: {
+            byFile: this.imageEndpointValue,
+            byUrl: this.imageFromUrlEndpointValue
+          }
         }
-      }
       },
       quote: { class: Quote, inlineToolbar: true },
       list: { class: NestedList, inlineToolbar: true },
@@ -49,31 +50,31 @@ export default class extends Controller {
       table: { class: Table, inlineToolbar: true },
       inlineCode: { class: InlineCode },
       code: {
-      class: CodeTool,
-      config: {
-        languages: {
-          plaintext: 'Plain text',
-          bash: 'Bash',
-          csharp: 'C#',
-          cpp: 'C++',
-          css: 'CSS',
-          go: 'Go',
-          html: 'HTML',
-          java: 'Java',
-          javascript: 'JavaScript',
-          json: 'JSON',
-          kotlin: 'Kotlin',
-          php: 'PHP',
-          python: 'Python',
-          ruby: 'Ruby',
-          rust: 'Rust',
-          sql: 'SQL',
-          swift: 'Swift',
-          typescript: 'TypeScript',
-          xml: 'XML',
-          yaml: 'YAML'
+        class: CodeTool,
+        config: {
+          languages: {
+            plaintext: 'Plain text',
+            bash: 'Bash',
+            csharp: 'C#',
+            cpp: 'C++',
+            css: 'CSS',
+            go: 'Go',
+            html: 'HTML',
+            java: 'Java',
+            javascript: 'JavaScript',
+            json: 'JSON',
+            kotlin: 'Kotlin',
+            php: 'PHP',
+            python: 'Python',
+            ruby: 'Ruby',
+            rust: 'Rust',
+            sql: 'SQL',
+            swift: 'Swift',
+            typescript: 'TypeScript',
+            xml: 'XML',
+            yaml: 'YAML'
+          }
         }
-      }
       }
     }
   }
@@ -86,7 +87,7 @@ export default class extends Controller {
 
   saveData (api) {
     api.saver.save().then((data) => {
-      console.log(data)
+      this.dispatch('change', { detail: { data } })
       this.jsonOutputTarget.value = JSON.stringify(data)
     })
   }
