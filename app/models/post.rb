@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   before_validation :normalize_slug
   before_validation :set_publish_at
 
-  validates :slug, uniqueness: { scope: :site_id }
+  validates :slug, uniqueness: { scope: :site_id }, allow_blank: true
   validates :slug, format: { with: %r{\A/[a-z0-9-]+\z} }, allow_nil: true
 
   scope :latest, -> { order(publish_at: :desc) }

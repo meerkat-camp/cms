@@ -14,6 +14,7 @@ module Editable
   end
 
   def blocks
+    parse_content
     Blocks.from_content(content)
   end
 
