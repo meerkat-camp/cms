@@ -16,7 +16,8 @@ module MeerkatCamp
     config.eager_load_paths << Rails.root.join('app/utils')
     config.eager_load_paths << Rails.root.join('app/inertactions')
 
-    config.active_job.queue_adapter = :good_job
+    config.active_job.queue_adapter = :solid_queue
+    config.mission_control.jobs.base_controller_class = "ActionController::Base"
 
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {

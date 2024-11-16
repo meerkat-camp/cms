@@ -7,11 +7,11 @@ gem 'bcrypt', '~> 3.1.20'
 gem 'bootsnap', require: false
 gem 'dotenv-rails', require: 'dotenv/load'
 gem 'faraday'
-gem 'good_job'
 gem 'image_processing'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'light-service'
+gem "mission_control-jobs"
 gem 'nanoid'
 gem 'pagy', '~> 9.2'
 gem 'pg'
@@ -22,6 +22,7 @@ gem 'pundit'
 gem 'rails', '~> 8.0.0'
 gem 'sassc-rails'
 gem "solid_cable", "~> 3.0"
+gem "solid_queue", "~> 1.0"
 gem 'stimulus-rails'
 gem "thruster", require: false
 gem 'turbo-rails'

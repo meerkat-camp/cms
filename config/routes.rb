@@ -32,5 +32,5 @@ Rails.application.routes.draw do
   get 'login/:token', to: 'sessions#show', as: :login_token
   delete 'logout', to: 'sessions#destroy', as: :logout
 
-  mount GoodJob::Engine => 'good_job', constraints: SuperAdminConstraint.new
+  mount MissionControl::Jobs::Engine, at: "/admin/jobs", constraints: SuperAdminConstraint.new
 end

@@ -1,0 +1,5 @@
+production:
+  cleanup_orphaned_images:
+    command: "CleanupOrphanedImagesJob.perform_later"
+    priority: 2
+    schedule: at 3am every day
