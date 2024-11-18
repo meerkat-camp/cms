@@ -2,11 +2,14 @@ module Hugo
   class BuildJob < ApplicationJob
     queue_as :default
 
-    def perform(deployment_target, shell: ShellCommand, deployment_job: Rclone::DeployJob)
+    def perform(deployment_target, shell: ShellCommand, compressor: PrecompressTextFilesJob,
+                deployment_job: Rclone::DeployJob)
       cleanup(deployment_target)
       write_files(deployment_target)
       symlink_themes(deployment_target)
       run_hugo(deployment_target, shell:)
+
+      compressor.perform_now(deployment_target.source_dir)
 
       deployment_job.perform_later(deployment_target)
     end

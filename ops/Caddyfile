@@ -10,5 +10,7 @@ https:// {
         }
 
         root * /static/{host}
-        file_server
+        file_server {
+          precompressed br gzip
+        }
 }
