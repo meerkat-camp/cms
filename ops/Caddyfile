@@ -13,4 +13,10 @@ https:// {
         file_server {
           precompressed br gzip
         }
+
+        @static {
+          file
+          path *.ico *.css *.js *.gif *.jpg *.jpeg *.png *.svg *.woff *.webp *.avif
+        }
+        header @static Cache-Control max-age=5184000
 }
