@@ -18,5 +18,5 @@ https:// {
           file
           path *.ico *.css *.js *.gif *.jpg *.jpeg *.png *.svg *.woff *.webp *.avif
         }
-        header @static Cache-Control max-age=5184000
+        header @static Cache-Control max-age=31536000
 }
