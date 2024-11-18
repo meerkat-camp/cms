@@ -20,6 +20,9 @@
     }
   },
   "standard": {
+    "ignore": [
+      "spec/fixtures/*"
+    ],
     "env": {
       "es6": true,
       "node": true,

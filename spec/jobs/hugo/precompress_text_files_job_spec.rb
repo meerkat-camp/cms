@@ -1,4 +1,4 @@
-describe PrecompressTextFilesJob do
+describe Hugo::PrecompressTextFilesJob do
   subject(:job) { described_class }
 
   let(:static_website_path) { Rails.root.join("spec/fixtures/hugo_build") }
