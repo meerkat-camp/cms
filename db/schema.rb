@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_13_131010) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_18_151400) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -250,6 +250,18 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_13_131010) do
     t.index ["theme_id"], name: "index_sites_on_theme_id"
   end
 
+  create_table "social_media_links", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "public_id", limit: 21
+    t.string "name"
+    t.string "icon"
+    t.string "url"
+    t.uuid "site_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["public_id"], name: "index_social_media_links_on_public_id", unique: true
+    t.index ["site_id"], name: "index_social_media_links_on_site_id"
+  end
+
   create_table "solid_cable_messages", force: :cascade do |t|
     t.binary "channel", null: false
     t.binary "payload", null: false
@@ -292,4 +304,5 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_13_131010) do
   add_foreign_key "site_users", "sites"
   add_foreign_key "site_users", "users"
   add_foreign_key "sites", "themes"
+  add_foreign_key "social_media_links", "sites"
 end

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :posts
     resources :pages
     resources :deployment_targets, only: %i[index edit update]
+    resources :social_media_links, only: %i[create destroy]
 
     get 'image/create'
     resources :images, only: %i[show create] do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
   root 'sites#index'
 
   get 'login', to: 'sessions#new', as: :login

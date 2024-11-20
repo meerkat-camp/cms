@@ -10,7 +10,7 @@ module Hugo
         languageCode: site.language_code,
         title: site.title,
         summaryLength: site.summary_length,
-        params: { emoji: site.emoji },
+        params: { emoji: site.emoji, social: },
         theme: site.theme.hugo_theme,
         menu: {
           main: pages
@@ -39,6 +39,10 @@ module Hugo
           }
         }
       end
+    end
+
+    def social
+      site.social_media_links.map { |l| { name: l.name, url: l.url, icon: l.icon, svg: l.svg } }
     end
   end
 end

@@ -163,6 +163,15 @@ table.books :where(th, td):not(.max) {
   white-space: nowrap;
 }
 
+.socialLink {
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+.socialLink svg {
+  width: 24px;
+  height: 24px;
+}
 
 @media only screen and (max-width: 600px) {
   .columns {

@@ -5,6 +5,7 @@ require_relative '../config/environment'
 
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+require 'pundit/rspec'
 
 Rails.root.glob("spec/support/**/*.rb").each { |f| require f }
 
@@ -21,4 +22,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include FeatureHelpers
   config.include ViewComponent::TestHelpers, type: :component
+  config.include ActionView::RecordIdentifier, type: :system
 end

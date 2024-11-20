@@ -6,6 +6,15 @@ en:
         domain: Domain
         language_code: Language
         title: Title
+  activerecord:
+    models:
+      social_media_link: Social media link
+    attributes:
+      social_media_link:
+        icon: Icon
+        name: Name
+        url: URL
+  cancel: Cancel
   deployment_target:
     types:
       backup: Backup
@@ -15,6 +24,8 @@ en:
     update:
       notice: Deployment target was successfully updated.
   domain: Domain
+  delete: Delete
+  are_you_sure: Are you sure?
   form:
     cancel: Cancel
   pages:
@@ -42,6 +53,17 @@ en:
     title_placeholder: Timon's Blog
     update:
       notice: Site was successfully updated.
+  social_media_links:
+    add_new: Add link
+    create_link: Create link
+    destroy:
+      success: Social media link was successfully deleted.
+    create:
+      success: Social media link was successfully created.
+    help: >
+      You can add links to your social profiles here. They will be displayed in the footer of your site.
+    name_placeholder: Mastodon
+    url_placeholder: https://acme.social/@woody
   time:
     formats:
       html_datetime: "%Y-%m-%dT%H:%M"
