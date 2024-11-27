@@ -1,0 +1,11 @@
+<div class="field">
+
+  <%= form.label(attribute, class: 'label') %>
+
+  <div class="control">
+    <%= form.hidden_field(attribute, data: { "SocialMediaForm-target": 'iconInput' }) %>
+    <% social_media_services.each do |service| %>
+      <%= icon_button(service) %>
+    <% end %>
+  </div>
+</div>

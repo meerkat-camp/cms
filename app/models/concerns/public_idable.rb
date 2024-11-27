@@ -13,6 +13,10 @@ module PublicIdable
     end
   end
 
+  def to_key
+    [public_id]
+  end
+
   def set_public_id(generator: Nanoid)
     self.public_id = generate_free_nano_id(generator:)
   end

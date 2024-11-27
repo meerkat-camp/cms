@@ -1,3 +1,19 @@
 <h1 class="title is-4">⚙️ <%= t('.title') %></h1>
 
 <%= render 'edit_form', site: @site %>
+
+<hr />
+
+<h2 class="title is-4">📢 <%= t('.social_media_links') %></h2>
+
+<%= render 'social_media_links/modal', social_media_link: SocialMediaLink.new(site: current_site) %>
+
+<% if current_site.social_media_links.none? %>
+    <div class="message">
+      <div class="message-body">
+        <%= simple_format(t('social_media_links.help')) %>
+      </div>
+    </div>
+<% else %>
+  <%= component('social_media_links', social_media_links: current_site.social_media_links) %>
+<% end %>

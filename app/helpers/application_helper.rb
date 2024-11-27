@@ -6,4 +6,8 @@ module ApplicationHelper
     component_class = "#{name.camelize}Component".constantize
     render(component_class.new(*, **))
   end
+
+  def icon(name)
+    component(:icon, name:)
+  end
 end
