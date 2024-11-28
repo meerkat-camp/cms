@@ -3,7 +3,7 @@ builder:
   arch:
     - arm64
 
-image: ghcr.io/meerkat-camp/cms
+image: ghcr.io/feather-page/cms
 registry:
   server: ghcr.io
   username: shostakovich

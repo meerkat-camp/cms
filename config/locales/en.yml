@@ -69,4 +69,4 @@ en:
       html_datetime: "%Y-%m-%dT%H:%M"
   user_mailer:
     login:
-      subject: Your login-link from meerkat.camp
+      subject: Your login-link from feather.page

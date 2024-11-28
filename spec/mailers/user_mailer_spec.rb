@@ -7,13 +7,13 @@ RSpec.describe UserMailer do
     let(:mail) { described_class.with(user:, site:).login }
 
     it "renders the headers" do
-      expect(mail.subject).to eq("Your login-link from meerkat.camp")
+      expect(mail.subject).to eq("Your login-link from feather.page")
       expect(mail.to).to eq([user.email])
-      expect(mail.from).to eq(["login@meerkat.camp"])
+      expect(mail.from).to eq(["login@feather.page"])
     end
 
     it "renders the body" do
-      expect(mail.body.encoded).to match("Your Login-link from meerkat.camp")
+      expect(mail.body.encoded).to match("Your Login-link from feather.page")
     end
   end
 end

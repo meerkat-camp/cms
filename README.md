@@ -1,11 +1,11 @@
 # README
 
-[![RSpec](https://github.com/meerkat-camp/cms/actions/workflows/rspec.yml/badge.svg)](https://github.com/meerkat-camp/cms/actions/workflows/rspec.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/75677d635caedd03b093/maintainability)](https://codeclimate.com/github/meerkat-camp/cms/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/meerkat-camp/cms/badge.svg?branch=main)](https://coveralls.io/github/meerkat-camp/cms?branch=main)
+[![RSpec](https://github.com/feather-page/cms/actions/workflows/rspec.yml/badge.svg)](https://github.com/feather-page/cms/actions/workflows/rspec.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/75677d635caedd03b093/maintainability)](https://codeclimate.com/github/feather-page/cms/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/feather-page/cms/badge.svg?branch=main)](https://coveralls.io/github/feather-page/cms?branch=main)
 
 
-Meerkat CMS is a Rails application that provides a web interface for managing small static websites.
+Feather-Page CMS is a Rails application that provides a web interface for managing small static websites.
 
 ## Design Goals
 

@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module MeerkatCamp
+module FeatherPage
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
@@ -30,7 +30,7 @@ module MeerkatCamp
     # Do not wrap field errors in action view
     config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
 
-    config.session_store :cookie_store, key: '_meerkat_camp_session', expire_after: 1.month
+    config.session_store :cookie_store, key: '_feather_page_session', expire_after: 1.month
 
     config.active_storage.variant_processor = :vips
     config.active_storage.resolve_model_to_route = :rails_storage_proxy

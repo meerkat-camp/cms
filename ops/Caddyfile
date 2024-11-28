@@ -1,6 +1,6 @@
 {
         on_demand_tls {
-                ask https://meerkat.camp/api/caddy/check_domain
+                ask https://app.feather.page/api/caddy/check_domain
         }
 }
 
