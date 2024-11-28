@@ -13,4 +13,13 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
   end
+
+  config.before(:suite) do
+    # cleanup capybara screenshots
+    FileUtils.rm_rf(Rails.root.glob('tmp/capybara/*'))
+
+    # Cleanup hugo sites
+    FileUtils.rm_rf(Rails.root.glob('tmp/hugo/*'))
+    FileUtils.rm_rf(Rails.root.glob('tmp/staging_sites/*'))
+  end
 end

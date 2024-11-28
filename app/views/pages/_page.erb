@@ -1,10 +1,11 @@
-<%= turbo_frame_tag(page) do %>
-  <tr>
-    <td><%= page.title %></td>
-    <td><%= page.slug %></td>
-    <td>
-      <%= link_to 'Edit', edit_site_page_path(current_site, page), class: 'button is-small' %>
-      <%= link_to 'Delete', site_page_path(current_site, page), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'button is-small' %>
-    </td>
-  </tr>
-<% end %>
+<tr id="<%= dom_id(page) %>" is="turbo-frame">
+  <td><%= page.title %></td>
+  <td><%= page.slug %></td>
+  <td>
+    <%= link_to 'Edit', edit_site_page_path(current_site, page), class: 'button is-small' %>
+
+    <%= link_to 'Delete', site_page_path(current_site, page), data: { turbo_method: :delete, turbo_confirm: t('are_you_sure') }, class: 'button is-small' %>
+
+    <%= link_to t('navigation.add_page'), navigation_items_path(site_id: current_site, page_id: page), data: { turbo_method: :post }, class: 'button is-small' %>
+  </td>
+</tr>

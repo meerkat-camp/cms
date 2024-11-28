@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def publish_current_site
+    current_site.publish
+  end
+
   def set_site
     return @set_site if defined?(@set_site)
 

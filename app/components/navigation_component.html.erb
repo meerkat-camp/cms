@@ -1,0 +1,23 @@
+<table id="<%= dom_id(navigation) %>" is="turbo-frame" class="table is-bordered  is-fullwidth">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Path</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% navigation_items.ordered.each do |item| %>
+      <tr id="<%= dom_id(item) %>" is="turbo-frame">
+        <td><%= item_title(item) %></td>
+        <td><%= item_path(item) %></td>
+        <td>
+          <%= up_link(item) %>
+          <%= down_link(item) %>
+          <%= remove_link(item) %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+

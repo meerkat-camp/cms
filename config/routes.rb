@@ -15,7 +15,12 @@ Rails.application.routes.draw do
 
   resources :sites, except: [:show] do
     resources :posts
-    resources :pages
+    resources :pages do
+      member do
+        put :add_to_navigation
+        delete :remove_from_navigation
+      end
+    end
     resources :deployment_targets, only: %i[index edit update]
     resources :social_media_links, only: %i[create destroy]
 
@@ -24,6 +29,13 @@ Rails.application.routes.draw do
       collection do
         post :from_url
       end
+    end
+  end
+
+  resources :navigation_items, only: %i[create destroy] do
+    member do
+      patch :move_up
+      patch :move_down
     end
   end
 
