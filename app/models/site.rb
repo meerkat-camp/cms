@@ -6,6 +6,7 @@ class Site < ApplicationRecord
   has_many :social_media_links, dependent: :destroy
   has_many :users, through: :site_users
   has_many :deployment_targets, dependent: :destroy
+  has_many :navigations, dependent: :destroy
 
   belongs_to :theme
 
@@ -23,5 +24,9 @@ class Site < ApplicationRecord
 
   def summary_length
     30
+  end
+
+  def main_navigation
+    navigations.first || navigations.create!
   end
 end

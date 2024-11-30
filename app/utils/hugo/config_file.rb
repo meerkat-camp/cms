@@ -13,7 +13,7 @@ module Hugo
         params: { emoji: site.emoji, social: },
         theme: site.theme.hugo_theme,
         menu: {
-          main: pages
+          main: main_navigation
         },
         markup: {
           highlight: {
@@ -27,15 +27,14 @@ module Hugo
       }.to_json
     end
 
-    def pages
-      i = 1
-      site.pages.where.not(slug: '/').map do |page|
+    def main_navigation
+      site.main_navigation.navigation_items.map do |item|
         {
-          name: page.title,
-          url: page.slug,
-          weight: i += 1,
+          name: item.title,
+          url: item.slug,
+          weight: item.position,
           params: {
-            emoji: page.emoji
+            emoji: item.emoji
           }
         }
       end

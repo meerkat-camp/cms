@@ -5,5 +5,9 @@ FactoryBot.define do
     trait :superadmin do
       super_admin { true }
     end
+
+    trait :site_admin do
+      sites { [create(:site)] }
+    end
   end
 end

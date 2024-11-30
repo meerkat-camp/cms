@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   include Paginatable
 
   before_action :set_post, only: %i[edit update destroy]
+  after_action :publish_current_site, only: %i[create update destroy]
 
   def index
     @pagy, @posts = pagy(current_site.posts.latest)
@@ -18,19 +19,16 @@ class PostsController < ApplicationController
     return unless @post.save
 
     redirect_to_index(t('.notice'))
-    current_site.publish
   end
 
   def update
     return unless @post.update(post_params)
 
     redirect_to_index(t('.notice'))
-    current_site.publish
   end
 
   def destroy
     @post.destroy
-    current_site.publish
   end
 
   private

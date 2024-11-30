@@ -35,6 +35,9 @@ en:
       notice: Page was successfully deleted.
     update:
       notice: Page was successfully updated.
+    index:
+      pages_in_navigation: Pages in navigation
+      other_pages: Other pages
   posts:
     create:
       notice: Post was successfully created.
@@ -64,6 +67,20 @@ en:
       You can add links to your social profiles here. They will be displayed in the footer of your site.
     name_placeholder: Mastodon
     url_placeholder: https://acme.social/@woody
+  navigation:
+    add_page: Add to navigation
+    remove_page: Remove from navigation
+    move_up: Move up
+    move_down: Move down
+  navigation_items:
+    create:
+      notice: Page was successfully added to the navigation.
+    destroy:
+      notice: Page was successfully removed from the navigation.
+    move_up:
+      notice: Page was successfully moved up.
+    move_down:
+      notice: Page was successfully moved down.
   time:
     formats:
       html_datetime: "%Y-%m-%dT%H:%M"

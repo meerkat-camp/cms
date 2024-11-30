@@ -2,11 +2,9 @@
 <div class="title">🏡 <%= current_site.title %></div>
 
 <div class="navbar">
-  <div class="navbar-menu">
-    <div class="navbar-start">
-      <%= link_to("🖊 Blogposts", site_posts_path(current_site), class: "navbar-item") %>
-      <%= link_to("📑 Pages", site_pages_path(current_site), class: "navbar-item") %>
-    </div>
+  <div class="navbar-start">
+    <%= link_to("🖊 Blogposts", site_posts_path(current_site), class: "navbar-item") %>
+    <%= link_to("📑 Pages", site_pages_path(current_site), class: "navbar-item") %>
   </div>
   <div class="navbar-end">
     <%= link_to("⚙️ Settings", edit_site_path(current_site), class: "navbar-item") %>

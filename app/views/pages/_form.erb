@@ -11,6 +11,9 @@
           <%= component('form/datetime_field', form:, attribute: :created_at) %>
       </div>
     </div>
+
+    <%= component('form/checkbox', form:, attribute: :add_to_navigation) %>
+
     <div class="field is-grouped">
       <%= form.submit(class: 'button is-link') %>
       &nbsp;

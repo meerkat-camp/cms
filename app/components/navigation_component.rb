@@ -1,0 +1,53 @@
+class NavigationComponent < ViewComponent::Base
+  attr_reader :navigation
+
+  delegate :navigation_items, to: :navigation
+
+  def initialize(navigation:)
+    @navigation = navigation
+  end
+
+  def item_title(item)
+    item.page.title
+  end
+
+  def item_path(item)
+    item.page.slug
+  end
+
+  def remove_link(item)
+    helpers.link_to(
+      t('navigation.remove_page'),
+      helpers.navigation_item_path(item),
+      data: { turbo_method: :delete }, class: 'button is-small'
+    )
+  end
+
+  def up_link(item)
+    return inactive_button('caret-up-square') if item.first?
+
+    helpers.link_to(
+      helpers.icon('caret-up-square'),
+      helpers.move_up_navigation_item_path(item),
+      title: t('navigation.move_up'),
+      data: { turbo_method: :patch }, class: 'button is-small'
+    )
+  end
+
+  def down_link(item)
+    return inactive_button('caret-down-square') if item.last?
+
+    helpers.link_to(
+      helpers.icon('caret-down-square'),
+      helpers.move_down_navigation_item_path(item),
+      title: t('navigation.move_down'),
+      data: { turbo_method: :patch }, class: 'button is-small'
+    )
+  end
+
+  private
+
+  def inactive_button(icon)
+    helpers.content_tag(:span, helpers.icon(icon), class: 'button is-static is-small')
+  end
+end

@@ -63,3 +63,18 @@
     padding-bottom: 3em !important;
   }
 }
+
+.navigation-divider {
+  border-bottom: 1px dotted #dbdbdb;
+  line-height: 0;
+  margin: 1.5em 0;
+  text-align: center;
+}
+
+.navigation-divider span {
+  background-color: white;
+  padding: 0 1em;
+  font-weight: bold;
+}
+
+
