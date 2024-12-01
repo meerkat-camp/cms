@@ -1,12 +1,10 @@
 <%= turbo_frame_tag(post) do %>
   <article>
     <% if post.title.present? %>
-      <h1 class="title is-4">
-        <%= post.emoji %> <%= post.title %>
-      </h1>
+      <h1 class="title is-4"><%= post.emoji %> <%= post.title %></h1>
+    <% else %>
+      <div class="content"><%= post.content_html %></div>
     <% end %>
-
-    <div class="content"><%= post.content_html %></div>
     <div class="tags">
       <span class="tag"><%= l(post.created_at, format: :long) %></span>
     </div>
