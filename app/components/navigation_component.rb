@@ -15,6 +15,23 @@ class NavigationComponent < ViewComponent::Base
     item.page.slug
   end
 
+  def edit_link(item)
+    helpers.link_to(
+      t('edit'),
+      helpers.edit_site_page_path(navigation.site, item.page),
+      class: 'button is-small'
+    )
+  end
+
+  def delete_link(item)
+    helpers.link_to(
+      t('delete'),
+      helpers.site_page_path(navigation.site, item.page),
+      data: { turbo_method: :delete },
+      class: 'button is-small'
+    )
+  end
+
   def remove_link(item)
     helpers.link_to(
       t('navigation.remove_page'),
