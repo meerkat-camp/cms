@@ -6,7 +6,11 @@ en:
         domain: Domain
         language_code: Language
         title: Title
+        emoji: Emoji
   activerecord:
+    errors:
+      messages:
+        invalid_emoji: is not a valid emoji
     models:
       social_media_link: Social media link
     attributes:

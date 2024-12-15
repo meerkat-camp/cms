@@ -6,6 +6,7 @@ class Page < ApplicationRecord
   scope :not_in_navigation, -> { where.missing(:navigation_items) }
 
   validates :slug, presence: true
+  validates :emoji, emoji: true
 
   belongs_to :site
 

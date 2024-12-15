@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :theme do
     name { Faker::Lorem.sentences(number: 1) }
-    description { Faker::Lorem.sentences(number: 3) }
+    description { Faker::Lorem.sentences(number: 3).join(' ') }
     hugo_theme { %w[simple_emoji ink].sample }
 
     trait :simple_emoji do

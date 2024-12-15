@@ -1,6 +1,7 @@
 describe Sites::UpdateSite do
   subject(:outcome) do
     described_class.execute(
+      emoji:,
       title:,
       language_code:,
       domain:,
@@ -18,6 +19,7 @@ describe Sites::UpdateSite do
     let(:title) { 'New title' }
     let(:language_code) { 'fr' }
     let(:domain) { 'example.example.com' }
+    let(:emoji) { '🎉' }
 
     it 'updates the site' do
       expect(outcome).to be_success

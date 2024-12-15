@@ -73,11 +73,13 @@ describe 'Basic Site features' do
           fill_in 'Title', with: 'Other Title'
           fill_in 'Domain', with: 'rocu.de'
           select 'fr', from: 'Language'
+          fill_in 'Emoji', with: '🥋'
 
           click_on 'Update Site'
 
           expect(page).to have_content('Site was successfully updated.')
           expect(page).to have_content('Other Title')
+          expect(site.reload.emoji).to eq('🥋')
         end
       end
     end
