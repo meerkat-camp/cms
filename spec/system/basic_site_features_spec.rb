@@ -74,12 +74,15 @@ describe 'Basic Site features' do
           fill_in 'Domain', with: 'rocu.de'
           select 'fr', from: 'Language'
           fill_in 'Emoji', with: '🥋'
+          fill_in 'Copyright', with: 'Foobar Copyright 2048'
 
           click_on 'Update Site'
 
           expect(page).to have_content('Site was successfully updated.')
           expect(page).to have_content('Other Title')
-          expect(site.reload.emoji).to eq('🥋')
+          site.reload
+          expect(site.emoji).to eq('🥋')
+          expect(site.copyright).to eq('Foobar Copyright 2048')
         end
       end
     end

@@ -32,5 +32,10 @@ describe Hugo::ConfigFile do
         }
       )
     end
+
+    it 'contains the sites copyright with the current year' do
+      site.update(copyright: 'Foobar {{CurrentYear}}')
+      expect(content['copyright']).to eq("Foobar #{Time.zone.now.year}")
+    end
   end
 end

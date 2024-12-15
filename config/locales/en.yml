@@ -7,7 +7,15 @@ en:
         language_code: Language
         title: Title
         emoji: Emoji
+        copyright: Copyright notice
   activerecord:
+    help:
+      site:
+        copyright:
+          html: >
+            This is the copyright notice in the footer of your site.
+            <br><br>
+            You can use the <b>{{CurrentYear}}</b> placeholder to automatically insert the current year.
     errors:
       messages:
         invalid_emoji: is not a valid emoji
