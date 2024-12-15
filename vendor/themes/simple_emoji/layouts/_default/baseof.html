@@ -30,7 +30,7 @@
           </a>
       {{- end -}}
       </p>
-      <p>© 2001-{{ now.Year }} Robert Curth</p>
+      <p>{{ .Site.Copyright | safeHTML  }}</p>
     </footer>
   </body>
 </html>

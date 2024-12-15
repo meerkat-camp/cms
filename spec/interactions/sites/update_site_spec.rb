@@ -7,6 +7,7 @@ describe Sites::UpdateSite do
       domain:,
       current_user:,
       theme_id:,
+      copyright:,
       site:
     )
   end
@@ -20,10 +21,12 @@ describe Sites::UpdateSite do
     let(:language_code) { 'fr' }
     let(:domain) { 'example.example.com' }
     let(:emoji) { '🎉' }
+    let(:copyright) { '© 2021' }
 
     it 'updates the site' do
       expect(outcome).to be_success
       expect(outcome.site.title).to eql(title)
+      expect(outcome.site.copyright).to eql(copyright)
       expect(outcome.site.language_code).to eql(language_code)
       expect(outcome.site.domain).to eql("example.example.com")
     end

@@ -7,7 +7,7 @@
     %>
 
     <div class="columns">
-      <div class="column">
+      <div class="column is-2">
         <%= component('form/text_field', form:, attribute: :emoji) %>
       </div>
       <div class="column">
@@ -17,6 +17,8 @@
           <%= component('form/language_select', form:, attribute: :language_code) %>
       </div>
     </div>
+
+    <%= component('form/text_field', form:, attribute: :copyright) %>
 
     <div class="field is-grouped">
       <%= form.submit(t('.update'), class: 'button is-link') %>

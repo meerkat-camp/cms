@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_15_091505) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_15_113851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -237,6 +237,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_15_091505) do
     t.string "public_id", limit: 21, null: false
     t.uuid "theme_id", null: false
     t.string "emoji", limit: 4, default: "🌐"
+    t.string "copyright", default: "© All rights reserved."
     t.index ["domain"], name: "index_sites_on_domain", unique: true
     t.index ["public_id"], name: "index_sites_on_public_id", unique: true
     t.index ["theme_id"], name: "index_sites_on_theme_id"

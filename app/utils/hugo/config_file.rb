@@ -9,6 +9,7 @@ module Hugo
         baseUrl: "https://#{deployment_target.public_hostname}/",
         languageCode: site.language_code,
         title: site.title,
+        copyright:,
         summaryLength: site.summary_length,
         params: { emoji: site.emoji, social: },
         theme: site.theme.hugo_theme,
@@ -42,6 +43,10 @@ module Hugo
 
     def social
       site.social_media_links.map { |l| { name: l.name, url: l.url, icon: l.icon, svg: l.svg } }
+    end
+
+    def copyright
+      site.copyright.gsub('{{CurrentYear}}', Time.zone.now.year.to_s)
     end
   end
 end
