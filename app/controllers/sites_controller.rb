@@ -34,6 +34,7 @@ class SitesController < ApplicationController
 
     outcome = Sites::UpdateSite.execute(
       site: current_site,
+      emoji: site_params[:emoji],
       title: site_params[:title],
       language_code: site_params[:language_code],
       domain: site_params[:domain],
@@ -53,6 +54,6 @@ class SitesController < ApplicationController
   end
 
   def site_params
-    params.require(:site).permit(:title, :language_code, :domain, :theme_id).merge(current_user:)
+    params.require(:site).permit(:emoji, :title, :language_code, :domain, :theme_id).merge(current_user:)
   end
 end

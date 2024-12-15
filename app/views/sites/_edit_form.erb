@@ -8,6 +8,9 @@
 
     <div class="columns">
       <div class="column">
+        <%= component('form/text_field', form:, attribute: :emoji) %>
+      </div>
+      <div class="column">
           <%= component('form/text_field', form:, attribute: :domain, placeholder: t('sites.domain_placeholder')) %>
       </div>
       <div class="column">

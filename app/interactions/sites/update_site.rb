@@ -2,10 +2,11 @@ module Sites
   class UpdateSite
     extend LightService::Action
 
-    expects :site, :title, :theme_id, :language_code, :domain
+    expects :emoji, :site, :title, :theme_id, :language_code, :domain
 
     executed do |context|
       context.site.assign_attributes(
+        emoji: context.emoji,
         title: context.title,
         language_code: context.language_code,
         domain: context.domain,

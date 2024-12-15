@@ -13,13 +13,10 @@ class Site < ApplicationRecord
   validates :title, presence: true
   validates :language_code, presence: true, inclusion: { in: Form::LanguageSelectComponent::Codes::ISO_CODES }
   validates :domain, presence: true, format: { with: /\A[a-zA-Z0-9\-\.]+\z/ }
+  validates :emoji, format: { with: /\A[\p{Emoji}\u{1F3FB}-\u{1F3FF}\u{200D}\u{FE0F}]+\z/ }
 
   def publish(to: :staging)
     deployment_targets.where(type: to.to_s).find_each(&:deploy)
-  end
-
-  def emoji
-    '🗼'
   end
 
   def summary_length

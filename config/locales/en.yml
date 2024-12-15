@@ -6,6 +6,7 @@ en:
         domain: Domain
         language_code: Language
         title: Title
+        emoji: Emoji
   activerecord:
     models:
       social_media_link: Social media link
