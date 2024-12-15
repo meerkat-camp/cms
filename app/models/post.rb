@@ -8,6 +8,7 @@ class Post < ApplicationRecord
 
   validates :slug, uniqueness: { scope: :site_id }, allow_blank: true
   validates :slug, format: { with: %r{\A/[a-z0-9-]+\z} }, allow_nil: true
+  validates :emoji, emoji: true
 
   scope :latest, -> { order(publish_at: :desc) }
   scope :published, lambda {
